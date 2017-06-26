@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gmember">
+	<!-- Use type aliases to avoid typing the full classname every time. -->
+	<resultMap id="gmemberResult" type="gmember">
+		<result property="id" column="id" />
+		<result property="pass" column="pass" />
+		<result property="name" column="name" />
+		<result property="addr" column="addr" />
+		<result property="tel" column="tel" />
+		<result property="email" column="email" />
+		<result property="gender" column="gender" />
+		<result property="birthday" column="birthday" />
+	</resultMap>
+
+	<insert id="insert" parameterType="gmember">insert into gmember
+		values(#{id},#{pass},#{name},#{addr},#{tel},#{email},#{gender},
+		to_date(#{birthday},'yyyy-mm-dd'))
+	</insert>
+
+	<select id="loginChk" parameterType="gmember" resultType="string">select
+		pass from gmember where id=#{id}
+	</select>
+
+	<update id="update" parameterType="gmember">update gmember set
+		pass=#{pass},name=#{name},addr=#{addr},tel=#{tel},email=#{email} where
+		id=#{id}
+	</update>
+
+	<select id="select" parameterType="string" resultType="gmember">select id,
+		pass, name, addr, tel, email, gender, to_char(birthday, 'yyyy-mm-dd')
+		from gmember where id=#{id}
+	</select>
+
+	<delete id="delete" parameterType="gmember">delete from gmember where
+		id=#{id}
+	</delete>
+
+</mapper>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../header.jsp" %>    
+<%@ include file="../header.jsp" %>   
+<%@ include file="../mainHeader.jsp" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,7 +39,7 @@
 			<tr>
 				<td>${list.pro_num }</td>
 				<td>${list.pro_cate }</td>
-				<td><a href="GproductList.do?pro_num=${list.pro_num }">${list.pro_name }</a></td>
+				<td><a href="GproductInfo.do?pro_num=${list.pro_num }">${list.pro_name }</a></td>
 				<td>${list.pro_price }</td>
 				<td>${list.pro_sale }%</td>
 				<td>${(100-list.pro_sale)/100*list.pro_price}</td>

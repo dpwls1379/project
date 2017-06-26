@@ -8,6 +8,7 @@
 		<typeAlias alias="greplyo" type="project.model.Greplyo" />
 		<typeAlias alias="greplyx" type="project.model.Greplyx" />
 		<typeAlias alias="gproduct" type="project.model.Gproduct" />
+		<typeAlias alias="gmember" type="project.model.Gmember" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="Gboardx.xml" />
@@ -15,5 +16,6 @@
 		<mapper resource="Greplyo.xml" />
 		<mapper resource="Greplyx.xml" />
 		<mapper resource="Gproduct.xml" />
+		<mapper resource="Gmember.xml" />
 	</mappers>
 </configuration>

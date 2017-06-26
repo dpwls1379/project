@@ -1,23 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../header.jsp" %>  
-<%@ include file="../mainHeader.jsp" %> 
-<!DOCTYPE html>
+<%@ include file="header.jsp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<c:if test="${result>0 }">
+<c:if test="${result == 0 }">
 	<script type="text/javascript">
-		alert("작성완료");
-		location.href="GproductInfo.do?pro_num=${pro_num}";
+		alert("비밀번호가 틀렸습니다.");
+		history.go(-1);
 	</script>
 </c:if>
-<c:if test="${result<=0 }">
+<c:if test="${result < 0 }">
 	<script type="text/javascript">
-		alert("작성 실패");
+		alert("아이디/패스워드 정보가 없습니다.");
 		history.go(-1);
 	</script>
 </c:if>

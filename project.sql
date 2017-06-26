@@ -1,3 +1,10 @@
+drop table Gproduct;
+drop table Gboardo;
+drop table Gboardx;
+drop table Greplyo;
+drop table Greplyx;
+
+
 create table Gproduct(
 	pro_num number primary key,
 	pro_cate varchar2(30) not null,
@@ -24,6 +31,7 @@ create table Gboardo(
 	id varchar2(20),
 	pro_num number references Gproduct(pro_num)
 );
+select * from Gboardo;
 -- 아직 아이디 연동은 안한 상태라 id컬럼 그냥 생성
 
 create table Gboardx(
@@ -33,7 +41,7 @@ create table Gboardx(
 	bx_categ varchar2(30) not null,
 	bx_date date not null,
 	bx_read number default 0,
-	bx_del char(1) default 'n'
+	bx_del char(1) default 'n',
 	id varchar2(20),
 	bn_num number default 1,
 	bq_num number default 1,

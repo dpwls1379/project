@@ -16,6 +16,7 @@ public class GproductController {
 	
 	@RequestMapping("GproductForm")
 	public String GproductForm() {
+		
 		return "Gproduct/GproductForm";
 	}
 	@RequestMapping("Gproduct")

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../header.jsp" %>    
+<%@ include file="../header.jsp" %> 
+<%@ include file="../mainHeader.jsp" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +14,7 @@
 		검색된 상품이 없습니다
 	</c:if>
 	<c:if test="${not empty list }">		
-		<a href="productList.do?pro_num=${list.pro_num }">
+		<a href="GproductList.do?pro_num=${list.pro_num }">
 			<span>
 				<img src="${path}/images/${list.pro_image }" width="150" height="150">
 				상품명 : ${list.pro_name }
