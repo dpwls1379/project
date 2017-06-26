@@ -34,7 +34,7 @@
 		<table class="table table-hover">
 			<tr>
 				<td rowspan="10"><img src="${path }/images/${list.pro_image }"
-					id="image"></td>
+					id="image" width="450" height="450"></td>
 			</tr>
 			<tr>
 				<th>상품명</th>

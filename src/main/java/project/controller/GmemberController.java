@@ -44,7 +44,7 @@ public class GmemberController {
 		if (result > 0) {
 			model.addAttribute("result",result);
 			session.setAttribute("id", id);
-			return "./main";
+			return "./mainlogin";
 		} else {
 			model.addAttribute("result",result);
 			return "Gmember/login";
