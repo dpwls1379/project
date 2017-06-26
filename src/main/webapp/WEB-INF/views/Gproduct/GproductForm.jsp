@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>
+<%@ include file="../mainHeader.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +20,7 @@ $(function() {
 <body>
 	<div class="container">
 	<h2 class="text-primary">상품입력</h2>
-		<form action="productInsert.do" method="post" enctype="multipart/form-data">
+		<form action="Gproduct.do" method="post">
 			<table class="table table-hover">
 				<tr>
 					<th>상품명</th>
@@ -28,11 +29,13 @@ $(function() {
 				
 				<tr>
 					<th>카테고리 선택</th>
-					<td><select name="pro_cate" required="required">
+					<td>
+						<select name="pro_cate" required="required">
 							<c:forEach var="list" items="${cate }">
 								<option value="${list }">${list }</option>
 							</c:forEach>
-					</select></td>
+						</select>
+					</td>
 				</tr>
 				
 				<tr>

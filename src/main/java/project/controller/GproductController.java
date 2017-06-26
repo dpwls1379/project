@@ -17,16 +17,18 @@ public class GproductController {
 	
 	@RequestMapping("GproductForm")
 	public String GproductForm(Model model) {
+		
 		List<String> category = new ArrayList<String>();
 
-		category.add("화장품");
-		category.add("의류");
+		category.add("화장품"); 
+		category.add("의류"); 
 		category.add("가전제품");
-		category.add("식품");
+		category.add("식료품");
 		category.add("핸드폰");
 		category.add("농수산물");
 		category.add("기타");
-
+		
+		System.out.println(category.stream());
 		model.addAttribute("cate", category);
 		
 		return "Gproduct/GproductForm";
