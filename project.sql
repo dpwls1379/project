@@ -4,6 +4,20 @@ drop table Gboardx;
 drop table Greplyo;
 drop table Greplyx;
 
+create table Gmember(
+	id 			varchar2(20) 	primary key,
+	pass 		varchar2(30) 	not null,
+	name 		varchar2(10) 	not null,
+	addr 		varchar2(50) 	not null,
+	tel 		varchar2(20)	not null,
+	email 		varchar2(50) 	not null,
+	gender 		char(1) 		not null,
+	birthday 	date 			not null
+);
+alter table Gmember modify(tel varchar2(20));
+select * from GMEMBER;
+insert into GMEMBER values('master','master','마스터','서울특별시 강남구 역삼동',
+'01011112222','master@master.com','M',sysdate);
 
 create table Gproduct(
 	pro_num number primary key,
@@ -16,7 +30,7 @@ create table Gproduct(
 	pro_date date not null,
 	pro_count number not null,
 	pro_sell number default 0,
-	pro_read number dafault 0
+	pro_read number default 0
 );
 
 create table Gboardo(
@@ -32,7 +46,7 @@ create table Gboardo(
 	pro_num number references Gproduct(pro_num)
 );
 select * from Gboardo;
--- 아직 아이디 연동은 안한 상태라 id컬럼 그냥 생성
+-- �븘吏� �븘�씠�뵒 �뿰�룞�� �븞�븳 �긽�깭�씪 id而щ읆 洹몃깷 �깮�꽦
 
 create table Gboardx(
 	bx_num number primary key,
@@ -47,10 +61,10 @@ create table Gboardx(
 	bq_num number default 1,
 	bx_rep number default 0
 );
--- bn_num은 공지게시판번호, bq_num은 qna게시판번호
+-- bn_num�� 怨듭�寃뚯떆�뙋踰덊샇, bq_num�� qna寃뚯떆�뙋踰덊샇
 create sequence bq_num nocache;
 create sequence bn_num nocache;
--- 시퀀스로 번호 증가설정
+-- �떆���뒪濡� 踰덊샇 利앷��꽕�젙
 
 create table Greplyo (
 	reo_num number primary key,
@@ -60,7 +74,7 @@ create table Greplyo (
 	bo_num number references Gboardo(bo_num),
 	id varchar2(20)
 );
--- 상품평가쪽 댓글 게시판
+-- �긽�뭹�룊媛�履� �뙎湲� 寃뚯떆�뙋
 
 create table Greplyx (
 	rex_num number primary key,
@@ -70,7 +84,7 @@ create table Greplyx (
 	id varchar2(20),
 	bx_num number references Gboardx(bx_num)
 );
--- qna게시판쪽 댓글게시판
+-- qna寃뚯떆�뙋履� �뙎湲�寃뚯떆�뙋
 
 select * from Gboardx;
 select * from Gboardo;

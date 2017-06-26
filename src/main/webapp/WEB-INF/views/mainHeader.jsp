@@ -21,7 +21,7 @@
 					class="btn btn-default btn-sm">상품정보</button></a> 
 			<a href="Gcenter.do"><button type="button" 
 					class="btn btn-default btn-sm" id="center">고객센터</button></a>
-			<a href="mainlogin.do"><button type="button"
+			<a href="main.do"><button type="button"
 					class="btn btn-default btn-sm" id="center">로그인</button></a>
 			<hr>
 		</header>

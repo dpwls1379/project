@@ -16,10 +16,10 @@ public class GmemberController {
 	@Autowired
 	private GmemberService gs;
 	
-	@RequestMapping("mainlogin")
-	public String mainlogin(){
-		return "Gmember/mainlogin";
-	}
+//	@RequestMapping("mainlogin")
+//	public String mainlogin(){
+//		return "Gmember/mainlogin";
+//	}
 	
 	@RequestMapping("joinForm")
 	public String joinForm() {
@@ -44,7 +44,7 @@ public class GmemberController {
 		if (result > 0) {
 			model.addAttribute("result",result);
 			session.setAttribute("id", id);
-			return "./main";
+			return "./mainlogin";
 		} else {
 			model.addAttribute("result",result);
 			return "Gmember/login";
@@ -55,7 +55,7 @@ public class GmemberController {
 		return "Gmember/logout";
 	}
 	// 가상메인 수정필요
-	@RequestMapping("main")
+	@RequestMapping("mainlogin")
 	public String main() {
 		return "Gmember/loginForm";
 	}
