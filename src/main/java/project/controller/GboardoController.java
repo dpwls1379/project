@@ -16,7 +16,7 @@ import project.model.Gboardo;
 public class GboardoController {
 	@Autowired
 	private GboardoService go;
-		
+	
 	@RequestMapping("GboardoForm")
 	public String GboardoForm(Model model, int pro_num) {
 		model.addAttribute("pro_num",pro_num);
