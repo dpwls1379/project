@@ -1,5 +1,6 @@
 package project.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,18 @@ public class GproductController {
 	private GproductService gps;
 	
 	@RequestMapping("GproductForm")
-	public String GproductForm() {
+	public String GproductForm(Model model) {
+		List<String> category = new ArrayList<String>();
+
+		category.add("화장품");
+		category.add("의류");
+		category.add("가전제품");
+		category.add("식품");
+		category.add("핸드폰");
+		category.add("농수산물");
+		category.add("기타");
+
+		model.addAttribute("cate", category);
 		
 		return "Gproduct/GproductForm";
 	}
