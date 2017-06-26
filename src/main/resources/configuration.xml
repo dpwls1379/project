@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias alias="gboardx" type="project.model.Gboardx" />
+		<typeAlias alias="gboardo" type="project.model.Gboardo" />
+		<typeAlias alias="greplyo" type="project.model.Greplyo" />
+		<typeAlias alias="greplyx" type="project.model.Greplyx" />
+		<typeAlias alias="gproduct" type="project.model.Gproduct" />
+	</typeAliases>
+	<mappers>
+		<mapper resource="Gboardx.xml" />
+		<mapper resource="Gboardo.xml" />
+		<mapper resource="Greplyo.xml" />
+		<mapper resource="Greplyx.xml" />
+		<mapper resource="Gproduct.xml" />
+	</mappers>
+</configuration>
