@@ -2,7 +2,6 @@ package project.service;
 
 import java.util.List;
 
-import project.model.Gboardo;
 import project.model.Gproduct;
 
 public interface GproductService {

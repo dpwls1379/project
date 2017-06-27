@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import project.dao.GboardxDao;
 import project.model.Gboardx;
-import scala.collection.generic.BitOperations.Int;
 
 @Service
 public class GboardxServiceImpl implements GboardxService{

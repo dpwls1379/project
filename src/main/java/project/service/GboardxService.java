@@ -3,7 +3,6 @@ package project.service;
 import java.util.List;
 
 import project.model.Gboardx;
-import scala.collection.generic.BitOperations.Int;
 
 public interface GboardxService {
 

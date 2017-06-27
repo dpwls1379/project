@@ -17,6 +17,9 @@
 }
 </style>
 <script type="text/javascript">
+	function comma(data_value) {
+		return Number(data_value).toLocaleString('en').split(".");
+	}
 	$(function() {
 		$('#review').load('GboardoList.do?pro_num=${list.pro_num}');
 	});
@@ -26,14 +29,32 @@
 					window.open("GproductImage.do?pro_image=${list.pro_image}",
 							"상품 이미지", "width=400, height=400");
 				});
+		$('#plus').click(function() {
+			var c = $('#pro_count').val();
+			var count = c++ + 1;
+			$('#pro_count').val(count);
+			var price = $('#price').val()
+			$('#hap').empty().append(comma(price*count)+"원");
+		});
+		$('#min').click(function() {
+			var c = $('#pro_count').val();
+			if (c != 0) {
+				var count = c-- - 1;
+				$('#pro_count').val(count);
+				var price = $('#price').val();
+				$('#hap').empty().append(comma(price * count)+"원" );
+			}
+		});
 	});
 </script>
 </head>
 <body>
 	<div class="container" align="center">
+		<input type="hidden" id="price"
+			value="${(100-list.pro_sale)/100*list.pro_price }">
 		<table class="table table-hover">
 			<tr>
-				<td rowspan="10"><img src="${path }/images/${list.pro_image }"
+				<td rowspan="10"><img src="images/${list.pro_image }"
 					id="image" width="450" height="450"></td>
 			</tr>
 			<tr>
@@ -42,7 +63,7 @@
 			</tr>
 			<tr>
 				<th>할인률</th>
-				<td>${list.pro_sale }</td>
+				<td>${list.pro_sale }%</td>
 			</tr>
 			<tr>
 				<th>정가</th>
@@ -50,7 +71,9 @@
 			</tr>
 			<tr>
 				<th>판매가</th>
-				<td>${(100-list.pro_sale)/100*list.pro_price }</td>
+				<td><fmt:formatNumber value="${(100-list.pro_sale)/100*list.pro_price }" 
+					pattern="#,###.###"/>
+					원</td>
 			</tr>
 			<tr>
 				<th>상품남은개수</th>
@@ -66,13 +89,17 @@
 			</tr>
 			<tr>
 				<th>구입개수</th>
-				<td><input type="number" name="pro_count"></td>
+				<td><a class="btn btn-default btn-sm" id="min">-</a> <input
+					type="number" name="pro_count" id="pro_count" value="1"> <a
+					class="btn btn-default btn-sm" id="plus">+</a></td>
 			</tr>
 			<tr>
 				<th>합계</th>
-				<td><span id="hap"></span></td>
+				<td><span class="number err" id="hap"><fmt:formatNumber value="${(100-list.pro_sale)/100*list.pro_price }" 
+					pattern="#,###.###"/>원
+					</span></td>
 			</tr>
-<%-- 
+			<%-- 
 				<td>
 					<div>${list.pro_name }</div>
 					<div id="sale">${list.pro_sale }%</div>
