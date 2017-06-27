@@ -9,27 +9,27 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Virtual Main Page</h1>
-
-<form action="logout.do">
-<table>
-	<tr><th colspan="1">
-		<input type="submit" value="로그아웃" class="btn btn-danger"></th></tr>
-</table>
-</form>
-
-<form action="updateFormGmem.do">
-<table>
-	<tr><th colspan="1">
-		<input type="submit" value="회원정보수정" class="btn btn-info"></th></tr>
-</table>
-</form>
-
-<form action="gmemberLeave.do">
-<table>
-	<tr><th colspan="1">
-		<input type="submit" value="회원탈퇴" class="btn btn-primary"></th></tr>
-</table>
-</form>
+<div class="container">
+	<form action="logout.do">
+		<table>
+			<tr><th colspan="1">
+				<input type="submit" value="로그아웃" class="btn btn-danger"></th></tr>
+		</table>
+		</form>
+		
+		<form action="updateFormGmem.do">
+		<table>
+			<tr><th colspan="1">
+				<input type="submit" value="회원정보수정" class="btn btn-info"></th></tr>
+		</table>
+		</form>
+		
+		<form action="gmemberLeave.do">
+		<table>
+			<tr><th colspan="1">
+				<input type="submit" value="회원탈퇴" class="btn btn-primary"></th></tr>
+		</table>
+	</form>
+</div>
 </body>
 </html>

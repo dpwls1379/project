@@ -44,7 +44,7 @@ public class GmemberController {
 		if (result > 0) {
 			model.addAttribute("result",result);
 			session.setAttribute("id", id);
-			return "./mainlogin";
+			return "Gmember/login";
 		} else {
 			model.addAttribute("result",result);
 			return "Gmember/login";
@@ -55,7 +55,7 @@ public class GmemberController {
 		return "Gmember/logout";
 	}
 	// 가상메인 수정필요
-	@RequestMapping("mainlogin")
+	@RequestMapping("main")
 	public String main() {
 		return "Gmember/loginForm";
 	}

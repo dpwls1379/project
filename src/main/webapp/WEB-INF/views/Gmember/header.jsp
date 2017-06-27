@@ -6,5 +6,5 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="${path}/css/bootstrap.min.css" rel="stylesheet">
 <script src="${path}/js/jquery.js"></script>
-<script src="${path}/js/bootstrap.min..js"></script>
-<style>	.err { color: red; font-size: 20px;  } </style>
+<script src="${path}/js/bootstrap.min.js"></script>
+<style>	.err { color: red; font-size: 18px;  } </style>
