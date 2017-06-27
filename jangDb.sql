@@ -11,7 +11,7 @@ create table Gproduct(
 	pro_sell number default 0,
 	pro_read number dafault 0
 );
-
+123
 create table Gboardo(
 	bo_num number primary key,		
 	bo_subject varchar2(30) not null,
