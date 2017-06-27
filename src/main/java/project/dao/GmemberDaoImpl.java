@@ -20,7 +20,7 @@ public class GmemberDaoImpl implements GmemberDao {
 		System.out.println("tel = " + gm.getTel());
 		System.out.println("gender = " + gm.getGender());
 		System.out.println("birthday = " + gm.getBirthday());
-		return sst.insert("gmemberns.insert", gm);
+		return sst.insert("gmember.insert", gm);
 	}
 
 	public int login(String id, String pass) {
@@ -30,7 +30,7 @@ public class GmemberDaoImpl implements GmemberDao {
 		System.out.println("pass = " + pass);
 
 		try {
-			dbPass = (String) sst.selectOne("gmemberns.loginChk", id);
+			dbPass = (String) sst.selectOne("gmember.loginChk", id);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -50,15 +50,15 @@ public class GmemberDaoImpl implements GmemberDao {
 		System.out.println("addr = " + gm.getAddr());
 		System.out.println("email = " + gm.getEmail());
 		System.out.println("tel = " + gm.getTel());
-		return sst.update("gmemberns.update", gm);
+		return sst.update("gmember.update", gm);
 	}
 
 	public Gmember select(String id) {
-		return sst.selectOne("gmemberns.select", id);
+		return sst.selectOne("gmember.select", id);
 	}
 
 	public int delete(String id) {
-		return sst.delete("gmemberns.delete", id);
+		return sst.delete("gmember.delete", id);
 	}
 
 }

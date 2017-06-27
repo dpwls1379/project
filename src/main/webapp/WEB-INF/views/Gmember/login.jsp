@@ -8,6 +8,12 @@
 <title>Insert title here</title>
 </head>
 <body>
+<c:if test="${result > 0 }">
+	<script type="text/javascript">
+		alert("환영합니다 ${id}님.");
+		location.href="index.jsp";
+	</script>
+</c:if>
 <c:if test="${result == 0 }">
 	<script type="text/javascript">
 		alert("비밀번호가 틀렸습니다.");
