@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="header.jsp"%>
-<%@ include file="sessionChk.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,14 +21,8 @@
 					class="btn btn-default btn-sm">상품정보</button></a> 
 			<a href="Gcenter.do"><button type="button" 
 					class="btn btn-default btn-sm" id="center">고객센터</button></a>
-					<c:if test="${id empty }">
 			<a href="main.do"><button type="button"
 					class="btn btn-default btn-sm" id="center">로그인</button></a>
-					</c:if>
-					<c:if test="${id not empty }">
-			<a href="main.do"><button type="button"
-					class="btn btn-default btn-sm" id="center">로그아웃</button></a>
-					</c:if>
 			<hr>
 		</header>
 	</div>
