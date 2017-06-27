@@ -14,9 +14,9 @@
 </script>
 </head>
 <body>
+
 	<div align="center">
 		<div id="GproductMain"></div>
-		
 	</div>
 </body>
 </html>
