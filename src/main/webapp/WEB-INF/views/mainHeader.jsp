@@ -16,7 +16,7 @@
 			<form action="GproductSearch.do" role="search">
 				<input type="text" name="search"> 
 				<input type="submit" class="btn btn-sm" value="검색">
-			</form>
+			</form> 
 			<a href="GproductList.do"><button type="button"
 					class="btn btn-default btn-sm">상품정보</button></a> 
 			<a href="Gcenter.do"><button type="button" 
