@@ -12,7 +12,7 @@
 	<div class="page-header-fixed-top" align="center">
 		<header>
 			<h3 class="text-primary">
-				<a href="index.jsp">GALLERIDA</a>
+				<a href="index.jsp">GALLERIDa</a>
 			</h3>
 			<form action="GproductSearch.do" role="search">
 				<input type="text" name="search"> 
