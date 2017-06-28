@@ -9,6 +9,17 @@ create table Gmember(
 	birthday 	date 			not null
 );
 
+drop table Gproduct;
+drop table Gboardx;
+drop table Gboardo;
+drop table Greplyo;
+drop table Greplyx;
+drop table Gbuy;
+drop table Gcart;
+select * from tab;
+
+
+
 create table Gproduct(
 	pro_num number primary key,
 	pro_cate varchar2(30) not null,
@@ -20,7 +31,7 @@ create table Gproduct(
 	pro_date date not null,
 	pro_count number not null,
 	pro_sell number default 0,
-	pro_read number dafault 0
+	pro_read number default 0
 );
 
 create table Gboardo(
@@ -44,7 +55,7 @@ create table Gboardx(
 	bx_categ varchar2(30) not null,
 	bx_date date not null,
 	bx_read number default 0,
-	bx_del char(1) default 'n'
+	bx_del char(1) default 'n',
 	id varchar2(20),
 	bn_num number default 1,
 	bq_num number default 1,
