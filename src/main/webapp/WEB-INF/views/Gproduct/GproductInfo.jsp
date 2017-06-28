@@ -117,8 +117,8 @@
 			<tr>
 				<td colspan="3" align="right"><c:if test="${list.pro_count>0 }">
 						<div class="btn-group">
-							<button type="button" class="btn btn-default">장바구니</button>
-							<button type="button" class="btn btn-default">바로구매</button>
+							<a href="#" class="btn btn-default">장바구니</a>
+							<a href="#" class="btn btn-default">바로구매</a>
 						</div>
 					</c:if> <c:if test="${list.pro_count<=0 }">
 						<div>
