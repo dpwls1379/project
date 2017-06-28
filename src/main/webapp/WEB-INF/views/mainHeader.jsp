@@ -8,10 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="page-header-fixed-top" align="center">
-		<header>
+	<div class="navbar-header-fixed-top" align="center">
+		<div align="center">
 			<h3 class="text-primary">
-				<a href="index.jsp">GALLERIDa</a>
+				<a href="index.jsp">GALLERIda</a>
 			</h3>
 			<form action="GproductSearch.do" role="search">
 				<input type="text" name="search"> 
@@ -24,7 +24,19 @@
 			<a href="main.do"><button type="button"
 					class="btn btn-default btn-sm" id="center">로그인</button></a>
 			<hr>
-		</header>
+		</div>
+	</div>
+	
+	
+	<div class="navbar navbar-fixed-bottom" align="center">
+		<div class="navbar-footer">
+			<a href="Gcenter.do"><button type="button" 
+					class="btn btn-default btn-sm" id="center">고객센터</button></a>
+					
+			<a onclick="history.back()"><button type="button" 
+					class="btn btn-default btn-sm" id="center">뒤로가기</button></a>
+			<hr>
+		</div>
 	</div>
 </body>
 </html>
