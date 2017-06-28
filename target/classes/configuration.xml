@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
@@ -21,28 +20,4 @@
 		<mapper resource="Gmember.xml" />
 		<mapper resource="Gcart.xml" />
 	</mappers>
-=======
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-"http://mybatis.org/dtd/mybatis-3-config.dtd">
-<configuration>
-	<typeAliases>
-		<typeAlias alias="gboardx" type="project.model.Gboardx" />
-		<typeAlias alias="gboardo" type="project.model.Gboardo" />
-		<typeAlias alias="greplyo" type="project.model.Greplyo" />
-		<typeAlias alias="greplyx" type="project.model.Greplyx" />
-		<typeAlias alias="gproduct" type="project.model.Gproduct" />
-		<typeAlias alias="gmember" type="project.model.Gmember" />
-		<typeAlias alias="gcart" type="project.model.Gcart" />
-	</typeAliases>
-	<mappers>
-		<mapper resource="Gboardx.xml" />
-		<mapper resource="Gboardo.xml" />
-		<mapper resource="Greplyo.xml" />
-		<mapper resource="Greplyx.xml" />
-		<mapper resource="Gproduct.xml" />
-		<mapper resource="Gmember.xml" />
-		<mapper resource="Gcart.xml" />
-	</mappers>
->>>>>>> branch 'master' of https://github.com/dpwls1379/project
 </configuration>
