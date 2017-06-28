@@ -11,23 +11,21 @@
 	<div class="navbar-header-fixed-top" align="center">
 		<div align="center">
 			<h3 class="text-primary">
-				<a href="index.jsp">GALLERIda</a>
+				<a href="index.jsp"><img src="images/gallerida3.JPG"></a>
 			</h3>
 			<form action="GproductSearch.do" role="search">
 				<input type="text" name="search"> 
 				<input type="submit" class="btn btn-sm" value="검색">
 			</form> 
-			<a href="GproductList.do"><button type="button"
-					class="btn btn-default btn-sm">상품정보</button></a> 
-			<a href="Gcenter.do"><button type="button" 
-					class="btn btn-default btn-sm" id="center">고객센터</button></a>
-			<a href="main.do"><button type="button"
-					class="btn btn-default btn-sm" id="center">로그인</button></a>
+			<a href="GproductList.do">
+				<button type="button" class="btn btn-default btn-sm">상품정보</button></a> 
+			<a href="Gcenter.do">
+				<button type="button" class="btn btn-default btn-sm" id="center">고객센터</button></a>
+			<a href="main.do">
+				<button type="button" class="btn btn-default btn-sm" id="center">로그인</button></a>
 			<hr>
 		</div>
 	</div>
-	
-	
 	<div class="navbar navbar-fixed-bottom" align="center">
 		<div class="navbar-footer">
 			<a href="Gcenter.do"><button type="button" 

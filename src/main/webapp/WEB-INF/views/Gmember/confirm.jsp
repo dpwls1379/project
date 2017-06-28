@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	function cl() {
-		opener.frm.id.value = "${id}";
+		opener.frm.id.value="${id}";
 		window.close();
 	}
 </script>

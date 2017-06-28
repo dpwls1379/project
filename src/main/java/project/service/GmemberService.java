@@ -14,4 +14,6 @@ public interface GmemberService {
 
 	int delete(String id);
 
+	int confirm(String id);
+
 }

@@ -25,4 +25,7 @@ public class GmemberServiceImpl implements GmemberService {
 	public int delete(String id) {
 		return gd.delete(id);
 	}
+	public int confirm(String id) {
+		return gd.confirm(id);
+	}
 }
