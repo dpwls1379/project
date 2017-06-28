@@ -34,7 +34,7 @@
 			var count = c++ + 1;
 			$('#pro_count').val(count);
 			var price = $('#price').val()
-			$('#hap').empty().append(comma(price*count)+"원");
+			$('#hap').empty().append(comma(price * count) + "원");
 		});
 		$('#min').click(function() {
 			var c = $('#pro_count').val();
@@ -42,7 +42,7 @@
 				var count = c-- - 1;
 				$('#pro_count').val(count);
 				var price = $('#price').val();
-				$('#hap').empty().append(comma(price * count)+"원" );
+				$('#hap').empty().append(comma(price * count) + "원");
 			}
 		});
 	});
@@ -67,13 +67,14 @@
 			</tr>
 			<tr>
 				<th>정가</th>
-				<td>${list.pro_price }</td>
+				<td><fmt:formatNumber value="${list.pro_price }"
+						pattern="#,###.###" /> 원</td>
 			</tr>
 			<tr>
 				<th>판매가</th>
-				<td><fmt:formatNumber value="${(100-list.pro_sale)/100*list.pro_price }" 
-					pattern="#,###.###"/>
-					원</td>
+				<td><fmt:formatNumber
+						value="${(100-list.pro_sale)/100*list.pro_price }"
+						pattern="#,###.###" /> 원</td>
 			</tr>
 			<tr>
 				<th>상품남은개수</th>
@@ -95,9 +96,9 @@
 			</tr>
 			<tr>
 				<th>합계</th>
-				<td><span class="number err" id="hap"><fmt:formatNumber value="${(100-list.pro_sale)/100*list.pro_price }" 
-					pattern="#,###.###"/>원
-					</span></td>
+				<td><span class="number err" id="hap"><fmt:formatNumber
+							value="${(100-list.pro_sale)/100*list.pro_price }"
+							pattern="#,###.###" />원 </span></td>
 			</tr>
 			<%-- 
 				<td>
@@ -117,8 +118,8 @@
 			<tr>
 				<td colspan="3" align="right"><c:if test="${list.pro_count>0 }">
 						<div class="btn-group">
-							<a href="#" class="btn btn-default">장바구니</a>
-							<a href="#" class="btn btn-default">바로구매</a>
+							<a href="#" class="btn btn-default">장바구니</a> <a href="#"
+								class="btn btn-default">바로구매</a>
 						</div>
 					</c:if> <c:if test="${list.pro_count<=0 }">
 						<div>
