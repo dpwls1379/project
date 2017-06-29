@@ -26,7 +26,9 @@
 			$(window).scrollTop(0);
 		});
 // 		$('.mouseImg').hover(function() {
-// 			alert('mouseover');
+// 			$(this).animate({scale:'+=0.2'}, 300);
+// 		}, function() {
+// 			$(this).animate({scale:'-=0.2'}, 300);
 // 		});
 	});
 </script>

@@ -89,4 +89,14 @@ public class GmemberController {
 		return "Gmember/confirm";
 	}
 	
+	@RequestMapping("gmMypage")
+	public String gmMypage(HttpSession session){
+		String id=(String) session.getAttribute("id");
+		System.out.println("sessionChk="+id);
+		if(id.equals("master")){
+			return "Gadmin/adminList";
+		}
+		return "Gmember/memMypage";
+	}
+	
 }
