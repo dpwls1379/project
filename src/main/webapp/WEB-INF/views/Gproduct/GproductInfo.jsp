@@ -17,6 +17,9 @@
 }
 </style>
 <script type="text/javascript">
+	function cart() {
+		frm.submit();
+	}
 	function comma(data_value) {
 		return Number(data_value).toLocaleString('en').split(".");
 	}
@@ -49,6 +52,8 @@
 </script>
 </head>
 <body>
+<form action="Gcart.do"  method="post" name="frm">
+	<input type="hidden" name="pro_num" value="${list.pro_num }">
 	<div class="container" align="center">
 		<input type="hidden" id="price"
 			value="${(100-list.pro_sale)/100*list.pro_price }">
@@ -118,7 +123,7 @@
 			<tr>
 				<td colspan="3" align="right"><c:if test="${list.pro_count>0 }">
 						<div class="btn-group">
-							<a href="#" class="btn btn-default">장바구니</a> <a href="#"
+							<a href="#" class="btn btn-default" onclick="cart()">장바구니</a> <a href="#"
 								class="btn btn-default">바로구매</a>
 						</div>
 					</c:if> <c:if test="${list.pro_count<=0 }">
@@ -137,6 +142,7 @@
 			</tr>
 		</table>
 	</div>
+</form>
 	<div id="review"></div>
 </body>
 </html>
