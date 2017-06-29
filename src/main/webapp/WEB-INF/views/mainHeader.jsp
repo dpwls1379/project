@@ -27,12 +27,14 @@
 		</c:if>
 
 		<c:if test="${not empty id }">
-			<a href="logout.do"><button type="button"
-					class="btn btn-default btn-sm" id="center">로그아웃</button></a>
-			<a href="gmMypage.do"><button type="button"
-					class="btn btn-default btn-sm" id="center">마이페이지</button></a>
-					<p>
-					<h6 class="text-primary">${id }님 환영합니다!</h6>
+			<a href="logout.do">
+				<button type="button" class="btn btn-default btn-sm" id="center">로그아웃</button>
+			</a>
+			<a href="gmMypage.do">
+				<button type="button" class="btn btn-default btn-sm" id="center">마이페이지</button>
+			</a>
+			<p>
+			<h5 class="text-primary">${id }님환영합니다 !</h5>
 		</c:if>
 		<hr>
 	</div>
@@ -45,8 +47,8 @@
 		<p>
 			<a class="btn btn-default btn-sm tp">위로가기</a>
 	</div>
-	
-	
+
+
 
 
 </body>

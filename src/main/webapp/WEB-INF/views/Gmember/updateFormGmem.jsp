@@ -10,7 +10,7 @@
 <script type="text/javascript">
 	function chk() {
 		if (frm.pass.value != frm.pass2.value) {
-			alert("패스워드가 패스워드 학인과 다릅니다.");
+			alert("패스워드가 패스워드 확인과 다릅니다.");
 			frm.pass.focus();
 			return false; 
 		}
@@ -46,7 +46,8 @@
 	<tr><th>전화번호</th><td>
 		<input type="tel" name="tel" required="required" value="${gmember.tel }"></td></tr>
 	<tr><th colspan="2">
-		<input type="submit" value="수정"></th></tr>
+		<div align="center">
+		<input type="submit" value="수정" class="btn btn-sm"></div></th></tr>
 </table>
 </form>
 </div>

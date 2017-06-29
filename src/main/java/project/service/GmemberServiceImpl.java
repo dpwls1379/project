@@ -1,5 +1,7 @@
 package project.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,5 +29,14 @@ public class GmemberServiceImpl implements GmemberService {
 	}
 	public int confirm(String id) {
 		return gd.confirm(id);
+	}
+	public List<Gmember> gmList() {
+		return gd.gmList();
+	}
+	public int gmDelete(String id) {
+		return gd.gmDelete(id);
+	}
+	public Gmember mypage(String id) {
+		return gd.mypage(id);
 	}
 }

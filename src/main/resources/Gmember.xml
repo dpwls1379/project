@@ -15,26 +15,35 @@
 	</resultMap>
 
 	<insert id="insert" parameterType="gmember">
-	insert into gmember values(#{id},#{pass},#{name},#{addr},#{tel},#{email},#{gender},
+		insert into gmember values(#{id},#{pass},#{name},#{addr},#{tel},#{email},#{gender},
 		to_date(#{birthday},'yyyy-mm-dd'))
 	</insert>
 
 	<select id="loginChk" parameterType="gmember" resultType="string">
-	select pass from gmember where id=#{id}
+		select pass from gmember where id=#{id}
 	</select>
 	<update id="update" parameterType="gmember">
-	update gmember set pass=#{pass},name=#{name},addr=#{addr},tel=#{tel},email=#{email} where id=#{id}
+		update gmember set pass=#{pass},name=#{name},addr=#{addr},tel=#{tel},email=#{email} where id=#{id}
 	</update>
 
 	<select id="select" parameterType="string" resultType="gmember">
-	select id, pass, name, addr, tel, email, gender, to_char(birthday, 'yyyy-mm-dd')
+		select id, pass, name, addr, tel, email, gender, to_char(birthday, 'yyyy-mm-dd')
 		from gmember where id=#{id}
 	</select>
-
 	<delete id="delete" parameterType="gmember">
-	delete from gmember where id=#{id}
+		delete from gmember where id=#{id}
 	</delete>
 	<select id="confirm" parameterType="string" resultType="string">
 		select id from gmember where id=#{id}
+	</select>
+	<select id="gmList" resultMap="gmemberResult">
+		select * from gmember where id != 'master'
+	</select>
+	<delete id="gmDelete" parameterType="gmember">
+		delete from gmember where id=#{id}
+	</delete>
+	<select id="mypage" parameterType="string" resultType="gmember">
+		select id, name, addr, tel, email, birthday
+		from gmember where id=#{id}
 	</select>
 </mapper>

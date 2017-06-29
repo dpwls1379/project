@@ -1,5 +1,7 @@
 package project.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -74,5 +76,14 @@ public class GmemberDaoImpl implements GmemberDao {
 			result = 1;
 		}
 		return result;
+	}
+	public List<Gmember> gmList() {
+		return sst.selectList("gmember.gmList");
+	}
+	public int gmDelete(String id) {
+		return sst.selectOne("gmember.gmDelete",id);
+	}
+	public Gmember mypage(String id) {
+		return sst.selectOne("gmember.mypage",id);
 	}
 }

@@ -1,5 +1,8 @@
 package project.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -71,14 +74,14 @@ public class GmemberController {
 	@RequestMapping("updateGmem")
 	public String updateGmem(Gmember gm, Model model, HttpServletRequest request) {
 		int result = gs.update(gm);
-		model.addAttribute("result",result );
+		model.addAttribute("result",result);
 		return "Gmember/updateGmem";
 	}
 	@RequestMapping("gmemberLeave")
 	public String gmemberLeave(HttpSession session, Model model) {
 		String id = (String)session.getAttribute("id");
-		int gmem = gs.delete(id);
-		model.addAttribute("gmem",gmem);
+		int result = gs.delete(id);
+		model.addAttribute("result",result);
 		return "Gmember/gmemberLeave";
 	}
 	@RequestMapping("confirm")
@@ -88,15 +91,31 @@ public class GmemberController {
 		model.addAttribute("id",id);
 		return "Gmember/confirm";
 	}
-	
+
 	@RequestMapping("gmMypage")
-	public String gmMypage(HttpSession session){
-		String id=(String) session.getAttribute("id");
-		System.out.println("sessionChk="+id);
-		if(id.equals("master")){
+	public String gmMypage(HttpSession session, Model model) {
+		String id = (String)session.getAttribute("id");
+		if (id.equals("master")) {
 			return "Gadmin/adminList";
 		}
-		return "Gmember/memMypage";
+		Gmember gm = gs.mypage(id);
+		model.addAttribute("gm", gm);
+		model.addAttribute("id", id);
+		return "Gmember/gmMypage";
 	}
-	
+	@RequestMapping("memberAdmin")
+	public String memberAdmin (Model model) {
+		List<Gmember> list = new ArrayList<Gmember>();
+		list = gs.gmList();
+		model.addAttribute("list",list);
+		return "Gadmin/memberAdmin";
+	}
+	@RequestMapping("gmDelete")
+	public String gmDelete(Model model, String id) {
+		int result = gs.gmDelete(id);
+		model.addAttribute("result",result);
+		model.addAttribute("id",id);
+		return "Gadmin/gmDelete";
+	}
 }
+

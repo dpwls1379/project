@@ -19,13 +19,13 @@
 </script>
 </head>
 <body>
-<div class="container"></div>
+<div class="container" align="center"></div>
 <h2 class="text-primary" align="center">회 원 가 입</h2>
 <form action="join.do" method="post" name="frm">
 	<table class="table table-bordered"> 
 		<tr><th>아이디</th><td>
 			<input type="text" name="id" required="required">
-			<input type="button" value="아이디 중복확인" onclick="return idChk()"></td></tr>
+			<input type="button" value="아이디 중복확인" onclick="return idChk()" class="btn btn-sm"></td></tr>
 		<tr><th>패스워드</th><td>
 			<input type="password" name="pass" required="required"></td></tr>
 		<!-- <tr><th>패스워드 확인</th><td>
@@ -34,8 +34,8 @@
 			<input type="text" name="name" required="required"></td></tr>
 		<tr><th>성별</th><td>
 			<select name="gender">
-				<option value="m">남자</option>
-				<option value="f">여자</option>
+				<option value="M">남자</option>
+				<option value="F">여자</option>
 			</select></td></tr>
 		<tr><th>생년월일</th><td>
 			<input type="date" name="birthday" required="required"></td></tr>
@@ -47,7 +47,8 @@
 			<input type="tel" name="tel" required="required" pattern="\d{3}-\d{3,4}-\d{4}" 
 			title="010-0000-0000 형식으로 입력해 주세요" placeholder="010-0000-0000"></td></tr>
 		<tr><th colspan="2">
-			<input type="submit" value="가입하기"></tr>
+			<div align="center">
+			<input type="submit" value="가입하기" class="btn btn-sm"></div></th></tr>
 	</table>
 </form>
 </body>

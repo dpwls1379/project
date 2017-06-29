@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="header.jsp"%>
-    <%@ include file="../mainHeader.jsp" %>
+<%@ include file="../mainHeader.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,8 +9,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<table>
-		<caption>회원 목록</caption>
+<div class="container">
+	<table class="table table-bordered">
+		<caption class="text-primary" align="center">회원 목록</caption>
 		<tr>
 			<th>아이디</th>
 			<th>이름</th>
@@ -20,15 +21,15 @@
 			<!-- <th>수정여부</th> -->
 			<th>강제탈퇴</th>
 		</tr>
-		<c:forEach var="gmList" items="${gmList }">
+		<c:forEach var="gmList" items="${list }">
 			<tr>
-				<td>${Gmember.id}</td>
-				<td>${Gmember.name }</td>
-				<td>${Gmember.gender }</td>
-				<td>${Gmember.tel }</td>
-				<td>${Gmember.addr }</td>
+				<td>${gmList.id}</td>
+				<td>${gmList.name }</td>
+				<td>${gmList.gender }</td>
+				<td>${gmList.tel }</td>
+				<td>${gmList.addr }</td>
 				<%-- <td><a href="updateFormGmem.do?id=${Gmember.id}">수정</a></td> --%>
-				<td><a href="gmDelete.do?id=${Gmember.id}">삭제</a></td>
+				<td><a href="gmDelete.do?id=${gmList.id}">삭제</a></td>
 			</tr>
 		</c:forEach>
 	</table>
@@ -42,6 +43,7 @@
 <c:if test="${endPage < totPage }">
 		<a href="adminList.do?pageNum=${startPage+PAGEPERBLOCK}">[다음]</a>
 </c:if>	
+</div>
 </div>
 </body>
 </html>

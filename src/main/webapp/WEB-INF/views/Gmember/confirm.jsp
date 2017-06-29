@@ -22,12 +22,12 @@
 	<tr><th>아이디</th><td>
 		<input type="text" name="id" required="required"></td></tr>
 	<tr><th colspan="2">
-		<input type="submit" value="확인"></th></tr>
+		<input type="submit" value="확인" class="btn btn-sm"></th></tr>
 </table></form>
 </c:if>
 <c:if test="${result <= 0 }">
 	<h3>사용 가능한 아이디 입니다</h3>
-<button onclick="cl()">닫기</button>
+<p><button onclick="cl()" class="btn btn-sm">닫기</button>
 </c:if>
 </body>
 </html>
