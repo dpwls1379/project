@@ -17,7 +17,7 @@
 }
 </style>
 <script type="text/javascript">
-	function cart() {
+	function cart() {		
 		frm.submit();
 	}
 	function comma(data_value) {
@@ -36,7 +36,7 @@
 			var c = $('#pro_count').val();
 			var count = c++ + 1;
 			$('#pro_count').val(count);
-			var price = $('#price').val()
+			var price = $('#price').val();
 			$('#hap').empty().append(comma(price * count) + "원");
 		});
 		$('#min').click(function() {
@@ -55,8 +55,8 @@
 <form action="Gcart.do"  method="post" name="frm">
 	<input type="hidden" name="pro_num" value="${list.pro_num }">
 	<div class="container" align="center">
-		<input type="hidden" id="price"
-			value="${(100-list.pro_sale)/100*list.pro_price }">
+ 		<input type="hidden" id="price" name="price"
+			value="${(100-list.pro_sale)/100*list.pro_price }">	
 		<table class="table table-hover">
 			<tr>
 				<td rowspan="10"><img src="images/${list.pro_image }"
@@ -79,7 +79,7 @@
 				<th>판매가</th>
 				<td><fmt:formatNumber
 						value="${(100-list.pro_sale)/100*list.pro_price }"
-						pattern="#,###.###" /> 원</td>
+						pattern="#,###.###" /> 원</td>			
 			</tr>
 			<tr>
 				<th>상품남은개수</th>
@@ -105,21 +105,6 @@
 							value="${(100-list.pro_sale)/100*list.pro_price }"
 							pattern="#,###.###" />원 </span></td>
 			</tr>
-			<%-- 
-				<td>
-					<div>${list.pro_name }</div>
-					<div id="sale">${list.pro_sale }%</div>
-					<div id="price">${list.pro_price }원</div>
-					<div id="price2">${(100-list.pro_sale)/100*list.pro_price}원</div>
-					<div id="count">${list.pro_count }</div>
-					<div id="detail2">택배배송 평균 / 2일 이내 배송 (토,일,공휴일 제외)</div>
-					<div id="free">무료</div>
-					<div>
-						<input type="number" name="pro_count">
-					</div>
-					<div></div>
-				</td>
-			</tr> --%>
 			<tr>
 				<td colspan="3" align="right"><c:if test="${list.pro_count>0 }">
 						<div class="btn-group">

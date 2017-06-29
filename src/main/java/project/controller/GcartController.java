@@ -17,7 +17,7 @@ public class GcartController {
 	private GcartService gs;
 	
 	@RequestMapping("Gcart")
-	public String GproductCart(Model model, Gcart gcart) {
+	public String GproductCart(Model model, Gcart gcart, int price) {
 		int result;
 		String chkId = gs.selectId(gcart);
 		if(chkId==null) {
