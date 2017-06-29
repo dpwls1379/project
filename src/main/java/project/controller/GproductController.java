@@ -60,6 +60,9 @@ public class GproductController {
 	}
 	@RequestMapping("GproductUpdate")
 	public String GproductUpdate(Model model, Gproduct gproduct) {
+		if(gproduct.getPro_info() == ""){
+			gproduct.setPro_info("nothing.jpg");
+		}
 		int result = gps.update(gproduct);
 		model.addAttribute("result",result);
 		return "Gproduct/GproductUpdate";

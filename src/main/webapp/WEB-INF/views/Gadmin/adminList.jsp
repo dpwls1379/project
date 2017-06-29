@@ -16,11 +16,11 @@
 			<button type="button" class="btn btn-default btn-lg">회원관리</button>
 		</a>
 		<hr>
-			<a href="boardAdmin.do" target="b">
+			<a href="boardAdmin.do" target="m">
 				<button type="button" class="btn btn-default btn-lg">게시판 관리</button>
 			</a>
 		<hr>
-			<a href="productAdmin.do" target="p">
+			<a href="GproductList.do" target="p">
 				<button type="button" class="btn btn-default btn-lg">상품 관리</button>
 			</a>
 		<hr>

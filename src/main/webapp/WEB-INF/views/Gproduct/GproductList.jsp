@@ -49,18 +49,26 @@
 					<td>${list.pro_date }</td>
 					<td>${list.pro_count }</td>
 					<td>${list.pro_sell }</td>
-					<td><a href="GproductUpdateForm.do?pro_num=${list.pro_num }"><button
-								type="button" class="btn btn-default">수정</button></a> <a
-						href="GproductDelete.do?pro_num=${list.pro_num}"><button
-								type="button" class="btn btn-default" onclick="return delchk()">삭제</button></a>
-					</td>
+					<c:if test="${not empty id }">
+						<c:if test="${id =='master' }">
+							<td><a href="GproductUpdateForm.do?pro_num=${list.pro_num }"><button
+										type="button" class="btn btn-default">수정</button></a> <a
+								href="GproductDelete.do?pro_num=${list.pro_num}"><button
+										type="button" class="btn btn-default"
+										onclick="return delchk()">삭제</button></a></td>
+						</c:if>
+					</c:if>
 				</tr>
 			</c:forEach>
 		</table>
 		<div align="right">
-			<a href="GproductForm.do">
-				<button type="button" class="btn btn-default">상품등록</button>
-			</a>
+			<c:if test="${not empty id }">
+				<c:if test="${id =='master' }">
+					<a href="GproductForm.do">
+						<button type="button" class="btn btn-default">상품등록</button>
+					</a>
+				</c:if>
+			</c:if>
 		</div>
 	</div>
 </body>

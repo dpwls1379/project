@@ -60,7 +60,7 @@
 			<td><input type="file" name="pro_image" required="required"></td>
 		</tr>
 		<tr>
-			<td><input type="submit" value="수정" onclick="return chk()"><input type="reset" value="취소"></td>
+			<td><input type="submit" value="수정" onclick="return chk()" class="btn btn-success btn-sm"><input type="reset" value="취소" class="btn btn-default btn-sm"></td>
 		</tr>
 	</table>
 </form>
