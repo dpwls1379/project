@@ -11,6 +11,7 @@
 <c:if test="${result > 0 }">
 	<script type="text/javascript">
 		alert("회원 탈퇴되었습니다.");
+		<% session.invalidate(); %>
 		location.href="loginForm.do";
 	</script>
 </c:if>
