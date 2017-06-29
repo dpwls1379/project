@@ -12,7 +12,7 @@
 	<!-- <div class="navbar-header-fixed-top" align="center"> -->
 	<div align="center" class="title">
 		<h3 class="text-primary">
-			<a href="index.jsp">GALLERIda</a>
+			<a href="index.jsp"><img alt="" src="images/gallerida3.JPG"></a>
 		</h3>
 		<form action="GproductSearch.do" role="search">
 			<input type="text" name="search"> <input type="submit"

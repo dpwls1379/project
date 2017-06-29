@@ -16,7 +16,7 @@
 					<td>
 						<div align="center">
 							<a href="GproductInfo.do?pro_num=${list.pro_num }">
-							<img src="images/${list.pro_image }" width="150" height="150">
+							<img class="mouseImg" src="images/${list.pro_image }" width="150" height="150">
 							</a>
 						</div>
 						<div class="caption" align="center">
@@ -35,7 +35,7 @@
 					<td>
 						<div align="center">
 							<a href="GproductInfo.do?pro_num=${list2.pro_num }">
-							<img src="images/${list2.pro_image }" width="150" height="150">
+							<img class="mouseImg" src="images/${list2.pro_image }" width="150" height="150">
 							</a>
 						</div>
 						<div class="caption" align="center">
@@ -54,7 +54,7 @@
 					<td>
 						<div align="center">
 							<a href="GproductInfo.do?pro_num=${list3.pro_num }">
-							<img src="images/${list3.pro_image }" width="150" height="150">
+							<img class="mouseImg" src="images/${list3.pro_image }" width="150" height="150">
 							</a>
 						</div>
 						<div class="caption" align="center">

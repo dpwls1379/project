@@ -44,6 +44,7 @@ public class GmemberController {
 		if (result > 0) {
 			model.addAttribute("result",result);
 			session.setAttribute("id", id);
+			session.setAttribute("pass", pass);
 			return "Gmember/login";
 		} else {
 			model.addAttribute("result",result);
