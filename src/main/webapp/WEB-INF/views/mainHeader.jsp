@@ -27,6 +27,9 @@
 		</c:if>
 
 		<c:if test="${not empty id }">
+			<a href="chatting.do">
+				<button type="button" class="btn btn-default btn-sm" id="center">채팅</button>
+			</a>
 			<a href="logout.do">
 				<button type="button" class="btn btn-default btn-sm" id="center">로그아웃</button>
 			</a>

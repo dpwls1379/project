@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans:beans xmlns="http://www.springframework.org/schema/mvc"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+	xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xsi:schemaLocation="http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket-4.1.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 	<!-- DispatcherServlet Context: defines this servlet's request-processing 
@@ -24,4 +27,16 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	<context:component-scan base-package="project" />
+	
+	<!-- 웹 소캣 이코드는 거의 필수 -->
+	<default-servlet-handler/>
+	<!-- 웹 소켓 등록 --> <!-- 웹 소켓 핸들러의 빈을 생성 -->
+<!-- 	<beans:bean id="chatHandler" class="com.ch.webSock.WebChatHandler"/> -->
+<!-- 	<websocket:handlers> -->
+<!-- 		<websocket:mapping handler="chatHandler" path="chat-ws.do"/> -->
+<!-- 	</websocket:handlers> -->
+	<beans:bean id="chatHandler" class="project.controller.WebChattingHandler"/>
+	<websocket:handlers>
+		<websocket:mapping handler="chatHandler" path="chatting-ws.do" />
+	</websocket:handlers>
 </beans:beans>

@@ -117,5 +117,10 @@ public class GmemberController {
 		model.addAttribute("id",id);
 		return "Gadmin/gmDelete";
 	}
+	
+	@RequestMapping("chatting")
+	public String chatting(){
+		return "chat/chatting";
+	}
 }
 
