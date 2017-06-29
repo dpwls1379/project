@@ -18,8 +18,6 @@ drop table Gbuy;
 drop table Gcart;
 select * from tab;
 
-
-
 create table Gproduct(
 	pro_num number primary key,
 	pro_cate varchar2(30) not null,

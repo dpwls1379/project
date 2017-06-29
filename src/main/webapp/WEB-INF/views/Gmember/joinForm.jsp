@@ -14,7 +14,7 @@
 			frm.id.focus();
 			return false;
 		}
-		window.open("confirm.jsp?id="+frm.id.value,"","width=300 height=300");
+		window.open("confirm.do?id="+frm.id.value,"","width=300 height=300");
 	}
 </script>
 </head>

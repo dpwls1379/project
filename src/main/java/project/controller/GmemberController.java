@@ -22,7 +22,8 @@ public class GmemberController {
 //	}
 	
 	@RequestMapping("joinForm")
-	public String joinForm() {
+	public String joinForm(String id, Model model) {
+		model.addAttribute("id",id);
 		return "Gmember/joinForm";
 	}
 	@RequestMapping("join")
@@ -80,4 +81,12 @@ public class GmemberController {
 		model.addAttribute("gmem",gmem);
 		return "Gmember/gmemberLeave";
 	}
+	@RequestMapping("confirm")
+	public String confirm(String id, Model model) {
+		int result = gs.confirm(id);
+		model.addAttribute("result",result);
+		model.addAttribute("id",id);
+		return "Gmember/confirm";
+	}
+	
 }

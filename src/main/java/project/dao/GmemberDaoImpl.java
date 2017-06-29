@@ -61,4 +61,18 @@ public class GmemberDaoImpl implements GmemberDao {
 		return sst.delete("gmember.delete", id);
 	}
 
+	public int confirm(String id) {
+		int result = 0;
+		String dbPass = "";
+		System.out.println("id = " + id);
+		try {
+			dbPass = sst.selectOne("gmember.confirm", id);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		if (dbPass != null && !dbPass.equals("")) {
+			result = 1;
+		}
+		return result;
+	}
 }
