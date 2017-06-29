@@ -25,8 +25,8 @@
 		$('.tp').click(function() {
 			$(window).scrollTop(0);
 		});
-		$('.mouseImg').hover(function() {
-			alert('mouseover');
-		});
+// 		$('.mouseImg').hover(function() {
+// 			alert('mouseover');
+// 		});
 	});
 </script>
