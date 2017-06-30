@@ -17,7 +17,7 @@
 	<c:if test="${result > 0 }">
 		<script type="text/javascript">
 			alert("강제탈퇴 되었습니다.");
-			location.href="memberAdmin.do"
+			location.href="memberAdmin.do";
 		</script>
 	</c:if>
 </body>

@@ -81,7 +81,7 @@ public class GmemberDaoImpl implements GmemberDao {
 		return sst.selectList("gmember.gmList");
 	}
 	public int gmDelete(String id) {
-		return sst.selectOne("gmember.gmDelete",id);
+		return sst.delete("gmember.gmDelete",id);
 	}
 	public Gmember mypage(String id) {
 		return sst.selectOne("gmember.mypage",id);

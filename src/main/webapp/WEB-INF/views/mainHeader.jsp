@@ -34,7 +34,7 @@
 				<button type="button" class="btn btn-default btn-sm" id="center">마이페이지</button>
 			</a>
 			<p>
-			<h5 class="text-primary">${id }님환영합니다 !</h5>
+			<h5 class="text-primary">${id }님 환영합니다  !</h5>
 		</c:if>
 		<hr>
 	</div>
