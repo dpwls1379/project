@@ -14,45 +14,33 @@
 		<h3 class="text-primary">
 			<a href="index.jsp"><img alt="" src="images/gallerida3.JPG"></a>
 		</h3>
-		<form action="GproductSearch.do" role="search">
+	
+		 <ul class="nav nav-pills nav-justified">
+         <li><a href="GproductList.do">상품정보</a></li>
+         <li><a href="Gcenter.do">고객센터</a></li>
+         <c:if test="${empty id }">
+         <li><a href="main.do">로그인</a></li>
+         </c:if>
+         <c:if test="${not empty id }">
+         <li><a href="chatting.do">채팅</a></li>
+         <li><a href="logout.do">로그아웃</a></li>
+         <li><a href="gmMypage.do">마이 페이지</a></li>
+         <p>
+		 <h5 class="text-primary">${id } 님 환영합니다  !</h5>
+		 </c:if>
+     	 </ul>
+    <br>
+    	<form action="GproductSearch.do" role="search">
 			<input type="text" name="search"> <input type="submit"
 				class="btn btn-sm" value="검색">
 		</form>
-		<a href="GproductList.do"><button type="button"
-				class="btn btn-default btn-sm">상품정보</button></a> <a href="Gcenter.do"><button
-				type="button" class="btn btn-default btn-sm" id="center">고객센터</button></a>
-		<c:if test="${empty id }">
-			<a href="main.do"><button type="button"
-					class="btn btn-default btn-sm" id="center">로그인</button></a>
-		</c:if>
-
-		<c:if test="${not empty id }">
-			<a href="chatting.do">
-				<button type="button" class="btn btn-default btn-sm" id="center">채팅</button>
-			</a>
-			<a href="logout.do">
-				<button type="button" class="btn btn-default btn-sm" id="center">로그아웃</button>
-			</a>
-			<a href="gmMypage.do">
-				<button type="button" class="btn btn-default btn-sm" id="center">마이페이지</button>
-			</a>
-			<p>
-			<h5 class="text-primary">${id }님 환영합니다  !</h5>
-		</c:if>
-		<hr>
 	</div>
 	<!-- 	</div> -->
 	<div class="fix">
-
 		<a onclick="history.back()"><button type="button"
 				class="btn btn-default btn-sm" id="center">뒤로가기</button></a>
-
 		<p>
 			<a class="btn btn-default btn-sm tp">위로가기</a>
 	</div>
-
-
-
-
 </body>
 </html>

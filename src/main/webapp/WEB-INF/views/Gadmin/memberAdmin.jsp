@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="container">
-	<table class="table table-bordered">
+	<table class="table">
 		<h3 class="text-primary" align="center">회원 목록</h3>
 		<tr>
 			<th>아이디</th>
@@ -33,7 +33,9 @@
 			</tr>
 		</c:forEach>
 	</table>
+
 <div align="center">
+
 <c:if test="${startPage > PAGEPERBLOCK }">
 		<a href="adminList.do?pageNum=${endPage-PAGEPERBLOCK}">[이전]</a>
 </c:if>
