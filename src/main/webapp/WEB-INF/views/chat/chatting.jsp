@@ -7,6 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<c:set var="Myid" value="${id }"></c:set>
 <script type="text/javascript">
 	var websocket;
 	$(function() {
@@ -71,7 +72,6 @@
 </script>
 </head>
 <body>
-<c:set var="Myid" value="${id }"></c:set>
 	<div class="container">
 		<table class="table table-bordered"  >
 			<caption class="text-primary">${Myid} 채팅창</caption>
@@ -84,13 +84,7 @@
 			<tr>
 				<td>
 					<pre class="pre-scrollable chatPre" id="chatArea" >
-						<c:if test="${Myid != id}">
 						
-						</c:if>
-						
-						<c:if test="${Myid == id}">
-						
-						</c:if>
 					</pre>
 				</td>
 			</tr>
