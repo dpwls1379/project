@@ -35,6 +35,7 @@
 		var msg=$('#message').val();
 		websocket.send('msg:'+id+' --> '+msg);
 		$("#chatArea").scrollTop($("#chatArea")[0].scrollHeight);
+		//채팅 메세지 입력 되면 스크롤 자동으로 내리기
 		$('#message').val('');
 	}
 	
