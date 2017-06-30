@@ -124,4 +124,9 @@ public class GmemberController {
 		model.addAttribute("result",result);
 		return "Gadmin/gmDelete";
 	}
+	
+	@RequestMapping("chatting")
+	public String chatting(){
+		return "chat/chatting";
+	}
 }

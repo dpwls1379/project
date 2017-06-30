@@ -2,13 +2,13 @@ package project.controller;
 
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import project.model.Gcart;
+import project.model.Gproduct;
 import project.service.GcartService;
 
 @Controller
@@ -17,7 +17,7 @@ public class GcartController {
 	private GcartService gs;
 	
 	@RequestMapping("Gcart")
-	public String GproductCart(Model model, Gcart gcart) {
+	public String GproductCart(Model model, Gcart gcart, int price) {
 		int result;
 		String chkId = gs.selectId(gcart);
 		if(chkId==null) {
