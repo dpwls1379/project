@@ -7,6 +7,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+$(function() {
+	$('#chattingDo').click(function() {
+		window.open("chatting.do", "채팅창", "width=500, height=400");
+	});
+});
+</script>
 </head>
 <body>
 	<!-- <div class="navbar-header-fixed-top" align="center"> -->
@@ -22,7 +29,7 @@
          <li><a href="main.do">로그인</a></li>
          </c:if>
          <c:if test="${not empty id }">
-         <li><a href="chatting.do">채팅</a></li>
+         <li><a id="chattingDo" href="#">채팅</a></li>
          <li><a href="logout.do">로그아웃</a></li>
          <li><a href="gmMypage.do">마이 페이지</a></li>
          <p>
