@@ -34,6 +34,7 @@
 		var id='${id}';
 		var msg=$('#message').val();
 		websocket.send('msg:'+id+' --> '+msg);
+		$("#chatArea").scrollTop($("#chatArea")[0].scrollHeight);
 		$('#message').val('');
 	}
 	
@@ -62,7 +63,8 @@
 	}
 	
 	function addMessage(msg) {
-		$('#chatArea').prepend(msg+'<br>');
+// 		$('#chatArea').prepend(msg+'<br>');
+		$('#chatArea').append(msg+'<br>');
 	}
 	
 </script>
@@ -70,7 +72,7 @@
 <body>
 <c:set var="Myid" value="${id }"></c:set>
 	<div class="container">
-		<table class="table table-bordered">
+		<table class="table table-bordered"  >
 			<caption class="text-primary">${Myid} 채팅창</caption>
 			
 			<tr>
@@ -80,7 +82,7 @@
 			</tr>
 			<tr>
 				<td>
-					<pre class="pre-scrollable" id="chatArea">
+					<pre class="pre-scrollable chatPre" id="chatArea" >
 						<c:if test="${Myid != id}">
 						
 						</c:if>

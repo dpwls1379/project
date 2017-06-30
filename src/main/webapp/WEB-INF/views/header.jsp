@@ -19,6 +19,10 @@
 	bottom: 5px;
 	right: 5px;
 }
+
+.chatPre {
+	height: 150px;
+}
 </style>
 <script type="text/javascript">
 	$(function() {
