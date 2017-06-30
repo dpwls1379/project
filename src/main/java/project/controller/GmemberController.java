@@ -103,6 +103,14 @@ public class GmemberController {
 		model.addAttribute("id", id);
 		return "Gmember/gmMypage";
 	}
+	
+	@RequestMapping("mastermempage")
+	public String mastermempage(String id, Model model){
+		Gmember gm = gs.mypage(id);
+		model.addAttribute("gm",gm);
+		return "Gmember/gmMypage";
+	}
+	
 	@RequestMapping("memberAdmin")
 	public String memberAdmin (Model model) {
 		List<Gmember> list = new ArrayList<Gmember>();
@@ -114,7 +122,6 @@ public class GmemberController {
 	public String gmDelete(Model model, String id) {
 		int result = gs.gmDelete(id);
 		model.addAttribute("result",result);
-		model.addAttribute("id",id);
 		return "Gadmin/gmDelete";
 	}
 	
@@ -123,4 +130,3 @@ public class GmemberController {
 		return "chat/chatting";
 	}
 }
-

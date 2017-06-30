@@ -27,6 +27,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	<context:component-scan base-package="project" />
+ 
 	
 	<!-- 웹 소캣 이코드는 거의 필수 -->
 	<default-servlet-handler/>
