@@ -8,9 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div class="container">
+<div class="container" align="center">
 	<fieldset>
-	<legend class="text-primary">관리자 페이지</legend>
+	<legend class="text-primary text-danger">관리자 페이지</legend>
 		<a href="memberAdmin.do" target="m">
 			<button type="button" class="btn btn-default btn-lg">회원관리</button>
 		</a>

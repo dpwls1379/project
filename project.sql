@@ -6,8 +6,11 @@ create table Gmember(
 	tel 		varchar2(20)	not null,
 	email 		varchar2(50) 	not null,
 	gender 		char(1) 		not null,
-	birthday 	date 			not null
+	birthday 	varchar2(8) 			
 );
+
+alter table Gmember drop column birthday;
+alter table Gmember add birthday varchar2(8);
 
 drop table Gproduct;
 drop table Gboardx;

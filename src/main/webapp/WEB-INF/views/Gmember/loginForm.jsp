@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="container">
-<h2 class="text-primary" align="center">로그인</h2>
+<h2 class="text-primary text-danger" align="center">로그인</h2>
 <form action="login.do">
 <table class="table table-bordered">
 	<tr><th>아이디</th><td>

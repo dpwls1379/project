@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="container" align="center">
-<h1 class="text-primary" align="center">회 원 정 보</h1>
+<h1 class="text-primary text-danger" align="center">회 원 정 보</h1>
 <table class="table table-bordered">
 	<tr><th>아이디</th><td>
 		${gm.id }</td></tr>

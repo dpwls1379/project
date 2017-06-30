@@ -11,7 +11,7 @@
 <body>
 <div class="container">	
 	<div>	
-		<h2>Q&A</h2>
+		<h2 class="text-danger">Q&A</h2>
 		<h5 align="right"><a href="GboardxList2.do">더보기</a></h5>		
 	</div>
 	<table class="table table-hover">
@@ -50,7 +50,7 @@
 	<hr>
 	
 	<div>	
-		<h2>공지사항</h2>
+		<h2 class="text-danger">공지사항</h2>
 		<h5 align="right"><a href="GboardxList.do">더보기</a></h5>
 	</div>
 	<table class="table table-hover">

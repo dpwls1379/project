@@ -23,17 +23,17 @@ $(function() {
 		</h3>
 	
 		 <ul class="nav nav-pills nav-justified">
-         <li><a href="GproductList.do">상품정보</a></li>
-         <li><a href="Gcenter.do">고객센터</a></li>
+         <li><a href="GproductList.do" class="text-danger">상품정보</a></li>
+         <li><a href="Gcenter.do" class="text-danger">고객센터</a></li>
          <c:if test="${empty id }">
-         <li><a href="main.do">로그인</a></li>
+         <li><a href="main.do" class="text-danger">로그인</a></li>
          </c:if>
          <c:if test="${not empty id }">
-         <li><a id="chattingDo" href="#">채팅</a></li>
-         <li><a href="logout.do">로그아웃</a></li>
-         <li><a href="gmMypage.do">마이 페이지</a></li>
+		<li><a id="chattingDo" href="#" class="text-danger">채팅</a></li>
+         <li><a href="logout.do" class="text-danger">로그아웃</a></li>
+         <li><a href="gmMypage.do" class="text-danger">마이 페이지</a></li>
          <p>
-		 <h5 class="text-primary">${id } 님 환영합니다  !</h5>
+		 <h5 class="text-primary text-danger">${id } 님 환영합니다  !</h5>
 		 </c:if>
      	 </ul>
     <br>

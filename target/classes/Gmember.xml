@@ -16,7 +16,7 @@
 
 	<insert id="insert" parameterType="gmember">
 		insert into gmember values(#{id},#{pass},#{name},#{addr},#{tel},#{email},#{gender},
-		to_date(#{birthday},'yyyy-mm-dd'))
+		#{birthday})
 	</insert>
 
 	<select id="loginChk" parameterType="gmember" resultType="string">
@@ -27,7 +27,7 @@
 	</update>
 
 	<select id="select" parameterType="string" resultType="gmember">
-		select id, pass, name, addr, tel, email, gender, to_char(birthday, 'yyyy-mm-dd')
+		select id, pass, name, addr, tel, email, gender, birthday
 		from gmember where id=#{id}
 	</select>
 	<delete id="delete" parameterType="gmember">
@@ -43,7 +43,6 @@
 		delete from gmember where id=#{id}
 	</delete>
 	<select id="mypage" parameterType="string" resultType="gmember">
-		select id, name, addr, tel, email, birthday
-		from gmember where id=#{id}
+		select id, name, addr, tel, email, birthday from gmember where id=#{id}
 	</select>
 </mapper>

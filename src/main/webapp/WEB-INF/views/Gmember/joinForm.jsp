@@ -38,7 +38,8 @@
 				<option value="F">여자</option>
 			</select></td></tr>
 		<tr><th>생년월일</th><td>
-			<input type="date" name="birthday" required="required"></td></tr>
+			<input type="text" name="birthday" required="required" pattern="\d{8}"
+			title="19900101 형식으로 입력해 주세요" placeholder="19900101 형색으로 입력"></td></tr>
 		<tr><th>이메일</th><td>
 			<input type="email" name="email" required="required"></td></tr>
 		<tr><th>주소</th><td>
