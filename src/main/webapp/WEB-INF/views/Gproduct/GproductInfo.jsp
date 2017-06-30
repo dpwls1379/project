@@ -48,12 +48,16 @@
 				$('#hap').empty().append(comma(price * count) + "원");
 			}
 		});
+		$('#BuyNow').click(function() {
+			location.href="Gbuy"
+		})
+		
 	});
 </script>
 </head>
 <body>
 <form action="Gcart.do"  method="post" name="frm">
-	<input type="hidden" name="pro_num" value="${list.pro_num }">
+	<input type="hidden" id="pronum" name="pro_num" value="${list.pro_num }">
 	<div class="container" align="center">
  		<input type="hidden" id="price" name="price"
 			value="${(100-list.pro_sale)/100*list.pro_price }">	
@@ -108,8 +112,8 @@
 			<tr>
 				<td colspan="3" align="right"><c:if test="${list.pro_count>0 }">
 						<div class="btn-group">
-							<a href="#" class="btn btn-default" onclick="cart()">장바구니</a> <a href="#"
-								class="btn btn-default">바로구매</a>
+							<a href="#" class="btn btn-default" onclick="cart()">장바구니</a> 
+							<a href="#" class="btn btn-default" id="BuyNow" >바로구매</a>
 						</div>
 					</c:if> <c:if test="${list.pro_count<=0 }">
 						<div>
