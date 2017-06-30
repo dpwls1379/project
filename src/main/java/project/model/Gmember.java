@@ -1,6 +1,5 @@
 package project.model;
 
-import java.sql.Date;
 
 public class Gmember {
 	
@@ -11,7 +10,7 @@ public class Gmember {
 	private String tel;
 	private String email;
 	private String gender;
-	private Date birthday;
+	private String birthday;
 	
 	
 	public String getId() {
@@ -26,7 +25,6 @@ public class Gmember {
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
-
 	public String getName() {
 		return name;
 	}
@@ -57,12 +55,10 @@ public class Gmember {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public Date getBirthday() {
+	public String getBirthday() {
 		return birthday;
 	}
-	public void setBirthday(Date birthday) {
+	public void setBirthday(String birthday) {
 		this.birthday = birthday;
-	}
-	
-	
+	}	
 }
