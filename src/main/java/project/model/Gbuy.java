@@ -7,11 +7,20 @@ public class Gbuy {
 	private String buy_addr;
 	private String buy_memo;
 	private Date buy_date;
+	private int buy_price;
 	private int ct_num;
 	private int pro_num;
 	private String id;
 	
 	
+
+	public int getBuy_price() {
+		return buy_price;
+	}
+
+	public void setBuy_price(int buy_price) {
+		this.buy_price = buy_price;
+	}
 
 	public int getBuy_num() {
 		return buy_num;
