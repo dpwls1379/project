@@ -47,8 +47,10 @@
 		</c:if>
 	</table>	
 	<div align="right">
-		<a href="GboardxList.do"><button type="button" class="btn btn-default">목록</button></a>	
+		<a href="GboardxList.do"><button type="button" class="btn btn-default">목록</button></a>
+		<c:if test="${id == 'master' }">	
 		<a href="GboardxForm.do"><button type="button" class="btn btn-default">글쓰기</button></a>
+		</c:if>
 	</div>	
 	<div align="center">
 		<form action="search.do" method="post">

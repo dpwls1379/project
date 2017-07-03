@@ -20,4 +20,13 @@
 		<property name="password" value="${jdbc.password}" />
 		<property name="maxPoolSize" value="${jdbc.maxPoolSize}" />
 	</bean>
+	
+	<!-- ========================= Multipart Form-Data Resolver ========================= -->
+<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    <!--
+    <property name="maxUploadSize">
+        <value>10000000</value>
+    </property>
+    -->
+</bean>
 </beans>

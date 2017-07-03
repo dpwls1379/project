@@ -20,7 +20,7 @@ $(function() {
 <body>
 	<div class="container">
 	<h2 class="text-primary">상품입력</h2>
-		<form action="Gproduct.do" method="post">
+		<form action="Gproduct.do" method="post" enctype="multipart/form-data"><!--  enctype="multipart/form-date" -->
 			<table class="table table-hover">
 				<tr>
 					<th>상품명</th>

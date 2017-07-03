@@ -34,10 +34,12 @@
 				});
 		$('#plus').click(function() {
 			var c = $('#pro_count').val();
+			if(c< $('#pro_cnt').val()){
 			var count = c++ + 1;
 			$('#pro_count').val(count);
 			var price = $('#price').val();
 			$('#hap').empty().append(comma(price * count) + "원");
+			}
 		});
 		$('#min').click(function() {
 			var c = $('#pro_count').val();
@@ -49,8 +51,9 @@
 			}
 		});
 		$('#BuyNow').click(function() {
-			location.href="Gbuy"
-		})
+			var sendData = 'buy_count=' + $('#pro_count').val() + '&&' + 'pro_num' + $('#pronum').val();
+			location.href="buyNow.do?"+sendData;
+		});
 		
 	});
 </script>
@@ -87,7 +90,7 @@
 			</tr>
 			<tr>
 				<th>상품남은개수</th>
-				<td>${list.pro_count }</td>
+				<td id="pro_cnt">${list.pro_count }</td>
 			</tr>
 			<tr>
 				<th>배송정보</th>
