@@ -33,12 +33,12 @@ public class GproductController {
 		
 		return "Gproduct/GproductForm";
 	}
-	@RequestMapping("Gproduct")
-	public String Gproduct(Model model, Gproduct gproduct) {
-		int result = gps.insert(gproduct);
-		model.addAttribute("result",result);
-		return "Gproduct/Gproduct";
-	}
+//	@RequestMapping("Gproduct")
+//	public String Gproduct(Model model, Gproduct gproduct) {
+//		int result = gps.insert(gproduct);
+//		model.addAttribute("result",result);
+//		return "Gproduct/Gproduct";
+//	}
 	@RequestMapping("GproductList")
 	public String GproductList(Model model) {
 		List<Gproduct> list = gps.list();

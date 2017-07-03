@@ -33,12 +33,15 @@
 							"상품 이미지", "width=400, height=400");
 				});
 		$('#plus').click(function() {
-			var c = $('#pro_count').val();
-			if(c< $('#pro_cnt').val()){
-			var count = c++ + 1;
-			$('#pro_count').val(count);
-			var price = $('#price').val();
-			$('#hap').empty().append(comma(price * count) + "원");
+			var c = $('#pro_count').val(); //구매 수량
+			var cnt= $('#pro_cnt').text(); //상품 남은 갯수
+			if(c < cnt){
+				var count = c++ + 1;
+				$('#pro_count').val(count);
+				var price = $('#price').val();
+				$('#hap').empty().append(comma(price * count) + "원");
+			}else{
+				alert("구매 가능 수량을 초과하였습니다");
 			}
 		});
 		$('#min').click(function() {
@@ -51,7 +54,7 @@
 			}
 		});
 		$('#BuyNow').click(function() {
-			var sendData = 'buy_count=' + $('#pro_count').val() + '&&' + 'pro_num' + $('#pronum').val();
+			var sendData = 'buy_count=' + $('#pro_count').val() + '&&' + 'pro_num=' + $('#pronum').val();
 			location.href="buyNow.do?"+sendData;
 		});
 		

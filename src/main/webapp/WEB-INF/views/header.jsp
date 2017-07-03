@@ -23,6 +23,20 @@
 .chatPre {
 	height: 150px;
 }
+.buy td{
+	height: 100px;
+	text-align: center;
+	text-decoration: inherit;
+}
+th{
+	text-align: center;
+}
+.primary{
+	color: blue;
+}
+.text_sm{
+	font-size: 12px;
+}
 </style>
 <script type="text/javascript">
 	$(function() {

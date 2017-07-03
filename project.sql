@@ -95,7 +95,7 @@ create table Gcart (
 	pro_num number references Gproduct(pro_num)	
 );
 -- 카트쪽 아이디는 연동안되서 임시로 생성
- drop table Gbuy;
+drop table Gbuy;
 create table Gbuy (
 	buy_num number primary key,
 	buy_addr varchar2(50) not null,
