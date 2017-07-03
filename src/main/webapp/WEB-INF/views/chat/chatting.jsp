@@ -23,11 +23,11 @@
 		});
 		$('#enterBtn').click(function() {
 			connect();
-			$('#enterExit').empty().append('<input type="button" value="퇴장" id="exitBtn" class="btn btn-success btn-sm">');
+		//	$('#enterExit').html('<input type="button" value="퇴장" id="exitBtn" class="btn btn-success btn-sm">');
 		});
-		$('#exitBtn').click(function() {
-			disconnect();
-			$('#enterExit').empty().append('<input type="button" value="입장" id="enterBtn" class="btn btn-success btn-sm">');
+		$('#exitBtn').click(function() {	
+		//	$('#enterExit').html('<input type="button" value="입장" id="enterBtn" class="btn btn-success btn-sm">');
+			disconnect();	
 		});
 	});
 	
@@ -79,6 +79,7 @@
 			<tr>
 				<td id="enterExit">
 					<input type="button" value="입장" id="enterBtn" class="btn btn-success btn-sm">
+					<input type="button" value="퇴장" id="exitBtn" class="btn btn-success btn-sm">
 				</td>
 			</tr>
 			<tr>
