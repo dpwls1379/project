@@ -12,7 +12,7 @@ import project.model.Gmember;
 public class GmemberDaoImpl implements GmemberDao {
 	@Autowired
 	private SqlSessionTemplate sst;
-
+	
 	public int insert(Gmember gm) {
 		System.out.println("id = " + gm.getId());
 		System.out.println("pass = " + gm.getPass());
@@ -77,13 +77,17 @@ public class GmemberDaoImpl implements GmemberDao {
 		}
 		return result;
 	}
-	public List<Gmember> gmList() {
-		return sst.selectList("gmember.gmList");
-	}
 	public int gmDelete(String id) {
 		return sst.delete("gmember.gmDelete",id);
 	}
 	public Gmember mypage(String id) {
 		return sst.selectOne("gmember.mypage",id);
+	}
+	public int getTotalRecordMember() {
+		return sst.selectOne("getTotalMember");
+	}
+
+	public List<Gmember> gmList(Gmember gm) {
+		return sst.selectList("gmember.gmList",gm);
 	}
 }

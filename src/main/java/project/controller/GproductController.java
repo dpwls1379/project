@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import project.service.GproductService;
+import project.service.PagingPgm;
 import project.model.Gproduct;
 
 @Controller
@@ -15,6 +16,26 @@ public class GproductController {
 	@Autowired
 	private GproductService gps;
 	
+	@RequestMapping("GproductList")
+	public String GproductList(String pageNum, Gproduct gp, Model model) {
+		final int rowPerPage = 10;
+		if (pageNum == null || pageNum.equals("")) {
+			pageNum = "1";
+		}
+		int currentPage = Integer.parseInt(pageNum);
+		int total = gps.getTotalRecordProduct(); // 검색
+		int startRow = (currentPage - 1) * rowPerPage + 1;
+		int endRow = startRow + rowPerPage - 1;
+		PagingPgm pp = new PagingPgm(total, rowPerPage, currentPage);
+		gp.setStartRow(startRow);
+		gp.setEndRow(endRow);
+		int no = total - startRow + 1;
+		List<Gproduct> list = gps.list(gp);
+		model.addAttribute("list", list);
+		model.addAttribute("no", no);
+		model.addAttribute("pp", pp);
+		return "/Gproduct/GproductList";
+	}
 	@RequestMapping("GproductForm")
 	public String GproductForm(Model model) {
 		
@@ -40,8 +61,8 @@ public class GproductController {
 		return "Gproduct/Gproduct";
 	}
 	@RequestMapping("GproductList")
-	public String GproductList(Model model) {
-		List<Gproduct> list = gps.list();
+	public String GproductList(Model model, Gproduct gp) {
+		List<Gproduct> list = gps.list(gp);
 		model.addAttribute("list",list);
 		return "Gproduct/GproductList";
 	}

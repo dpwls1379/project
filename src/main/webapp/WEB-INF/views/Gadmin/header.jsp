@@ -10,4 +10,8 @@
 <script src="${path}/js/bootstrap.min..js"></script>
 <style>
 	.err { color: red; font-size: 16px;  }
+	.pg{
+		background-color: #b80e2c;
+		
+	}
 	</style>

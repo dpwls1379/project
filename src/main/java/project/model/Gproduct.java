@@ -15,6 +15,21 @@ public class Gproduct {
 	private int pro_sell;
 	private int pro_read;
 	
+	private int startRow;
+	private int endRow;
+	
+	public int getStartRow() {
+		return startRow;
+	}
+	public void setStartRow(int startRow) {
+		this.startRow = startRow;
+	}
+	public int getEndRow() {
+		return endRow;
+	}
+	public void setEndRow(int endRow) {
+		this.endRow = endRow;
+	}
 	public int getPro_read() {
 		return pro_read;
 	}

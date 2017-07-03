@@ -30,13 +30,17 @@ public class GmemberServiceImpl implements GmemberService {
 	public int confirm(String id) {
 		return gd.confirm(id);
 	}
-	public List<Gmember> gmList() {
-		return gd.gmList();
-	}
+
 	public int gmDelete(String id) {
 		return gd.gmDelete(id);
 	}
 	public Gmember mypage(String id) {
 		return gd.mypage(id);
+	}
+	public int getTotalRecordMember() {
+		return gd.getTotalRecordMember();
+	}
+	public List<Gmember> gmList(Gmember gm) {
+		return gd.gmList(gm);
 	}
 }

@@ -9,20 +9,22 @@
 </head>
 <body>
 <c:if test="${result>0 }">
-	<c:if test="${bx_categ=='notice' }">
+	<c:if test="${id == 'master' }">
+	<c:if test="${bx_categ == 'notice' }">
 		<script type="text/javascript">
-			alert("삭제 성공");
+			alert("게시물이 삭제되었습니다");
 			location.href="GboardxList.do";
 		</script>
 	</c:if>
-	<c:if test="${bx_categ=='qna' }">
+	</c:if>
+	<c:if test="${bx_categ == 'qna' }">
 		<script type="text/javascript">
-			alert("삭제 성공");
+			alert("게시물이 삭제되었습니다");
 			location.href="GboardxList2.do";
 		</script>
 	</c:if>
 </c:if>
-<c:if test="${result<=0 }">
+<c:if test="${result <= 0 }">
 	<script type="text/javascript">
 		alert("삭제 실패");
 		history.go(-1);

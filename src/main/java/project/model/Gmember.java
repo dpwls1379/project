@@ -12,7 +12,21 @@ public class Gmember {
 	private String gender;
 	private String birthday;
 	
+	private int startRow;
+	private int endRow;
 	
+	public int getStartRow() {
+		return startRow;
+	}
+	public void setStartRow(int startRow) {
+		this.startRow = startRow;
+	}
+	public int getEndRow() {
+		return endRow;
+	}
+	public void setEndRow(int endRow) {
+		this.endRow = endRow;
+	}
 	public String getId() {
 		return id;
 	}
@@ -60,5 +74,6 @@ public class Gmember {
 	}
 	public void setBirthday(String birthday) {
 		this.birthday = birthday;
-	}	
+	}
+
 }

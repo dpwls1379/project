@@ -10,7 +10,7 @@
 <body>
 <c:if test="${result>0 }">
 	<script type="text/javascript">
-		alert("수정 성공");
+		alert("수정 되었습니다");
 		location.href="GboardoContent.do?bo_num=${bo_num}";
 	</script>
 </c:if>
