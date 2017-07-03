@@ -87,11 +87,12 @@ create table Greplyx (
 	bx_num number references Gboardx(bx_num)
 );
 -- qna게시판쪽 댓글게시판
-
+select * from Gcart;
+drop table gcart;
 create table Gcart (
 	ct_num number primary key,
 	ct_count number,
-	id varchar2(20),
+	id varchar2(20) references Gmember(id),
 	pro_num number references Gproduct(pro_num)	
 );
 -- 카트쪽 아이디는 연동안되서 임시로 생성
@@ -101,8 +102,8 @@ create table Gbuy (
 	buy_addr varchar2(50) not null,
 	buy_memo varchar2(80) default 'nothing',
 	buy_date date not null,
-	buy_price number not null,
-	ct_num number ,
+	ct_num number,
 	pro_num number references Gproduct(pro_num),
 	id varchar2(20)
-);
+);-- buy_price 지움
+alter table Gbuy drop column buy_price;

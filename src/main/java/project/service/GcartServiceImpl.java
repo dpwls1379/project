@@ -8,7 +8,7 @@ import project.dao.GcartDao;
 import project.model.Gcart;
 
 @Service
-public class GcartServiceDao implements GcartService{
+public class GcartServiceImpl implements GcartService{
 	@Autowired
 	private GcartDao gd;
 
@@ -31,5 +31,21 @@ public class GcartServiceDao implements GcartService{
 	public int update(Gcart gcart) {
 		return gd.update(gcart);
 	}
+
+	@Override
+	public int delete(int ct_num) {
+		return gd.delete(ct_num);
+	}
+
+	@Override
+	public Gcart info(int ct_num) {
+		return gd.info(ct_num);
+	}
+
+	@Override
+	public Gcart member(String id) {
+		return gd.member(id);
+	}
+
 
 }

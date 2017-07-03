@@ -23,12 +23,12 @@
 .chatPre {
 	height: 150px;
 }
-.buy td{
+.buy>td{
 	height: 100px;
 	text-align: center;
 	text-decoration: inherit;
 }
-th{
+.Tr>th{
 	text-align: center;
 }
 .primary{

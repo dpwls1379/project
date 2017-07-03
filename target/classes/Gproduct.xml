@@ -36,7 +36,7 @@
 	</select>
 	<select id="pdList3" resultMap="gproductResult">
 		<![CDATA[
-			select * from (select * from (select pro_num, avg(bo_star) avg from Gboardo group by pro_num) natural join gproduct order by avg desc) where rowNum <=5
+			select * from (select * from (select pro_num, avg(bo_star) avg from Gboardo group by pro_num) natural join gproduct order by avg desc) where rowNum <= 5
 		]]>
 	</select>
 	<select id="pdContent" parameterType="int" resultType="gproduct">

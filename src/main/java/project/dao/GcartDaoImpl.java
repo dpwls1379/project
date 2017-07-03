@@ -30,6 +30,19 @@ public class GcartDaoImpl implements GcartDao{
 	public int update(Gcart gcart) {
 		return sst.update("gcart.update",gcart);
 	}
-	
-	
+
+	@Override
+	public int delete(int ct_num) {
+		return sst.delete("gcart.delete",ct_num);
+	}
+
+	@Override
+	public Gcart info(int ct_num) {
+		return sst.selectOne("gcart.info",ct_num);
+	}
+
+	@Override
+	public Gcart member(String id) {
+		return sst.selectOne("gcart.member",id);
+	}
 }

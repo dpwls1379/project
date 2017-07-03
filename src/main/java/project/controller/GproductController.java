@@ -26,6 +26,7 @@ public class GproductController {
 		category.add("식료품");
 		category.add("핸드폰");
 		category.add("농수산물");
+		category.add("스포츠용품");
 		category.add("기타");
 		
 		System.out.println(category.stream());

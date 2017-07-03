@@ -12,6 +12,10 @@
 		<result property="pro_sale" column="pro_sale" />
 		<result property="pro_price" column="pro_price" />
 		<result property="pro_image" column="pro_image" />
+		<result property="name" column="name" />
+		<result property="addr" column="addr" />
+		<result property="tel" column="tel" />
+		<result property="email" column="email" />
 	</resultMap>
 	<insert id="insert" parameterType="gcart">
 		<selectKey keyProperty="ct_num" order="BEFORE" resultType="int">		
@@ -28,4 +32,13 @@
 	<update id="update" parameterType="gcart">
 		update Gcart set ct_count = ct_count + #{ct_count} where pro_num=#{pro_num}
 	</update>
+	<delete id="delete" parameterType="int">
+		delete from Gcart where ct_num=#{ct_num}
+	</delete>
+	<select id="info" parameterType="int" resultType="gcart">
+		select * from Gcart natural join Gproduct where ct_num=#{ct_num}
+	</select>
+	<select id="member" parameterType="String" resultType="gcart">
+		select * from Gcart natural join Gmember where id=#{id}
+	</select>
 </mapper>

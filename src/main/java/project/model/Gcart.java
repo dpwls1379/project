@@ -8,8 +8,36 @@ public class Gcart {
 	private String pro_name;
 	private int pro_sale;
 	private int pro_price;
-	private String pro_image;	
+	private String pro_image;
+	private String name;
+	private String addr;
+	private int tel;
+	private String email;	
 	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getAddr() {
+		return addr;
+	}
+	public void setAddr(String addr) {
+		this.addr = addr;
+	}
+	public int getTel() {
+		return tel;
+	}
+	public void setTel(int tel) {
+		this.tel = tel;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public String getPro_name() {
 		return pro_name;
 	}

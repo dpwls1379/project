@@ -3,7 +3,6 @@ package project.service;
 import java.util.List;
 
 import project.model.Gcart;
-import project.model.Gproduct;
 
 public interface GcartService {
 
@@ -14,5 +13,11 @@ public interface GcartService {
 	String selectId(Gcart gcart);
 
 	int update(Gcart gcart);
+
+	int delete(int ct_num);
+
+	Gcart info(int ct_num);
+
+	Gcart member(String id);
 
 }

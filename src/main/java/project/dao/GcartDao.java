@@ -14,4 +14,9 @@ public interface GcartDao {
 
 	int update(Gcart gcart);
 
+	int delete(int ct_num);
+
+	Gcart info(int ct_num);
+
+	Gcart member(String id);
 }

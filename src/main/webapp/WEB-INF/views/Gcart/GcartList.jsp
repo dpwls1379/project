@@ -10,31 +10,42 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	$(function() {
-/* 		$('.image').click(function() {
-			window.open("GproductImage.do?pro_image=${cart.pro_image}", "상품 이미지", "width=400, height=400");
-		});
-		$('#chkboxAll').click(function() {
-			if($('#chkboxAll').prop('checked')) {
-				$('#chkbox').each(function() {
-					$(this).attr('checked','checked');
-				});
-			} else {
-				$('#chkbox').each(function() {
-					$(this).removeAttr('checked');
-				});
-			}
-		}); */
 		var chkbox = document.getElementsByName('chkbox');
-		$.each(chkbox,function(index) {			
-			$(this).click(function() {					
+		var price;
+		var fullPrice=0;
+		$.each(chkbox,function(index) {	
+			$(this).click(function() {	
 				if($(this).prop('checked')) {
-					var price = $(this).parent().siblings('#totprice').text();
-					$('#totbuy').empty().append(price);
+					price = $(this).parent().siblings('#totprice').text();
+					price = parseInt(price);
+					fullPrice = fullPrice + price;
+					$('#totbuy').empty().append(fullPrice);
 				} else {
-					$('#totbuy').empty();
+					price = $(this).parent().siblings('#totprice').text();
+					price = parseInt(price);
+					fullPrice = fullPrice - price;
+					$('#totbuy').empty().append(fullPrice);
 				}
 			});
 		});
+		$('#chkboxAll').click(function() {
+			var chkbox = document.getElementsByName('chkbox');
+			var rowCnt = chkbox.length - 1;
+			if($(this).prop("checked")) {﻿
+				for(var i=0; i<=rowCnt; i++) {
+					if(chkbox[i].type == "checkbox") {
+						chkbox[i].checked = true; 
+					}	               
+				}      
+			} else {
+				for(var i=0; i<=rowCnt; i++) {
+					if(chkbox[i].type == "checkbox") {
+						chkbox[i].checked = false; 
+					}
+				}
+			}
+		});
+		
 		var min = document.getElementsByName('min');		
 		$.each(min,function(index) {
 			$(this).click(function() {
@@ -42,11 +53,13 @@
 				var count = c-- -1;
 				if(count>=0) {
 					$(this).next('#ct_count').val(count);
-					var price = $(this).parent().prev().text();
+					price = $(this).parent().prev().text();
 					$(this).parent().next().empty().append(count*price);											
 					if($(this).parent().siblings('#chk').children('#chkbox').prop('checked')) {
-						var price = $(this).parent().next().text();
-						$('#totbuy').empty().append(price);
+						price = $(this).parent().prev('#price').text();
+						price = parseInt(price);
+						fullPrice = fullPrice - price;
+						$('#totbuy').empty().append(fullPrice);
 					}
 				} else {
 					alert("수량을 -로 할수 없습니다");
@@ -59,20 +72,79 @@
 				var c = $(this).prev('#ct_count').val();
 				var count = c++ +1;
 				$(this).prev('#ct_count').val(count);
-				var price = $(this).parent().prev().text();
+				price = $(this).parent().prev().text();
 				$(this).parent().next().empty().append(count*price);
-/* 				if($(this).parent().siblings('#chk').children('#chkbox').prop('checked')) {
-					var price = $(this).parent().next().text();
-					$('#totbuy').empty().append(price);
-				} */
+					if($(this).parent().siblings('#chk').children('#chkbox').prop('checked')) {
+						price = $(this).parent().prev('#price').text();
+						price = parseInt(price);
+						fullPrice = fullPrice + price;
+						$('#totbuy').empty().append(fullPrice);
+				}
 			});
-		});
-	});
+		});		
+	});	
+	function delchk() {
+		var userid = "";
+		var chkbox = document.getElementsByName("chkbox");
+		var chked = false;
+		var indexid = false;
+		for(i=0; i<chkbox.length; i++) {
+			if(chkbox[i].checked) {
+				if(indexid) {
+					userid = userid + '-';
+				}
+				userid = userid + chkbox[i].value;
+				indexid = true;
+			}
+		}
+		if(!indexid) {
+			alert("삭제할 상품을 체크해 주세요");
+			return;
+		}
+		var cf = confirm("삭제 하시겠습니까?");
+		if(cf) {
+			$('#userid').val(userid);			
+			$('#name').submit();
+		} 
+	}
+	function buy() {
+		var userid = "";
+		var chkbox = document.getElementsByName("chkbox");
+		var chked = false;
+		var indexid = false;
+		for(i=0; i<chkbox.length; i++) {
+			if(chkbox[i].checked) {
+				if(indexid) {
+					userid = userid + '-';
+				}
+				userid = userid + chkbox[i].value;
+				indexid = true;
+			}
+		}
+		if(!indexid) {
+			alert("결제할 상품을 체크해 주세요");
+			return;
+		}
+		var cf = confirm("상품을 주문하시겠습니까?");
+		if(cf) {
+			$('#userid').val(userid);
+			alert(userid);
+			var totprice = $('#totbuy').text();
+			$('#tot').val(totprice);
+			$('#frm').submit();
+		} 
+	}
 </script>
 </head>
 <div class="container">
-<form action="" method="post">
-	<input type="hidden" name="id" value="${id}">
+<form action="GcartDelete.do" id="name" method="post">
+	<input type="hidden" id="userid" name="userid">
+<%-- 	<input type="hidden" name="id" value="${id}"> --%>
+</form>
+<form action="GbuyForm.do" method="post" id="frm">
+	<input type="hidden" id="userid" name="userid">
+	<input type="hidden" name="tot" id="tot">
+<%-- 	<input type="hidden" name="id" value="${id}"> --%>
 	<table class="table table-hover">
 		<tr>	
 			<td><input type="checkbox" id="chkboxAll"></td>
@@ -82,13 +154,13 @@
 			<td id="123">총 가격</td>
 		</tr>
 		<c:forEach var="cart" items="${gcart }">
-			<tr>
+			<tr>				
 				<td id="chk">
-					<input type="checkbox" name="chkbox" id="chkbox">
-				</td>
-				<td><img src="${path}/images/${cart.pro_image}" height="70" width="70" class="image"></td>
+					<input type="checkbox" name="chkbox" id="chkbox" value="${cart.ct_num }">
+				</td>				
+				<td><img src="${path}/images/${cart.pro_image}" height="70" width="70"></td>
 				<td><a href="GproductInfo.do?pro_num=${cart.pro_num }">${cart.pro_name}</a></td>			
-				<td id="price">
+				<td id="price" name="price">
 					<fmt:formatNumber value="${(100-cart.pro_sale)/100*cart.pro_price}" pattern="0"/>
 				</td>
 				<td>
@@ -107,8 +179,8 @@
 		</tr>
 		<tr>
 			<td colspan="6" align="right">
-				<button type="button" class="btn btn-default">삭제</button>
-				<button type="button" class="btn btn-default">주문결제</button>				
+				<button type="button" class="btn btn-default" onclick="delchk()">삭제</button>
+				<button type="button" class="btn btn-default" onclick="return buy()">주문결제</button>				
 			</td>
 		</tr>
 	</table>

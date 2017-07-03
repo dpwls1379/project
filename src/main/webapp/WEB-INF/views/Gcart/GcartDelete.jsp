@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
-<%@ include file="../mainHeader.jsp"%>      
+<%@ include file="../mainHeader.jsp" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,18 +9,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-<c:if test="${result>0 }">
+<c:if test="${result>0}">
 	<script type="text/javascript">
-		alert("장바구니에 상품을 담았습니다");
-		var cf = confirm("장바구니를 확인하시겠습니까?");
-		if(cf==true) {
-			location.href="GcartList.do";
-		} else {
-			history.go(-1);
-		}
+		alert("장바구니에서 삭제되었습니다");
+		location.href="GcartList.do";
 	</script>
 </c:if>
-<c:if test="${result<=0 }">
+<c:if test="${result<=0}">
 	<script type="text/javascript">
 		alert("실패");
 		history.go(-1);

@@ -33,11 +33,11 @@
 							"상품 이미지", "width=400, height=400");
 				});
 		$('#plus').click(function() {
-			var c = $('#pro_count').val(); //구매 수량
+			var c = $('#ct_count').val(); //구매 수량
 			var cnt= $('#pro_cnt').text(); //상품 남은 갯수
 			if(c < cnt){
 				var count = c++ + 1;
-				$('#pro_count').val(count);
+				$('#ct_count').val(count);
 				var price = $('#price').val();
 				$('#hap').empty().append(comma(price * count) + "원");
 			}else{
@@ -45,16 +45,16 @@
 			}
 		});
 		$('#min').click(function() {
-			var c = $('#pro_count').val();
+			var c = $('#ct_count').val();
 			if (c != 0) {
 				var count = c-- - 1;
-				$('#pro_count').val(count);
+				$('#ct_count').val(count);
 				var price = $('#price').val();
 				$('#hap').empty().append(comma(price * count) + "원");
 			}
 		});
 		$('#BuyNow').click(function() {
-			var sendData = 'buy_count=' + $('#pro_count').val() + '&&' + 'pro_num=' + $('#pronum').val();
+			var sendData = 'buy_count=' + $('#ct_count').val() + '&&' + 'pro_num=' + $('#pronum').val();
 			location.href="buyNow.do?"+sendData;
 		});
 		
@@ -106,7 +106,7 @@
 			<tr>
 				<th>구입개수</th>
 				<td><a class="btn btn-default btn-sm" id="min">-</a> <input
-					type="number" name="pro_count" id="pro_count" value="1"> <a
+					type="number" name="ct_count" id="ct_count" value="1"> <a
 					class="btn btn-default btn-sm" id="plus">+</a></td>
 			</tr>
 			<tr>
@@ -118,7 +118,7 @@
 			<tr>
 				<td colspan="3" align="right"><c:if test="${list.pro_count>0 }">
 						<div class="btn-group">
-							<a href="#" class="btn btn-default" onclick="cart()">장바구니</a> 
+							<a href="#" class="btn btn-default" onclick="return cart()">장바구니</a> 
 							<a href="#" class="btn btn-default" id="BuyNow" >바로구매</a>
 						</div>
 					</c:if> <c:if test="${list.pro_count<=0 }">
