@@ -19,8 +19,8 @@ public class GproductDaoImpl implements GproductDao{
 	}
 
 	@Override
-	public List<Gproduct> list() {
-		return sst.selectList("gproduct.list");
+	public List<Gproduct> list(Gproduct gp) {
+		return sst.selectList("gproduct.list", gp);
 	}
 
 	@Override
@@ -61,5 +61,10 @@ public class GproductDaoImpl implements GproductDao{
 	@Override
 	public List<Gproduct> search(String search) {
 		return sst.selectList("gproduct.search",search);
+	}
+
+	@Override
+	public int getTotalRecordProduct() {
+		return sst.selectOne("getTotalProduct");
 	}
 }

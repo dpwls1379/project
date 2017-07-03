@@ -9,6 +9,8 @@
 <script src="${path}/js/jquery.js"></script>
 <script src="${path}/js/bootstrap.min..js"></script>
 <style>
+<<<<<<<
+HEAD
 .err {
 	color: red;
 	font-size: 16px;
@@ -23,19 +25,32 @@
 .chatPre {
 	height: 150px;
 }
-.buy td{
+
+.buy td {
 	height: 100px;
 	text-align: center;
 	text-decoration: inherit;
 }
-th{
+
+th {
 	text-align: center;
 }
-.primary{
+
+.primary {
 	color: blue;
 }
-.text_sm{
+
+.text_sm {
 	font-size: 12px;
+}
+
+.err {
+	color: red;
+	font-size: 16px;
+}
+
+.pg {
+	background-color: #b80e2c;
 }
 </style>
 <script type="text/javascript">
@@ -43,10 +58,10 @@ th{
 		$('.tp').click(function() {
 			$(window).scrollTop(0);
 		});
-// 		$('.mouseImg').hover(function() {
-// 			$(this).animate({scale:'+=0.2'}, 300);
-// 		}, function() {
-// 			$(this).animate({scale:'-=0.2'}, 300);
-// 		});
+		// 		$('.mouseImg').hover(function() {
+		// 			$(this).animate({scale:'+=0.2'}, 300);
+		// 		}, function() {
+		// 			$(this).animate({scale:'-=0.2'}, 300);
+		// 		});
 	});
 </script>

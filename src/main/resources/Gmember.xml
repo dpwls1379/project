@@ -36,13 +36,18 @@
 	<select id="confirm" parameterType="string" resultType="string">
 		select id from gmember where id=#{id}
 	</select>
-	<select id="gmList" resultMap="gmemberResult">
-		select * from gmember where id != 'master'
+	<select id="gmList" resultMap="gmemberResult" parameterType="gmember">
+		select * from (select a.*,rowNum rn from (
+			select * from gmember) a ) 
+			where rn between #{startRow} and #{endRow} and id != 'master'
 	</select>
 	<delete id="gmDelete" parameterType="gmember">
 		delete from gmember where id=#{id}
 	</delete>
 	<select id="mypage" parameterType="string" resultType="gmember">
 		select id, name, addr, tel, email, birthday from gmember where id=#{id}
+	</select>
+	<select id="getTotalMember" resultType="Integer">
+		select count(*) from gmember
 	</select>
 </mapper>

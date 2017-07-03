@@ -18,10 +18,12 @@ public interface GmemberDao {
 
 	int confirm(String id);
 
-	List<Gmember> gmList();
-
 	int gmDelete(String id);
 
 	Gmember mypage(String id);
+
+	int getTotalRecordMember();
+
+	List<Gmember> gmList(Gmember gm);
 
 }

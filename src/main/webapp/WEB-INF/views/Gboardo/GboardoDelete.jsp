@@ -10,7 +10,7 @@
 <body>
 <c:if test="${result>0 }">
 	<script type="text/javascript">
-		alert("삭제 성공");
+		alert("게시글이 삭제되었습니다.");
 		location.href="GboardoList.do";
 	</script>
 </c:if>

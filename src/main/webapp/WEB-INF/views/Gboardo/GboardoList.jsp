@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../header.jsp" %> 
+<%@ include file="../header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,6 +58,34 @@
 			</c:if>					
 		</c:if>		
 	</c:forEach>
+	<div align="center">
+<ul class="pagination">
+	<c:if test="${not empty keyword}">
+		<c:if test="${pp.startPage > pp.pagePerBlk }">
+			<li><a href="${path }/list/pageNum/${pp.startPage - 1}?search=${search}&keyword=${keyword}">이전</a></li>
+		</c:if>
+		<c:forEach var="i" begin="${pp.startPage}" end="${pp.endPage}">
+			<li <c:if test="${pp.currentPage==i}">class="active"</c:if>>
+				<a href="${path }/list/pageNum/${i}?search=${search}&keyword=${keyword}">${i}</a></li>
+		</c:forEach>
+		<c:if test="${pp.endPage < pp.totalPage}">
+			<li><a href="${path }/list/pageNum/${pp.endPage + 1}?search=${search}&keyword=${keyword}">다음</a></li>
+		</c:if>		
+	</c:if>
+	<c:if test="${empty keyword}">
+		<c:if test="${pp.startPage > pp.pagePerBlk }">
+			<li><a href="${path }/list/pageNum/${pp.startPage - 1}">이전</a></li>
+		</c:if>
+		<c:forEach var="i" begin="${pp.startPage}" end="${pp.endPage}">
+			<li <c:if test="${pp.currentPage==i}">class="active"</c:if>>
+				<a href="${path }/list/pageNum/${i}">${i}</a></li>
+		</c:forEach>
+		<c:if test="${pp.endPage < pp.totalPage}">
+			<li><a href="${path }/list/pageNum/${pp.endPage + 1}">다음</a></li>
+		</c:if>		
+	</c:if>
+</ul>
+</div>
 	<div align="right" class="col-md-12">
 		<a href="GboardoForm.do?pro_num=${pro_num}">
 			<button type="button" class="btn btn-default">상품평쓰기</button>

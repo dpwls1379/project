@@ -61,6 +61,22 @@
 				</tr>
 			</c:forEach>
 		</table>
+<!-- 페이징 ~ -->
+<div align="center">
+<ul class="pagination">
+	<c:if test="${pp.startPage > pp.pagePerBlk }">
+		<li><a href="GproductList.do?pageNum=${pp.startPage - 1}">이전</a></li>
+	</c:if>
+	<c:forEach var="i" begin="${pp.startPage}" end="${pp.endPage}">
+		<li <c:if test="${pp.currentPage==i}">class="active pg"</c:if>>
+			<a href="GproductList.do?pageNum=${i}">${i}</a></li>
+	</c:forEach>
+	<c:if test="${pp.endPage < pp.totalPage}">
+		<li><a href="GproductList.do?pageNum=${pp.endPage + 1}">다음</a></li>
+	</c:if>		
+</ul>
+</div>
+<!-- ~ 페이징 -->
 		<div align="right">
 			<c:if test="${not empty id }">
 				<c:if test="${id =='master' }">

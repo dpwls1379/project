@@ -28,9 +28,12 @@
 				</select>
 			</td>
 		</tr>
-		<tr><td><input type="text" name="bo_subject" required="required" maxlength="20" placeholder="제목"></td></tr>
-		<tr><td><textarea name="bo_content" class="bo_content" required="required" maxlength="255" placeholder="수정할 내용을 입력하세요(255자)"></textarea></td></tr>
-		<tr><td><input type="submit" value="수정"><input type="reset" value="취소"></td></tr>
+		<tr><td>
+			<input type="text" name="bo_subject" required="required" maxlength="20" placeholder="제목"></td></tr>
+		<tr><td>
+			<textarea name="bo_content" class="bo_content" required="required" maxlength="255" placeholder="수정할 내용을 입력하세요(255자)"></textarea></td></tr>
+		<tr><td>
+			<input type="submit" value="수정"><input type="reset" value="취소"></td></tr>
 	</table>
 </form>
 </body>

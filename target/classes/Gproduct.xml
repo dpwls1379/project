@@ -21,8 +21,10 @@
 		</selectKey>
 		insert into Gproduct values (#{pro_num},#{pro_cate},#{pro_name},#{pro_price},#{pro_sale},#{pro_info},#{pro_image},sysdate,#{pro_count},0,0)
 	</insert>
-	<select id="list" resultMap="gproductResult">
-		select * from Gproduct order by pro_num
+	<select id="list" resultMap="gproductResult" parameterType="gproduct">
+		<!-- select * from Gproduct order by pro_num -->
+		select * from (select a.*,rowNum rn from (select * from Gproduct) a ) 
+			where rn between #{startRow} and #{endRow}
 	</select>
 	<select id="pdList" resultMap="gproductResult">
 		<![CDATA[
@@ -36,7 +38,7 @@
 	</select>
 	<select id="pdList3" resultMap="gproductResult">
 		<![CDATA[
-			select * from (select * from (select pro_num, avg(bo_star) avg from Gboardo group by pro_num) natural join gproduct order by avg desc) where rowNum <= 5
+			select * from (select * from (select pro_num, avg(bo_star) avg from Gboardo group by pro_num) natural join gproduct order by avg desc) where rowNum <=5
 		]]>
 	</select>
 	<select id="pdContent" parameterType="int" resultType="gproduct">
@@ -53,5 +55,8 @@
 	</update>
 	<select id="search" parameterType="String" resultMap="gproductResult">
 		select * from Gproduct where pro_name like '%'||#{search}||'%'
+	</select>
+	<select id="getTotalProduct" resultType="Integer">
+		select count(*) from Gproduct
 	</select>
 </mapper>

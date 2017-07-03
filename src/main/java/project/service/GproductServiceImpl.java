@@ -19,8 +19,8 @@ public class GproductServiceImpl implements GproductService{
 	}
 
 	@Override
-	public List<Gproduct> list() {
-		return gpd.list();
+	public List<Gproduct> list(Gproduct gp) {
+		return gpd.list(gp);
 	}
 
 	@Override
@@ -61,5 +61,10 @@ public class GproductServiceImpl implements GproductService{
 	@Override
 	public List<Gproduct> search(String search) {
 		return gpd.search(search);
+	}
+
+	@Override
+	public int getTotalRecordProduct() {
+		return gpd.getTotalRecordProduct();
 	}
 }

@@ -11,7 +11,7 @@
 <body>
 <div class="container">
 	<table class="table">
-		<h3 class="text-primary" align="center">회원 목록</h3>
+		<h3 class="text-primary text-danger" align="center">회원 목록</h3>
 		<tr>
 			<th>아이디</th>
 			<th>이름</th>
@@ -35,17 +35,20 @@
 	</table>
 
 <div align="center">
-
-<c:if test="${startPage > PAGEPERBLOCK }">
-		<a href="adminList.do?pageNum=${endPage-PAGEPERBLOCK}">[이전]</a>
-</c:if>
-<c:forEach var="i" begin="${startPage}" end="${endPage}">
-		<a href="adminList.do?pageNum=${i}" >[${i}]</a>
-</c:forEach>
-<c:if test="${endPage < totPage }">
-		<a href="adminList.do?pageNum=${startPage+PAGEPERBLOCK}">[다음]</a>
-</c:if>	
+<ul class="pagination">
+		<c:if test="${pp.startPage > pp.pagePerBlk }">
+			<li><a href="memberAdmin.do?pageNum=${pp.startPage - 1}">이전</a></li>
+		</c:if>
+		<c:forEach var="i" begin="${pp.startPage}" end="${pp.endPage}">
+			<li <c:if test="${pp.currentPage==i}">class="active pg"</c:if>>
+				<a href="memberAdmin.do?pageNum=${i}">${i}</a></li>
+		</c:forEach>
+		<c:if test="${pp.endPage < pp.totalPage}">
+			<li><a href="memberAdmin.do?pageNum=${pp.endPage + 1}">다음</a></li>
+		</c:if>		
+</ul>
 </div>
+
 </div>
 </body>
 </html>

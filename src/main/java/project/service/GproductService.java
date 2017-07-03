@@ -8,7 +8,7 @@ public interface GproductService {
 
 	int insert(Gproduct gproduct);
 
-	List<Gproduct> list();
+	List<Gproduct> list(Gproduct gp);
 
 	int delete(int pro_num);
 
@@ -25,5 +25,7 @@ public interface GproductService {
 	List<Gproduct> pdList3();
 
 	List<Gproduct> search(String search);
+
+	int getTotalRecordProduct();
 
 }
