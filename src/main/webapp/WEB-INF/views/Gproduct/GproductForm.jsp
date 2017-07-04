@@ -51,16 +51,16 @@ $(function() {
 				<tr><th>할인가</th><td id="saleprice" class="err"></td></tr>
 				
 				<tr>
-					<th>상품상세정보</th>
-					<td>
-					<!-- <textarea rows="15" cols="30" name="pro_info" required="required"></textarea> -->
-					<input type="file" name="pro_info" required="required">
-					</td>
+					<th>상품이미지</th>
+					<td><input type="file" name="file1" required="required"></td>
 				</tr>
 				
 				<tr>
-					<th>상품이미지</th>
-					<td><input type="file" name="pro_image" required="required"></td>
+					<th>상품상세정보</th>
+					<td>
+					<!-- <textarea rows="15" cols="30" name="pro_info" required="required"></textarea> -->
+					<input type="file" name="file2" required="required">
+					</td>
 				</tr>
 				
 				<tr>
