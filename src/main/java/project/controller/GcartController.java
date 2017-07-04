@@ -20,18 +20,17 @@ public class GcartController {
 	
 	@RequestMapping("Gcart")
 	public String GproductCart(Model model, Gcart gcart, HttpSession session) {
-		int result;
+		int result=0;
 		String id=(String) session.getAttribute("id");
 		gcart.setId(id);
 		//System.out.println(gcart.getPro_num());
 		String chkId = gs.selectId(gcart);
-		if(chkId==null) {
-			gcart.setId(id);
+		if(chkId==null || chkId.equals("")) {
 			result = gs.insert(gcart);
 		} else {
 			result = gs.update(gcart);
 		}
-		model.addAttribute("id",gcart.getId());
+		//model.addAttribute("id",gcart.getId());
 		model.addAttribute("result",result);
 		return "Gcart/Gcart";
 	}

@@ -91,9 +91,9 @@ select * from Gcart;
 drop table gcart;
 create table Gcart (
 	ct_num number primary key,
-	ct_count number,
-	id varchar2(20) references Gmember(id),
-	pro_num number references Gproduct(pro_num)	
+	pro_num number references Gproduct(pro_num),
+	id varchar2(20) references Gmember(id),	
+	ct_count number
 );
 -- 카트쪽 아이디는 연동안되서 임시로 생성
 drop table Gbuy;
