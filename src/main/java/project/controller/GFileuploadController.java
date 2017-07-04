@@ -91,7 +91,7 @@ public class GFileuploadController {
 		int result=gbs.insert(gboardo);
 		
 		model.addAttribute("pro_num",gboardo.getPro_num());
-		model.addAttribute("resutl",result);
+		model.addAttribute("result",result);
 		
 		return "Gboardo/Gboardo";
 	}
