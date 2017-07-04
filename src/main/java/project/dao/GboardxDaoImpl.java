@@ -19,8 +19,8 @@ public class GboardxDaoImpl implements GboardxDao{
 	}
 
 	@Override
-	public List<Gboardx> list() {
-		return sst.selectList("gboardxns.list");
+	public List<Gboardx> list(Gboardx gbx) {
+		return sst.selectList("gboardxns.list",gbx);
 	}
 
 	@Override
@@ -57,8 +57,8 @@ public class GboardxDaoImpl implements GboardxDao{
 	}
 
 	@Override
-	public List<Gboardx> list2() {
-		return sst.selectList("gboardxns.list2");
+	public List<Gboardx> list2(Gboardx gbx) {
+		return sst.selectList("gboardxns.list2",gbx);
 	}
 
 	@Override
@@ -82,6 +82,11 @@ public class GboardxDaoImpl implements GboardxDao{
 	@Override
 	public List<Gboardx> listq() {
 		return sst.selectList("gboardxns.listq");
+	}
+
+	@Override
+	public int getTotalRecordBoardx() {
+		return sst.selectOne("getTotalBoardx");
 	}
 
 

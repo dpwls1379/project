@@ -4,6 +4,7 @@ import java.sql.Date;
 
 import org.springframework.web.multipart.MultipartFile;
 
+
 public class Gboardo {
 	private int bo_num; 
 	private String bo_subject;
@@ -16,6 +17,11 @@ public class Gboardo {
 	private String id;
 	private int pro_num;
 	
+	//페이징 작업
+	private int startRow;
+	private int endRow;
+	
+
 	private MultipartFile file1;//이미지 작업
 	
 	
@@ -24,6 +30,18 @@ public class Gboardo {
 	}
 	public void setFile1(MultipartFile file1) {
 		this.file1 = file1;
+	}
+	public int getStartRow() {
+		return startRow;
+	}
+	public void setStartRow(int startRow) {
+		this.startRow = startRow;
+	}
+	public int getEndRow() {
+		return endRow;
+	}
+	public void setEndRow(int endRow) {
+		this.endRow = endRow;
 	}
 	public int getBo_num() {
 		return bo_num;

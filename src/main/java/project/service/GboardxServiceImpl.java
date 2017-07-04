@@ -19,8 +19,8 @@ public class GboardxServiceImpl implements GboardxService{
 	}
 
 	@Override
-	public List<Gboardx> list() {
-		return gd.list();
+	public List<Gboardx> list(Gboardx gbx) {
+		return gd.list(gbx);
 	}
 
 	@Override
@@ -49,8 +49,8 @@ public class GboardxServiceImpl implements GboardxService{
 	}
 
 	@Override
-	public List<Gboardx> list2() {
-		return gd.list2();
+	public List<Gboardx> list2(Gboardx gbx) {
+		return gd.list2(gbx);
 	}
 
 	@Override
@@ -71,6 +71,11 @@ public class GboardxServiceImpl implements GboardxService{
 	@Override
 	public List<Gboardx> listq() {
 		return gd.listq();
+	}
+
+	@Override
+	public int getTotalRecordBoardx() {
+		return gd.getTotalRecordBoardx();
 	}
 
 

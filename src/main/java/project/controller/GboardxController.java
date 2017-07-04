@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import project.service.GboardxService;
+import project.service.PagingPgm;
 import project.model.Gboardx;
 
 @Controller
@@ -17,19 +18,56 @@ public class GboardxController {
 	private GboardxService gs;
 
 	@RequestMapping("GboardxList")
-	public String GboardxList(Model model) {
-		List<Gboardx> list = gs.list();
+	public String GboardxList(String pageNum, Gboardx gbx, Model model) {
+		final int rowPerPage = 10;
+		if (pageNum == null || pageNum.equals("")) {
+			pageNum = "1";
+		}
+		int currentPage = Integer.parseInt(pageNum);
+		int total = gs.getTotalRecordBoardx(); // 검색
+		int startRow = (currentPage - 1) * rowPerPage + 1;
+		int endRow = startRow + rowPerPage - 1;
+		PagingPgm pp = new PagingPgm(total, rowPerPage, currentPage);
+		gbx.setStartRow(startRow);
+		gbx.setEndRow(endRow);
+		int no = total - startRow + 1;
+		List<Gboardx> list = gs.list(gbx);
 		model.addAttribute("list", list);
-		return "Gboardx/GboardxList";
+		model.addAttribute("no", no);
+		model.addAttribute("pp", pp);
+		return "/Gboardx/GboardxList";
 	}
 
 	@RequestMapping("GboardxList2")
-	public String GboardxList2(Model model) {
-		List<Gboardx> list = gs.list2();
-		model.addAttribute("list", list);
-		return "Gboardx/GboardxList2";
+	public String GproductList(String pageNum, Gboardx gbx, Model model) {
+		final int rowPerPage = 10;
+		if (pageNum == null || pageNum.equals("")) {
+			pageNum = "1";
+		}
+		int currentPage = Integer.parseInt(pageNum);
+		int total = gs.getTotalRecordBoardx(); // 검색
+		int startRow = (currentPage - 1) * rowPerPage + 1;
+		int endRow = startRow + rowPerPage - 1;
+		PagingPgm pp = new PagingPgm(total, rowPerPage, currentPage);
+		gbx.setStartRow(startRow);
+		gbx.setEndRow(endRow);
+		int no = total - startRow + 1;
+		List<Gboardx> list2 = gs.list2(gbx);
+		model.addAttribute("list2", list2);
+		model.addAttribute("no", no);
+		model.addAttribute("pp", pp);
+		return "/Gboardx/GboardxList2";
 	}
 
+	/*
+	 * @RequestMapping("GboardxList") public String GboardxList(Model model) {
+	 * List<Gboardx> list = gs.list(); model.addAttribute("list",list); return
+	 * "Gboardx/GboardxList"; }
+	 * 
+	 * @RequestMapping("GboardxList2") public String GboardxList2(Model model) {
+	 * List<Gboardx> list = gs.list2(); model.addAttribute("list",list); return
+	 * "Gboardx/GboardxList2"; }
+	 */
 	@RequestMapping("GboardxContent")
 	public String GboardxContent(Model model, int bx_num) {
 		gs.readcount(bx_num);
@@ -49,11 +87,11 @@ public class GboardxController {
 	}
 
 	@RequestMapping("Gboardx")
-	public String Gboardx(Model model, Gboardx gboardx, HttpSession session) {
-
-		String id = (String) session.getAttribute("id");
-
+	public String Gboardx(Model model, Gboardx gboardx,HttpSession session) {
+		String id=(String)session.getAttribute("id");
+		
 		gboardx.setId(id);
+		
 		int result = gs.insert(gboardx);
 		model.addAttribute("result", result);
 		model.addAttribute("bx_categ", gboardx.getBx_categ());
@@ -62,8 +100,8 @@ public class GboardxController {
 
 	@RequestMapping("Gboardx2")
 	public String Gboardx2(Model model, Gboardx gboardx, HttpSession session) {
-
-		String id = (String) session.getAttribute("id");
+		
+		String id=(String)session.getAttribute("id");
 		gboardx.setId(id);
 		int result = gs.insert2(gboardx);
 		model.addAttribute("result", result);

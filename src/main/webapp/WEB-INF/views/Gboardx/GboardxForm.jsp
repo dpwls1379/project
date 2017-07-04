@@ -12,7 +12,8 @@
 </style>
 </head>
 <body>
-이미지 X, 공지사항 게시판
+<div class="container" align="center">
+<h2 class="text-primary text-danger">공 지 사 항</h2>
 <!-- 로그인 일때만 글작성 가능하게(관리자 아이디만) 나중에 합칠때 설정-->	
 <form action="Gboardx.do" name="frm" method="post">
 	<input type="hidden" name="bx_categ" value="notice" > 
@@ -24,8 +25,10 @@
 		<tr><td><input type="text" name="id" placeholder="아이디 임시"></td></tr>
 		<tr><td><input type="text" name="bx_subject" required="required" maxlength="20" placeholder="제목"></td></tr>
 		<tr><td><textarea name="bx_content" class="bx_content" required="required" maxlength="255" placeholder="내용을 입력하세요(255자)"></textarea></td></tr>
-		<tr><td><input type="submit" value="작성"><input type="reset" value="취소"></td></tr>
+		<tr><td><input type="submit" value="작성">
+				<input type="reset" value="취소"></td></tr>
 	</table>
 </form>
+</div>
 </body>
 </html>

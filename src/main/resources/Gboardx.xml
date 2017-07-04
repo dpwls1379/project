@@ -54,12 +54,15 @@
 	</select>
 	<select id="listn" resultMap="gboardxResult">
 		<![CDATA[
-			select * from (select * from Gboardx where bx_categ='notice' order by bx_date desc) where rowNum<=5
+		select * from (select * from Gboardx where bx_categ='notice' order by bx_date desc) where rowNum<=5
 		]]>
 	</select>
 	<select id="listq" resultMap="gboardxResult">
 		<![CDATA[
-			select * from (select * from Gboardx where bx_categ='qna' order by bx_date desc) where rowNum<=5
+		select * from (select * from Gboardx where bx_categ='qna' order by bx_date desc) where rowNum<=5
 		]]>
+	</select>
+	<select id="getTotalBoardx" resultType="Integer">
+		select count(*) from Gboardx
 	</select>
 </mapper>
