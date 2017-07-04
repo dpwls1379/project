@@ -8,7 +8,7 @@ public interface GboardxDao {
 
 	int insert(Gboardx gboardx);
 
-	List<Gboardx> list();
+	List<Gboardx> list(Gboardx gbx);
 
 	Gboardx content(int bx_num);
 
@@ -22,7 +22,7 @@ public interface GboardxDao {
 
 	Object bn_num();
 
-	List<Gboardx> list2();
+	List<Gboardx> list2(Gboardx gbx);
 
 	List<Gboardx> search2(String serct, String serc);
 
@@ -31,6 +31,8 @@ public interface GboardxDao {
 	List<Gboardx> listn();
 	
 	List<Gboardx> listq();
+
+	int getTotalRecordBoardx();
 
 
 
