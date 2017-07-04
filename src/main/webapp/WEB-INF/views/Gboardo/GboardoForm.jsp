@@ -12,8 +12,8 @@
 </style>
 </head>
 <body>
-<div class="container">
-	<h2>이미지 O, 상품평가 게시판</h2>
+<div class="container" align="center">
+	<h2 class="text-primary text-danger">상 품 평 가</h2>
 	<form action="Gboardo.do" method="post">
 		<input type="hidden" name="pro_num" value="${pro_num }">
 	<!-- 	
@@ -26,9 +26,7 @@
 				</td>
 			</tr>
 			<tr>	
-		
 				<td>
-		
 					평가
 					<select name="bo_star">
 						<option value="5" selected="selected">★★★★★</option>
@@ -38,9 +36,7 @@
 						<option value="1">★☆☆☆☆</option>			
 					</select>
 					<input type="text" name="bo_subject" required="required" maxlength="20" placeholder="제목">
-	
 			</td>
-
 			</tr>
 			<tr><td colspan="2"><textarea name="bo_content" class="bo_content" required="required" maxlength="255" placeholder="상품의 평가를 해주세요(255자)"></textarea></td></tr>
 			<tr><td><input type="file" name="bo_image"></td></tr>
