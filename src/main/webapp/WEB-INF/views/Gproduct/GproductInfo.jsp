@@ -17,7 +17,7 @@
 }
 </style>
 <script type="text/javascript">
-	function cart() {		
+	function cart() {
 		frm.submit();
 	}
 	function comma(data_value) {
