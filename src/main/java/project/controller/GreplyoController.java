@@ -2,6 +2,8 @@ package project.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +23,9 @@ public class GreplyoController {
 		return "Greplyo/GreplyoForm";
 	}
 	@RequestMapping("Greplyo")
-	public String Greplyo(Model model, Greplyo greplyo) {
+	public String Greplyo(Model model, Greplyo greplyo, HttpSession session) {
+		String id=(String) session.getAttribute("id");
+		greplyo.setId(id);
 		int result = gs.insert(greplyo);
 		model.addAttribute("result",result);
 		model.addAttribute("bo_num",greplyo.getBo_num());

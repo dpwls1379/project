@@ -23,7 +23,7 @@ $(function() {
 		</h3>
 	
 		 <ul class="nav nav-pills nav-justified">
-         <li><a href="GproductList.do" class="text-danger">상품정보</a></li>
+         <li><a href="GproductList.do?pageNum=1" class="text-danger">상품정보</a></li>
          <li><a href="Gcenter.do" class="text-danger">고객센터</a></li>
          <c:if test="${empty id }">
          <li><a href="main.do" class="text-danger">로그인</a></li>

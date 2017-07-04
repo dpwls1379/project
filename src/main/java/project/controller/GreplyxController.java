@@ -1,6 +1,8 @@
 package project.controller;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +22,9 @@ public class GreplyxController {
 		return "Greplyx/GreplyxForm";
 	}
 	@RequestMapping("Greplyx")
-	public String Greplyx(Model model, Greplyx greplyx) {
+	public String Greplyx(Model model, Greplyx greplyx,HttpSession session) {
+		
+		String id=(String)session.getAttribute("id");
 		int result = gs.insert(greplyx);
 		model.addAttribute("result",result);
 		model.addAttribute("bx_num",greplyx.getBx_num());
