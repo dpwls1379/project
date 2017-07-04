@@ -17,7 +17,6 @@
 	아이디는 임시로 입력해서 사용
 -->
 	<table class="table table-hover">
-		<tr><td colspan="2"><input type="text" name="id" placeholder="아이디 임시"></td></tr>
 		<tr><td colspan="2"><textarea name="reo_content" class="bo_content" required="required" maxlength="50" placeholder="댓글을 입력하세요(50자 이내)"></textarea></td></tr>
 		<tr><td colspan="2"><input type="submit" value="작성"><input type="reset" value="취소"></td></tr>
 	</table>
