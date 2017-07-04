@@ -22,13 +22,13 @@ public class GboardoController {
 		model.addAttribute("pro_num",pro_num);
 		return "Gboardo/GboardoForm";
 	}
-	@RequestMapping("Gboardo")
-	public String Gboardo(Model model, Gboardo gboardo) {
-		int result = go.insert(gboardo);
-		model.addAttribute("pro_num",gboardo.getPro_num());
-		model.addAttribute("result",result);
-		return "Gboardo/Gboardo";
-	}
+//	@RequestMapping("Gboardo")
+//	public String Gboardo(Model model, Gboardo gboardo) {
+//		int result = go.insert(gboardo);
+//		model.addAttribute("pro_num",gboardo.getPro_num());
+//		model.addAttribute("result",result);
+//		return "Gboardo/Gboardo";
+//	}
 	@RequestMapping("GboardoList")
 	public String GboardoList(Model model, int pro_num) {
 		List<Gboardo> list = go.list(pro_num);
@@ -45,17 +45,19 @@ public class GboardoController {
 	}
 	@RequestMapping("GboardoUpdateForm")
 	public String GboardoUpdateForm(Model model, int bo_num, String id) {
+		Gboardo gbo=go.content(bo_num);
+		model.addAttribute("gbo",gbo);
 		model.addAttribute("bo_num",bo_num);
 		model.addAttribute("id",id);
 		return "Gboardo/GboardoUpdateForm";
 	}
-	@RequestMapping("GboardoUpdate")
-	public String GboardoUpdate(Model model, Gboardo gboardo) {
-		int result = go.update(gboardo);
-		model.addAttribute("result",result);
-		model.addAttribute("bo_num",gboardo.getBo_num());
-		return "Gboardo/GboardoUpdate";
-	}
+//	@RequestMapping("GboardoUpdate")
+//	public String GboardoUpdate(Model model, Gboardo gboardo) {
+//		int result = go.update(gboardo);
+//		model.addAttribute("result",result);
+//		model.addAttribute("bo_num",gboardo.getBo_num());
+//		return "Gboardo/GboardoUpdate";
+//	}
 	@RequestMapping("GboardoDelete")
 	public String GboardoDelete(Model model, int bo_num) {
 		int result = go.delete(bo_num);

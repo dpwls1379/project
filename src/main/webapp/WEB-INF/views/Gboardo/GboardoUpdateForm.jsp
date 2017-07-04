@@ -12,7 +12,7 @@
 </style>
 </head>
 <body>
-<form action="GboardoUpdate.do" name="frm" method="post">
+<form action="GboardoUpdate.do" name="frm" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="bo_num" value="${bo_num }">
 	<table class="table table-hover">
 		<tr><td><input type="text" name="id" value="${id }" disabled="disabled"></td></tr>
@@ -29,9 +29,11 @@
 			</td>
 		</tr>
 		<tr><td>
-			<input type="text" name="bo_subject" required="required" maxlength="20" placeholder="제목"></td></tr>
+			<input type="text" name="bo_subject" value="${gbo.bo_subject }" required="required" maxlength="20" placeholder="제목"></td></tr>
 		<tr><td>
-			<textarea name="bo_content" class="bo_content" required="required" maxlength="255" placeholder="수정할 내용을 입력하세요(255자)"></textarea></td></tr>
+			<input type="file" name="file1" value="${gbo.bo_image }"></td></tr>
+		<tr><td>
+			<textarea name="bo_content" class="bo_content" required="required" maxlength="255" placeholder="수정할 내용을 입력하세요(255자)">${gbo.bo_content }</textarea></td></tr>
 		<tr><td>
 			<input type="submit" value="수정"><input type="reset" value="취소"></td></tr>
 	</table>

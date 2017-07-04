@@ -14,17 +14,17 @@
 <body>
 <div class="container">
 	<h2>이미지 O, 상품평가 게시판</h2>
-	<form action="Gboardo.do" method="post">
+	<form action="Gboardo.do" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="pro_num" value="${pro_num }">
 	<!-- 	
 		아이디는 임시로 입력해서 사용
 	-->
 		<table class="table table-hover">
-			<tr>
-				<td colspan="2">
-					<input type="text" name="id" placeholder="아이디 임시">
-				</td>
-			</tr>
+<!-- 			<tr> -->
+<!-- 				<td colspan="2"> -->
+<!-- 					<input type="text" name="id" placeholder="아이디 임시"> -->
+<!-- 				</td> -->
+<!-- 			</tr> -->
 			<tr>	
 		
 				<td>
@@ -43,7 +43,7 @@
 
 			</tr>
 			<tr><td colspan="2"><textarea name="bo_content" class="bo_content" required="required" maxlength="255" placeholder="상품의 평가를 해주세요(255자)"></textarea></td></tr>
-			<tr><td><input type="file" name="bo_image"></td></tr>
+			<tr><td><input type="file" name="file1"></td></tr>
 			<tr><td colspan="2"><input type="submit" value="작성"><input type="reset" value="취소"></td></tr>
 		</table>
 	</form>

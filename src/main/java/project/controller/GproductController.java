@@ -80,15 +80,15 @@ public class GproductController {
 		model.addAttribute("pro_num",pro_num);
 		return "Gproduct/GproductUpdateForm";
 	}
-	@RequestMapping("GproductUpdate")
-	public String GproductUpdate(Model model, Gproduct gproduct) {
-		if(gproduct.getPro_info() == ""){
-			gproduct.setPro_info("nothing.jpg");
-		}
-		int result = gps.update(gproduct);
-		model.addAttribute("result",result);
-		return "Gproduct/GproductUpdate";
-	}
+//	@RequestMapping("GproductUpdate")
+//	public String GproductUpdate(Model model, Gproduct gproduct) {
+//		if(gproduct.getPro_info() == ""){
+//			gproduct.setPro_info("nothing.jpg");
+//		}
+//		int result = gps.update(gproduct);
+//		model.addAttribute("result",result);
+//		return "Gproduct/GproductUpdate";
+//	}
 	@RequestMapping("GproductMain")
 	public String GproductMain(Model model) {
 		List<Gproduct> list = gps.pdList();

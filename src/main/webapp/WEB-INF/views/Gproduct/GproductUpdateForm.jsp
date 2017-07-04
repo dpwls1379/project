@@ -22,7 +22,7 @@
 </head>
 <body>
 <div class="container">
-<form action="GproductUpdate.do" method="post" name="frm">
+<form action="GproductUpdate.do" method="post" enctype="multipart/form-data" name="frm">
 	<input type="hidden" name="pro_num" value="${pro_num }">
 	<table class="table table-hover">
 		<tr>
@@ -51,13 +51,13 @@
 			<td><input type="number" name="pro_sale" required="required" min="0" max="100" value="${list.pro_sale }">%</td>
 		</tr>
 		<tr>
-			<td>상세정보</td>
-			<!-- <td><textarea rows="15" cols="50" name="pro_info"></textarea></td> -->
-			<td><input type="file" name="pro_info"></td>
+			<td>이미지</td>
+			<td><input type="file" name="file1" required="required"></td>
 		</tr>
 		<tr>
-			<td>이미지</td>
-			<td><input type="file" name="pro_image" required="required"></td>
+			<td>상세정보</td>
+			<!-- <td><textarea rows="15" cols="50" name="pro_info"></textarea></td> -->
+			<td><input type="file" name="file2"></td>
 		</tr>
 		<tr>
 			<td><input type="submit" value="수정" onclick="return chk()" class="btn btn-success btn-sm"><input type="reset" value="취소" class="btn btn-default btn-sm"></td>

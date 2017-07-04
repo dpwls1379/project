@@ -2,6 +2,8 @@ package project.model;
 
 import java.sql.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Gboardo {
 	private int bo_num; 
 	private String bo_subject;
@@ -14,6 +16,15 @@ public class Gboardo {
 	private String id;
 	private int pro_num;
 	
+	private MultipartFile file1;//이미지 작업
+	
+	
+	public MultipartFile getFile1() {
+		return file1;
+	}
+	public void setFile1(MultipartFile file1) {
+		this.file1 = file1;
+	}
 	public int getBo_num() {
 		return bo_num;
 	}
