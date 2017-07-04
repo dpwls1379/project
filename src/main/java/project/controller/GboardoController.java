@@ -32,6 +32,8 @@ public class GboardoController {
 		gbo.setEndRow(endRow);
 		int no = total - startRow + 1;
 		List<Gboardo> list = go.list(gbo);
+		int pro_num=gbo.getPro_num();
+		model.addAttribute("pro_num",pro_num);
 		model.addAttribute("list", list);
 		model.addAttribute("no", no);
 		model.addAttribute("pp", pp);

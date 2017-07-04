@@ -12,7 +12,7 @@
 </style>
 </head>
 <body>
-<div class="container" align="center" >
+<div class="container" align="center">
 	<div class="col-md-12" id="div">
 	<div class="col-md-1"></div>
 	<div class="col-md-2">상품평가</div>
@@ -22,10 +22,10 @@
 	<div class="col-md-1">조회수</div>
 	</div>
 	<hr class="hr">
-	<c:if test="${empty olist }">
+	<c:if test="${empty list }">
 		<div class="col-md-12">평가 게시물이 없습니다</div>
 	</c:if>	
-	<c:forEach var="olist" items="${olist }"> 					
+	<c:forEach var="olist" items="${list }"> 					
 		<c:if test="${not empty olist }">			
 			<c:if test="${olist.bo_del=='n' }">
 				<div class="col-md-12" id="div2">

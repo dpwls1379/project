@@ -15,7 +15,7 @@
 <form action="GboardoUpdate.do" name="frm" method="post">
 	<input type="hidden" name="bo_num" value="${bo_num }">
 	<table class="table table-hover">
-		<tr><td><input type="text" name="id" value="${id }" disabled="disabled"></td></tr>
+		<tr><th>아이디</th><td><input type="text" name="id" value="${id }" disabled="disabled"></td></tr>
 		<tr>
 			<td>				
 				평가

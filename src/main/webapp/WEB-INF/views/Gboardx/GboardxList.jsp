@@ -9,8 +9,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div class="container">
-	<h3>공지사항</h3>
+<div class="container" align="center">
+	<h3 class="text-primary text-danger">공지사항</h3>
 	<table class="table table-hover">
 		<tr>
 			<td colspan="6">
@@ -64,7 +64,9 @@
 	<!-- ~ 페이징 -->
 	<div align="right">
 		<a href="GboardxList.do"><button type="button" class="btn btn-default">목록</button></a>	
-		<a href="GboardxForm.do"><button type="button" class="btn btn-default">글쓰기</button></a>
+		<c:if test="${not empty id }">
+			<a href="GboardxForm.do"><button type="button" class="btn btn-default">글쓰기</button></a>
+		</c:if>
 	</div>	
 	<div align="center">
 		<form action="search.do" method="post">

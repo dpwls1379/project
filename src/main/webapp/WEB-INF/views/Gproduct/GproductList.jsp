@@ -36,8 +36,9 @@
 				<td></td>
 			</tr>
 			<c:forEach var="list" items="${list }">
+			<c:set value="${no }" var="no"></c:set>
 				<tr>
-					<td>${list.pro_num }</td>
+					<td>${no }</td>
 					<td>${list.pro_cate }</td>
 					<td><a href="GproductInfo.do?pro_num=${list.pro_num }">${list.pro_name }</a></td>
 					<td>${list.pro_price }</td>
@@ -59,6 +60,7 @@
 						</c:if>
 					</c:if>
 				</tr>
+				<c:set var="no" value="${no -1 }"></c:set>
 			</c:forEach>
 		</table>
 <!-- 페이징 ~ -->

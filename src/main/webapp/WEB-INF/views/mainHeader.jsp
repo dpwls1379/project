@@ -37,9 +37,9 @@ $(function() {
 		 </c:if>
      	 </ul>
     <br>
-    	<form action="GproductSearch.do" role="search">
-			<input type="text" name="search"> <input type="submit"
-				class="btn btn-sm" value="검색">
+    	<form action="GproductSearch.do" role="search" class="form-inline">
+			<input type="text" name="search" class="form-control"> <input type="submit"
+				class="btn btn-sm" value="검색" >
 		</form>
 	</div>
 	<!-- 	</div> -->
