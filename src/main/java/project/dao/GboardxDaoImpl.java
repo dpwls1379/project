@@ -15,32 +15,32 @@ public class GboardxDaoImpl implements GboardxDao{
 
 	@Override
 	public int insert(Gboardx gboardx) {
-		return sst.insert("gboardx.insert", gboardx);
+		return sst.insert("gboardxns.insert", gboardx);
 	}
 
 	@Override
 	public List<Gboardx> list() {
-		return sst.selectList("gboardx.list");
+		return sst.selectList("gboardxns.list");
 	}
 
 	@Override
 	public Gboardx content(int bx_num) {
-		return sst.selectOne("gboardx.content",bx_num);
+		return sst.selectOne("gboardxns.content",bx_num);
 	}
 
 	@Override
 	public int update(Gboardx gboardx) {
-		return sst.update("gboardx.update",gboardx);
+		return sst.update("gboardxns.update",gboardx);
 	}
 
 	@Override
 	public int delete(int bx_num) {
-		return sst.update("gboardx.delete",bx_num);
+		return sst.update("gboardxns.delete",bx_num);
 	}
 
 	@Override
 	public Object readcount(int bx_num) {
-		return sst.update("gboardx.readcount",bx_num);
+		return sst.update("gboardxns.readcount",bx_num);
 	}
 
 	@Override
@@ -48,17 +48,17 @@ public class GboardxDaoImpl implements GboardxDao{
 		HashMap<String, String> ser = new HashMap<String, String>();
 		ser.put("serct", serct);
 		ser.put("serc", serc);
-		return sst.selectList("gboardx.search",ser);
+		return sst.selectList("gboardxns.search",ser);
 	}
 
 	@Override
 	public Object bn_num() {
-		return sst.update("gboardx.bn_num");
+		return sst.update("gboardxns.bn_num");
 	}
 
 	@Override
 	public List<Gboardx> list2() {
-		return sst.selectList("gboardx.list2");
+		return sst.selectList("gboardxns.list2");
 	}
 
 	@Override
@@ -66,22 +66,22 @@ public class GboardxDaoImpl implements GboardxDao{
 		HashMap<String, String> hm2 = new HashMap<String, String>();
 		hm2.put("serct", serct);
 		hm2.put("serc", serc);
-		return sst.selectList("gboardx.search2", hm2);
+		return sst.selectList("gboardxns.search2", hm2);
 	}
 
 	@Override
 	public int insert2(Gboardx gboardx) {
-		return sst.insert("gboardx.insert2",gboardx);
+		return sst.insert("gboardxns.insert2",gboardx);
 	}
 
 	@Override
 	public List<Gboardx> listn() {
-		return sst.selectList("gboardx.listn");
+		return sst.selectList("gboardxns.listn");
 	}
 
 	@Override
 	public List<Gboardx> listq() {
-		return sst.selectList("gboardx.listq");
+		return sst.selectList("gboardxns.listq");
 	}
 
 

@@ -61,12 +61,12 @@ public class GproductController {
 //		model.addAttribute("result",result);
 //		return "Gproduct/Gproduct";
 //	}
-	@RequestMapping("GproductList")
-	public String GproductList(Model model, Gproduct gp) {
-		List<Gproduct> list = gps.list(gp);
-		model.addAttribute("list",list);
-		return "Gproduct/GproductList";
-	}
+//	@RequestMapping("GproductList")
+//	public String GproductList(Model model, Gproduct gp) {
+//		List<Gproduct> list = gps.list(gp);
+//		model.addAttribute("list",list);
+//		return "Gproduct/GproductList";
+//	}
 	@RequestMapping("GproductDelete")
 	public String GproductDelete(Model model, int pro_num) {
 		int result = gps.delete(pro_num);
