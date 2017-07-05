@@ -21,10 +21,10 @@ $(function() {
 		<h3 class="text-primary">
 			<a href="index.jsp"><img alt="" src="images/gallerida3.JPG"></a>
 		</h3>
-	
+		
 		 <ul class="nav nav-pills nav-justified">
          <li><a href="GproductList.do?pageNum=1" class="text-danger">상품정보</a></li>
-         <li><a href="Gcenter.do" class="text-danger">고객센터</a></li>
+         <li><a href="Gcenter.do" class="text-danger" data-toggle="dropdown">고객센터</a></li>
          <c:if test="${empty id }">
          <li><a href="main.do" class="text-danger">로그인</a></li>
          </c:if>
@@ -32,7 +32,7 @@ $(function() {
 		<li><a id="chattingDo" href="#" class="text-danger">채팅</a></li>
          <li><a href="logout.do" class="text-danger">로그아웃</a></li>
          <li><a href="gmMypage.do" class="text-danger">마이 페이지</a></li>
-         <li><a href="GcartList.do" class="text-danger">장 바 구 니</a></li>
+         <li><a href="GcartList.do" class="text-danger">장바구니</a></li>
          <p>
 		 <h5 class="text-primary text-danger">${id } 님 환영합니다  !</h5>
 		 </c:if>
