@@ -25,9 +25,9 @@
 		<input type="hidden" name="tot" value="${tot}">
 		<h2>주문자 정보</h2>
 		<table>
-			<tr><td>주문자 이름</td><td>${member.name}</td></tr>
-			<tr><td>주문자 전화</td><td>${member.tel}</td></tr>
-			<tr><td>주문자 메일</td><td>${member.email}</td></tr>
+			<tr><td>주문자 이름</td><td>&nbsp;&nbsp;&nbsp;&nbsp;${member.name}</td></tr>
+			<tr><td>주문자 전화</td><td>&nbsp;&nbsp;&nbsp;&nbsp;${member.tel}</td></tr>
+			<tr><td>주문자 메일</td><td>&nbsp;&nbsp;&nbsp;&nbsp;${member.email}</td></tr>
 		</table>
 		<h2>배송지 정보</h2>
 		<table>

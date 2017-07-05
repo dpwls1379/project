@@ -32,6 +32,7 @@ $(function() {
 		<li><a id="chattingDo" href="#" class="text-danger">채팅</a></li>
          <li><a href="logout.do" class="text-danger">로그아웃</a></li>
          <li><a href="gmMypage.do" class="text-danger">마이 페이지</a></li>
+         <li><a href="GcartList.do" class="text-danger">장 바 구 니</a></li>
          <p>
 		 <h5 class="text-primary text-danger">${id } 님 환영합니다  !</h5>
 		 </c:if>
