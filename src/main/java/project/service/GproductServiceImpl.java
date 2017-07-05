@@ -67,4 +67,9 @@ public class GproductServiceImpl implements GproductService{
 	public int getTotalRecordProduct() {
 		return gpd.getTotalRecordProduct();
 	}
+
+	@Override
+	public List<Gproduct> rlist(int pro_num) {
+		return gpd.rlist(pro_num);
+	}
 }

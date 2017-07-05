@@ -21,12 +21,13 @@
 		<selectKey keyProperty="ct_num" order="BEFORE" resultType="int">		
 			select nvl(max(ct_num),0)+1 from Gcart
 		</selectKey>
-		insert into Gcart values (#{ct_num},#{pro_num},#{id},#{ct_count})
+		insert into Gcart (ct_num,pro_num,id,ct_count) 
+		  values (#{ct_num},#{pro_num},#{id},#{ct_count})
 	</insert>
 	<select id="list" parameterType="String" resultMap="gcartResult">
 		select * from Gcart natural join Gproduct where id=#{id}
 	</select>
-	<select id="selectId" parameterType="gcart" resultType="String">
+	<select id="selectId" parameterType="gcart" resultType="string">
 		select id from Gcart where pro_num=#{pro_num} and id=#{id}
 	</select>
 	<update id="update" parameterType="gcart">

@@ -22,7 +22,7 @@
 		<table class="table table-hover">
 			<tr>
 				<td colspan="2">
-					<input type="text" name="id" placeholder="아이디 임시">
+					<input type="text" name="id" value="${id }">
 				</td>
 			</tr>
 			<tr>	

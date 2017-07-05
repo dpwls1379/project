@@ -24,12 +24,12 @@
 		return Number(data_value).toLocaleString('en').split(".");
 	}
 	$(function() {
-		$('#review').load('GboardoList.do?pro_num=${list.pro_num}');
+		$('#review').load('GboardoList.do?pro_num=${gproduct.pro_num}');
 	});
 	$(function() {
 		$('#image').click(
 				function() {
-					window.open("GproductImage.do?pro_image=${list.pro_image}",
+					window.open("GproductImage.do?pro_image=${gproduct.pro_image}",
 							"상품 이미지", "width=400, height=400");
 				});
 		$('#plus').click(function() {
@@ -63,37 +63,37 @@
 </head>
 <body>
 <form action="Gcart.do"  method="post" name="frm">
-	<input type="hidden" id="pronum" name="pro_num" value="${list.pro_num }">
+	<input type="hidden" id="pronum" name="pro_num" value="${gproduct.pro_num }">
 	<div class="container" align="center">
  		<input type="hidden" id="price" name="price"
-			value="${(100-list.pro_sale)/100*list.pro_price }">	
+			value="${(100-gproduct.pro_sale)/100*gproduct.pro_price }">	
 		<table class="table table-hover">
 			<tr>
-				<td rowspan="10"><img src="images/${list.pro_image }"
+				<td rowspan="10"><img src="images/${gproduct.pro_image }"
 					id="image" width="450" height="450"></td>
 			</tr>
 			<tr>
 				<th>상품명</th>
-				<td>${list.pro_name }</td>
+				<td>${gproduct.pro_name }</td>
 			</tr>
 			<tr>
 				<th>할인률</th>
-				<td>${list.pro_sale }%</td>
+				<td>${gproduct.pro_sale }%</td>
 			</tr>
 			<tr>
 				<th>정가</th>
-				<td><fmt:formatNumber value="${list.pro_price }"
+				<td><fmt:formatNumber value="${gproduct.pro_price }"
 						pattern="#,###.###" /> 원</td>
 			</tr>
 			<tr>
 				<th>판매가</th>
 				<td><fmt:formatNumber
-						value="${(100-list.pro_sale)/100*list.pro_price }"
+						value="${(100-gproduct.pro_sale)/100*gproduct.pro_price }"
 						pattern="#,###.###" /> 원</td>			
 			</tr>
 			<tr>
 				<th>상품남은개수</th>
-				<td id="pro_cnt">${list.pro_count }</td>
+				<td id="pro_cnt">${gproduct.pro_count }</td>
 			</tr>
 			<tr>
 				<th>배송정보</th>
@@ -112,16 +112,16 @@
 			<tr>
 				<th>합계</th>
 				<td><span class="number err" id="hap"><fmt:formatNumber
-							value="${(100-list.pro_sale)/100*list.pro_price }"
+							value="${(100-gproduct.pro_sale)/100*gproduct.pro_price }"
 							pattern="#,###.###" />원 </span></td>
 			</tr>
 			<tr>
-				<td colspan="3" align="right"><c:if test="${list.pro_count>0 }">
+				<td colspan="3" align="right"><c:if test="${gproduct.pro_count>0 }">
 						<div class="btn-group">
 							<a href="#" class="btn btn-default" onclick="return cart()">장바구니</a> 
 							<a href="#" class="btn btn-default" id="BuyNow" >바로구매</a>
 						</div>
-					</c:if> <c:if test="${list.pro_count<=0 }">
+					</c:if> <c:if test="${gproduct.pro_count<=0 }">
 						<div>
 							<button type="button" class="btn btn-default">품절이라 상품구매가
 								불가능합니다</button>
@@ -129,9 +129,30 @@
 					</c:if></td>
 			<tr>
 				<td colspan="3">
+				<div id="detail">${gproduct.pro_cate } 인기상품</div></td></tr>
+			<tr>
+				<c:forEach var="rlist" items="${rlist }">
+					<td>
+						<div align="center">
+							<a href="GproductInfo.do?pro_num=${rlist.pro_num }">
+							<img class="mouseImg" src="images/${rlist.pro_image }" width="150" height="150">
+							</a>
+						</div>
+						<div class="caption" align="center">
+							<p>상품명 : ${rlist.pro_name }</p>
+							<p>가격 : ${rlist.pro_price }원</p>
+							<p>
+								<a href="GproductInfo.do?pro_num=${rlist.pro_num }">상품 자세히 보기</a>
+							</p>
+						</div>
+					</td>
+				</c:forEach>
+			</tr>
+			<tr>
+				<td colspan="3">
 					<div id="detail">상품상세정보</div>
 					<div align="center">
-						<img src="${path }/images/${list.pro_info }" width="800">
+						<img src="${path }/images/${gproduct.pro_info }" width="800">
 					</div>
 				</td>
 			</tr>

@@ -20,7 +20,7 @@ $(function() {
 <body>
 	<div class="container">
 	<h2 class="text-primary">상품입력</h2>
-		<form action="Gproduct.do" method="post" enctype="multipart/form-data"><!--  enctype="multipart/form-date" -->
+		<form action="Gproduct.do" method="post">
 			<table class="table table-hover">
 				<tr>
 					<th>상품명</th>
@@ -31,10 +31,25 @@ $(function() {
 					<th>카테고리 선택</th>
 					<td>
 						<select name="pro_cate" required="required">
+							<option value="agricultural" selected="selected">농수산물</option>
+							<option value="food">가공식품</option>
+							<option value="frozen">냉동식품</option>
+							<option value="beverage">음료</option>
+							<option value="bath">욕실용품</option>
+							<option value="sanitation">위생용품</option>
+							<option value="kitchen">주방용품</option>
+							<option value="interior">홈인테리어</option>
+							<option value="fashion">패션/잡화</option>
+							<option value="cosmetics">화장품</option>
+							<option value="sports">스포츠</option>
+							<option value="appliance">가전</option>
+							<option value="etc">기타</option>
+						</select>
+							<!-- <select name="pro_cate" required="required">
 							<c:forEach var="list" items="${cate }">
 								<option value="${list }">${list }</option>
 							</c:forEach>
-						</select>
+							</select> -->
 					</td>
 				</tr>
 				

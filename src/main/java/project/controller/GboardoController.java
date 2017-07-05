@@ -30,9 +30,10 @@ public class GboardoController {
 		return "Gboardo/Gboardo";
 	}
 	@RequestMapping("GboardoList")
-	public String GboardoList(Model model, int pro_num) {
+	public String GboardoList(Model model, int pro_num, String id) {
 		List<Gboardo> list = go.list(pro_num);
 		model.addAttribute("pro_num",pro_num);
+		model.addAttribute("id",id);
 		model.addAttribute("olist",list);
 		return "Gboardo/GboardoList";
 	}

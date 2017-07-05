@@ -20,6 +20,23 @@
 </head>
 <body>
 	<div class="container">
+	<div id = "category">
+		<ul>
+			<li><a href="GproductList.do?pro_cate=agricultural" class="btn btn-success">농수산물</a>
+			<a href="GproductList.do?pro_cate=food" class="btn btn-success">가공식품</a>
+			<a href="GproductList.do?pro_cate=frozen" class="btn btn-success">냉동식품</a>
+			<a href="GproductList.do?pro_cate=beverage" class="btn btn-success">음료</a>
+			<a href="GproductList.do?pro_cate=bath" class="btn btn-success">욕실용품</a>
+			<a href="GproductList.do?pro_cate=sanitation" class="btn btn-success">위생용품</a>
+			<a href="GproductList.do?pro_cate=kitchen" class="btn btn-success">주방용품</a>
+			<a href="GproductList.do?pro_cate=interior" class="btn btn-success">홈인테리어</a>
+			<a href="GproductList.do?pro_cate=fashion" class="btn btn-success">패션/잡화</a>
+			<a href="GproductList.do?pro_cate=cosmetics" class="btn btn-success">화장품</a>
+			<a href="GproductList.do?pro_cate=sports" class="btn btn-success">스포츠</a>
+			<a href="GproductList.do?pro_cate=appliance" class="btn btn-success">가전</a>
+			<a href="GproductList.do?pro_cate=etc" class="btn btn-success">기타</a></li>
+		</ul>
+		</div>
 		<table class="table table-hover">
 			<tr>
 				<td>번호</td>
@@ -35,25 +52,42 @@
 				<td>판매수</td>
 				<td></td>
 			</tr>
-			<c:forEach var="list" items="${list }">
+			<c:forEach var="gproduct" items="${list}">
 				<tr>
-					<td>${list.pro_num }</td>
-					<td>${list.pro_cate }</td>
-					<td><a href="GproductInfo.do?pro_num=${list.pro_num }">${list.pro_name }</a></td>
-					<td>${list.pro_price }</td>
-					<td>${list.pro_sale }%</td>
-					<td>${(100-list.pro_sale)/100*list.pro_price}</td>
-					<td><img src="images/${list.pro_info }" width="30" height="30"></td>
-					<td><img src="images/${list.pro_image }" width="30"
+					<td>${gproduct.pro_num }</td>
+					<td>
+					<c:if test="${gproduct.pro_cate =='agricultural'}">농수산물</c:if>
+					<c:if test="${gproduct.pro_cate =='food'}">가공식품</c:if>
+					<c:if test="${gproduct.pro_cate =='frozen'}">냉동식품</c:if>
+					<c:if test="${gproduct.pro_cate =='beverage'}">음료</c:if>
+					<c:if test="${gproduct.pro_cate =='bath'}">욕실용품</c:if>
+					<c:if test="${gproduct.pro_cate =='sanitation'}">위생용품</c:if>
+					<c:if test="${gproduct.pro_cate =='kitchen'}">주방용품</c:if>
+					<c:if test="${gproduct.pro_cate =='interior'}">홈인테리어</c:if>
+					<c:if test="${gproduct.pro_cate =='fashion'}">패션/잡화</c:if>
+					<c:if test="${gproduct.pro_cate =='cosmetics'}">화장품</c:if>
+					<c:if test="${gproduct.pro_cate =='sports'}">스포츠</c:if>
+					<c:if test="${gproduct.pro_cate =='appliance'}">가전</c:if>
+					<c:if test="${gproduct.pro_cate =='etc'}">기타</c:if>
+					<%-- ${list.pro_cate } --%></td>
+					<td><a href="GproductInfo.do?pro_num=${gproduct.pro_num }">${gproduct.pro_name }</a></td>
+					<td><fmt:formatNumber value="${gproduct.pro_price }"
+						pattern="#,###.###" /></td>
+					<td>${gproduct.pro_sale }%</td>
+					<td><fmt:formatNumber
+						value="${(100-gproduct.pro_sale)/100*gproduct.pro_price }"
+						pattern="#,###.###" /></td>
+					<td><img src="images/${gproduct.pro_info }" width="30" height="30"></td>
+					<td><img src="images/${gproduct.pro_image }" width="30"
 						height="30"></td>
-					<td>${list.pro_date }</td>
-					<td>${list.pro_count }</td>
-					<td>${list.pro_sell }</td>
+					<td>${gproduct.pro_date }</td>
+					<td>${gproduct.pro_count }</td>
+					<td>${gproduct.pro_sell }</td>
 					<c:if test="${not empty id }">
 						<c:if test="${id =='master' }">
-							<td><a href="GproductUpdateForm.do?pro_num=${list.pro_num }"><button
+							<td><a href="GproductUpdateForm.do?pro_num=${gproduct.pro_num }"><button
 										type="button" class="btn btn-default">수정</button></a> <a
-								href="GproductDelete.do?pro_num=${list.pro_num}"><button
+								href="GproductDelete.do?pro_num=${gproduct.pro_num}"><button
 										type="button" class="btn btn-default"
 										onclick="return delchk()">삭제</button></a></td>
 						</c:if>
