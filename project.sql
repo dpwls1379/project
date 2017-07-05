@@ -8,21 +8,6 @@ create table Gmember(
 	gender 		char(1) 		not null,
 	birthday 	varchar2(8) 			
 );
-<<<<<<< HEAD
-select * from Gcart;
-alter table Gmember drop column birthday;
-alter table Gmember add birthday varchar2(8);
-
-drop table Gproduct;
-drop table Gboardx;
-drop table Gboardo;
-drop table Greplyo;
-drop table Greplyx;
-drop table Gbuy;
-drop table Gcart;
-select * from tab;
-=======
->>>>>>> branch 'master' of https://github.com/dpwls1379/project.git
 
 create table Gproduct(
 	pro_num number primary key,
@@ -116,6 +101,8 @@ create table Gbuy (
 );-- buy_price 지움
 alter table Gbuy drop column buy_price;
 select * from Gcart natural join Gproduct where id='master';
+alter table gbuy modify buy_date varchar2(30);
+
 
 create table Gevent(
 	ev_num number default 1 primary key,

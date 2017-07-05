@@ -1,12 +1,10 @@
 package project.model;
 
-import java.sql.Date;
-
 public class Gbuy {
 	private int buy_num;
 	private String buy_addr;
 	private String buy_memo;
-	private Date buy_date;
+	private String buy_date;
 	private int buy_price;
 	private String buy_deli;
 	private int ct_num;
@@ -55,11 +53,11 @@ public class Gbuy {
 		this.buy_memo = buy_memo;
 	}
 
-	public Date getBuy_date() {
+	public String getBuy_date() {
 		return buy_date;
 	}
 
-	public void setBuy_date(Date buy_date) {
+	public void setBuy_date(String buy_date) {
 		this.buy_date = buy_date;
 	}
 
