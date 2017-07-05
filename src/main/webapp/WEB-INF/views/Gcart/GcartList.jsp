@@ -127,7 +127,7 @@
 		}
 		var cf = confirm("상품을 주문하시겠습니까?");
 		if(cf) {
-			$('#userid').val(userid);
+			$('#frm #userid').val(userid);
 			alert(userid);
 			var totprice = $('#totbuy').text();
 			$('#tot').val(totprice);

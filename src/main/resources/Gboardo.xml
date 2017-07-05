@@ -37,4 +37,7 @@
 	<update id="delete" parameterType="int">
 		update Gboardo set bo_del='y' where bo_num=#{bo_num}
 	</update>
+	<select id="getTotalBoardo" resultType="Integer">
+		select count(*) from Gboardo
+	</select>
 </mapper>

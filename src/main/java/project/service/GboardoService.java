@@ -8,7 +8,7 @@ public interface GboardoService {
 
 	public int insert(Gboardo gboardo);
 
-	public List<Gboardo> list(int pro_num);
+	public List<Gboardo> list(Gboardo gbo);
 
 	public Gboardo content(int bo_num);
 
@@ -17,5 +17,8 @@ public interface GboardoService {
 	public int update(Gboardo gboardo);
 
 	public int delete(int bo_num);
+
+	public int getTotalRecordBoardo();
+
 
 }

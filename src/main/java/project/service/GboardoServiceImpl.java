@@ -18,8 +18,8 @@ public class GboardoServiceImpl implements GboardoService{
 	}
 
 	@Override
-	public List<Gboardo> list(int pro_num) {
-		return gbd.list(pro_num);
+	public List<Gboardo> list(Gboardo gbo) {
+		return gbd.list(gbo);
 	}
 
 	@Override
@@ -40,6 +40,11 @@ public class GboardoServiceImpl implements GboardoService{
 	@Override
 	public int delete(int bo_num) {
 		return gbd.delete(bo_num);
+	}
+
+	@Override
+	public int getTotalRecordBoardo() {
+		return gbd.getTotalRecordBoardo();
 	}
 
 }

@@ -15,7 +15,21 @@ public class Gboardx {
 	private int bq_num;
 	private int bx_rep;
 	
-
+	private int startRow;
+	private int endRow;
+	
+	public int getStartRow() {
+		return startRow;
+	}
+	public void setStartRow(int startRow) {
+		this.startRow = startRow;
+	}
+	public int getEndRow() {
+		return endRow;
+	}
+	public void setEndRow(int endRow) {
+		this.endRow = endRow;
+	}
 	public int getBx_rep() {
 		return bx_rep;
 	}

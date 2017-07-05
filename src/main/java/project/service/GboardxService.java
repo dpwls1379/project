@@ -10,7 +10,7 @@ public interface GboardxService {
 	
 	int insert2(Gboardx gboardx);
 
-	List<Gboardx> list();
+	List<Gboardx> list(Gboardx gbx);
 
 	Gboardx content(int bx_num);
 
@@ -22,13 +22,15 @@ public interface GboardxService {
 
 	List<Gboardx> search(String serct, String serc);
 
-	List<Gboardx> list2();
+	List<Gboardx> list2(Gboardx gbx);
 
 	List<Gboardx> search2(String serct, String serc);
 
 	List<Gboardx> listn();
 	
 	List<Gboardx> listq();
+
+	int getTotalRecordBoardx();
 
 
 	

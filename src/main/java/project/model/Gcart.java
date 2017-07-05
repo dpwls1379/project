@@ -1,10 +1,13 @@
 package project.model;
 
 public class Gcart {
+	//실제 DB
 	private int ct_num;
 	private int pro_num;
 	private String id;
 	private int ct_count;
+	
+	
 	private String pro_name;
 	private int pro_sale;
 	private int pro_price;

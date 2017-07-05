@@ -14,7 +14,7 @@ $(function() {
 		if(id === ''){
 			alert('로그인 후 결제를 진행하여 주십시오');
 		}else{
-			alert('결제를 진행하는 줄!!');
+			alert('결제를 진행하는 중!!');
 		}
 	});
 });
@@ -22,6 +22,7 @@ $(function() {
 </head>
 <body>
 <div class="container">
+<h2 class="text-primary text-danger" align="center">주문정보 확인</h2><br>
 <table class="table table-hover buy">
 <tr class="text-primary Tr">
 <th colspan="2">상품명/옵션</th>
@@ -40,7 +41,7 @@ $(function() {
 <td class="text_sm">0원<br>출고지별 배송비<br>택배<br>입점업체별 배송<br>선불</td>
 </tr>
 <tr>
-<td colspan="7" align="right"><a class="btn btn-success btn-sm" id="Gbuy">결제하기</a></td>
+<td colspan="7" align="right"><a class="btn btn-success" id="Gbuy">결제하기</a></td>
 </tr>
 </table>
 </div>

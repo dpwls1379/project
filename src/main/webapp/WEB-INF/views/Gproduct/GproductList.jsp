@@ -53,8 +53,9 @@
 				<td></td>
 			</tr>
 			<c:forEach var="gproduct" items="${list}">
+			<c:set value="${no }" var="no"></c:set>
 				<tr>
-					<td>${gproduct.pro_num }</td>
+					<td>${no}</td>
 					<td>
 					<c:if test="${gproduct.pro_cate =='agricultural'}">농수산물</c:if>
 					<c:if test="${gproduct.pro_cate =='food'}">가공식품</c:if>
@@ -78,8 +79,7 @@
 						value="${(100-gproduct.pro_sale)/100*gproduct.pro_price }"
 						pattern="#,###.###" /></td>
 					<td><img src="images/${gproduct.pro_info }" width="30" height="30"></td>
-					<td><img src="images/${gproduct.pro_image }" width="30"
-						height="30"></td>
+					<td><img src="images/${gproduct.pro_image }" width="30"	height="30"></td>
 					<td>${gproduct.pro_date }</td>
 					<td>${gproduct.pro_count }</td>
 					<td>${gproduct.pro_sell }</td>
@@ -93,6 +93,7 @@
 						</c:if>
 					</c:if>
 				</tr>
+		<c:set value="${no -1 }" var="no"></c:set>
 			</c:forEach>
 		</table>
 <!-- 페이징 ~ -->

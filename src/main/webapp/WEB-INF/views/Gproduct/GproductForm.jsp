@@ -12,7 +12,10 @@ $(function() {
 	$('#saleprc').click(function() {
 		var price=$('#price').val();
 		var sale=100-$('#sale').val();
+		alert(price + " : "+sale);
+		alert(price*sale/100);
 		$('#saleprice').empty().append(price*sale/100+"원");
+		return false;
 	});
 });
 </script>
@@ -20,7 +23,7 @@ $(function() {
 <body>
 	<div class="container">
 	<h2 class="text-primary">상품입력</h2>
-		<form action="Gproduct.do" method="post">
+		<form action="Gproduct.do" method="post" enctype="multipart/form-data">
 			<table class="table table-hover">
 				<tr>
 					<th>상품명</th>
@@ -60,22 +63,23 @@ $(function() {
 				
 				<tr>
 					<th>할인률</th>
-					<td><input type="number" name="pro_sale" required="required" id="sale">(%)<button id="saleprc" class="btn btn-default">적용하기</button></td>
+					<td><input type="number" name="pro_sale" required="required" id="sale">(%)
+						<button id="saleprc" class="btn btn-default">적용하기</button></td>
 				</tr>
 				
 				<tr><th>할인가</th><td id="saleprice" class="err"></td></tr>
 				
 				<tr>
-					<th>상품상세정보</th>
-					<td>
-					<!-- <textarea rows="15" cols="30" name="pro_info" required="required"></textarea> -->
-					<input type="file" name="pro_info" required="required">
-					</td>
+					<th>상품이미지</th>
+					<td><input type="file" name="file1" required="required"></td>
 				</tr>
 				
 				<tr>
-					<th>상품이미지</th>
-					<td><input type="file" name="pro_image" required="required"></td>
+					<th>상품상세정보</th>
+					<td>
+					<!-- <textarea rows="15" cols="30" name="pro_info" required="required"></textarea> -->
+					<input type="file" name="file2" required="required">
+					</td>
 				</tr>
 				
 				<tr>

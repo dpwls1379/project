@@ -21,7 +21,7 @@ $(function() {
 		<h3 class="text-primary">
 			<a href="index.jsp"><img alt="" src="images/gallerida3.JPG"></a>
 		</h3>
-	
+		
 		 <ul class="nav nav-pills nav-justified">
 	         <li><a href="GproductList.do" class="text-danger">상품정보</a></li>
 	         <li><a href="GeventList.do" class="text-danger">이벤트</a></li>
@@ -39,9 +39,9 @@ $(function() {
 			 </c:if>
      	 </ul>
     <br>
-    	<form action="GproductSearch.do" role="search">
-			<input type="text" name="search"> <input type="submit"
-				class="btn btn-sm" value="검색">
+    	<form action="GproductSearch.do" role="search" class="form-inline">
+			<input type="text" name="search" class="form-control"> <input type="submit"
+				class="btn btn-sm" value="검색" >
 		</form>
 	</div>
 	<!-- 	</div> -->

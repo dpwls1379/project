@@ -18,8 +18,8 @@ public class GboardoDaoImpl implements GboardoDao {
 	}
 
 	@Override
-	public List<Gboardo> list(int pro_num) {
-		return sst.selectList("gboardo.list",pro_num);
+	public List<Gboardo> list(Gboardo gbo) {
+		return sst.selectList("gboardo.list",gbo);
 	}
 
 	@Override
@@ -40,6 +40,11 @@ public class GboardoDaoImpl implements GboardoDao {
 	@Override
 	public int delete(int bo_num) {
 		return sst.update("gboardo.delete",bo_num);
+	}
+
+	@Override
+	public int getTotalRecordBoardo() {
+		return sst.selectOne("getTotalBoardo");
 	}
 
 }

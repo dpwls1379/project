@@ -17,7 +17,7 @@
 }
 </style>
 <script type="text/javascript">
-	function cart() {		
+	function cart() {
 		frm.submit();
 	}
 	function comma(data_value) {
@@ -33,8 +33,8 @@
 							"상품 이미지", "width=400, height=400");
 				});
 		$('#plus').click(function() {
-			var c = $('#ct_count').val(); //구매 수량
-			var cnt= $('#pro_cnt').text(); //상품 남은 갯수
+			var c = $('#ct_count').val(); //구매 수량s
+			var cnt= parseInt($('#pro_cnt').text()); //상품 남은 갯수
 			if(c < cnt){
 				var count = c++ + 1;
 				$('#ct_count').val(count);
@@ -106,7 +106,7 @@
 			<tr>
 				<th>구입개수</th>
 				<td><a class="btn btn-default btn-sm" id="min">-</a> <input
-					type="number" name="ct_count" id="ct_count" value="1"> <a
+					type="number" name="ct_count" id="ct_count" value="1" > <a
 					class="btn btn-default btn-sm" id="plus">+</a></td>
 			</tr>
 			<tr>

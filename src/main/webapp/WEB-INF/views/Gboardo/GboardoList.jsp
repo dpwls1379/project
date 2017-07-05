@@ -25,10 +25,10 @@
 	<!-- <div class="col-md-1">조회수</div> -->
 	</div>
 	<hr class="hr">
-	<c:if test="${empty olist }">
+	<c:if test="${empty list }">
 		<div class="col-md-12">평가 게시물이 없습니다</div>
 	</c:if>	
-	<c:forEach var="olist" items="${olist }"> 					
+	<c:forEach var="olist" items="${list }"> 					
 		<c:if test="${not empty olist }">			
 			<c:if test="${olist.bo_del=='n' }">
 				<div class="col-md-12" id="div2">
@@ -68,6 +68,23 @@
 			</c:if>					
 		</c:if>		
 	</c:forEach>
+<!-- 페이징 ~ -->
+<div align="center">
+<ul class="pagination">
+	<c:if test="${pp.startPage > pp.pagePerBlk }">
+		<li><a href="GboardoList.do?pageNum=${pp.startPage - 1}">이전</a></li>
+	</c:if>
+	<c:forEach var="i" begin="${pp.startPage}" end="${pp.endPage}">
+		<li <c:if test="${pp.currentPage==i}">class="active pg"</c:if>>
+			<a href="GboardoList.do?pageNum=${i}">${i}</a></li>
+	</c:forEach>
+	<c:if test="${pp.endPage < pp.totalPage}">
+		<li><a href="GboardoList.do?pageNum=${pp.endPage + 1}">다음</a></li>
+	</c:if>		
+</ul>
+</div>
+<!-- ~ 페이징 -->
+
 	<div align="right" class="col-md-12">
 		<a href="GboardoForm.do?pro_num=${pro_num}">
 			<button type="button" class="btn btn-default">상품평쓰기</button>

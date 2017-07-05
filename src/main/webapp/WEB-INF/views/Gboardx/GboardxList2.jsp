@@ -9,8 +9,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="container">
-		<h3>질문 게시판</h3>
+	<div class="container" align="center">
+		<h3 class="text-primary text-danger">질문 게시판</h3>
 		<table class="table table-hover">
 			<tr>
 				<td colspan="6">
@@ -23,12 +23,12 @@
 					</div>
 				</td>
 			</tr>
-			<c:if test="${empty list }">
+			<c:if test="${empty list2 }">
 				<tr>
 					<td colspan="6">게시물이 없습니다</td>
 				</tr>
 			</c:if>
-			<c:forEach var="list" items="${list }">
+			<c:forEach var="list" items="${list2 }">
 				<tr>
 					<c:if test="${not empty list}">
 						<c:if test="${list.bx_del=='n'}">
@@ -49,43 +49,29 @@
 				</tr>
 			</c:forEach>
 		</table>
-		<div align="center">
-			<ul class="pagination">
-				<c:if test="${not empty keyword}">
-					<c:if test="${pp.startPage > pp.pagePerBlk }">
-						<li><a
-							href="${path }/list/pageNum/${pp.startPage - 1}?search=${search}&keyword=${keyword}">이전</a></li>
-					</c:if>
-					<c:forEach var="i" begin="${pp.startPage}" end="${pp.endPage}">
-						<li <c:if test="${pp.currentPage==i}">class="active"</c:if>>
-							<a
-							href="${path }/list/pageNum/${i}?search=${search}&keyword=${keyword}">${i}</a>
-						</li>
-					</c:forEach>
-					<c:if test="${pp.endPage < pp.totalPage}">
-						<li><a
-							href="${path }/list/pageNum/${pp.endPage + 1}?search=${search}&keyword=${keyword}">다음</a></li>
-					</c:if>
-				</c:if>
-				<c:if test="${empty keyword}">
-					<c:if test="${pp.startPage > pp.pagePerBlk }">
-						<li><a href="${path }/list/pageNum/${pp.startPage - 1}">이전</a></li>
-					</c:if>
-					<c:forEach var="i" begin="${pp.startPage}" end="${pp.endPage}">
-						<li <c:if test="${pp.currentPage==i}">class="active"</c:if>>
-							<a href="${path }/list/pageNum/${i}">${i}</a>
-						</li>
-					</c:forEach>
-					<c:if test="${pp.endPage < pp.totalPage}">
-						<li><a href="${path }/list/pageNum/${pp.endPage + 1}">다음</a></li>
-					</c:if>
-				</c:if>
-			</ul>
-		</div>
+		<!-- 페이징 ~ -->
+<div align="center">
+<ul class="pagination">
+	<c:if test="${pp.startPage > pp.pagePerBlk }">
+		<li><a href="GboardxList2.do?pageNum=${pp.startPage - 1}">이전</a></li>
+	</c:if>
+	<c:forEach var="i" begin="${pp.startPage}" end="${pp.endPage}">
+		<li <c:if test="${pp.currentPage==i}">class="active pg"</c:if>>
+			<a href="GboardxList2.do?pageNum=${i}">${i}</a></li>
+	</c:forEach>
+	<c:if test="${pp.endPage < pp.totalPage}">
+		<li><a href="GboardxList2.do?pageNum=${pp.endPage + 1}">다음</a></li>
+	</c:if>		
+</ul>
+</div>
+<!-- ~ 페이징 -->
 		<div align="right">
-			<a href="GboardxList2.do"><button type="button"
-					class="btn btn-default">목록</button></a> <a href="GboardxForm2.do"><button
-					type="button" class="btn btn-default">글쓰기</button></a>
+			<a href="GboardxList2.do">
+			<button type="button" class="btn btn-default">목록</button></a>
+			<c:if test="${not empty id }">
+			<a href="GboardxForm2.do">
+			<button	type="button" class="btn btn-default">글쓰기</button></a>
+			</c:if>
 		</div>
 		<div align="center">
 			<form action="search2.do" method="post">

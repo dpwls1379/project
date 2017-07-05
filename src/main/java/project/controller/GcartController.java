@@ -11,16 +11,23 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import project.model.Gcart;
+import project.model.Gmember;
 import project.service.GcartService;
+import project.service.GmemberService;
 
 @Controller
 public class GcartController {
 	@Autowired
 	private GcartService gs;
 	
+	@Autowired
+	private GmemberService gms;
+	
 	@RequestMapping("Gcart")
 	public String GproductCart(Model model, Gcart gcart, HttpSession session) {
+
 		int result = 0;
+
 		String id=(String) session.getAttribute("id");
 		//gcart.setId(id);
 		//System.out.println("pro_num = "+gcart.getPro_num());
@@ -28,7 +35,8 @@ public class GcartController {
 		//System.out.println("controller.name =" + gcart.getPro_name());
 		gcart.setId(id);
 		String chkId = gs.selectId(gcart);
-		if(chkId==null) {
+
+		if(chkId==null || chkId.equals("")) {
 			result = gs.insert(gcart);
 			//System.out.println("result   i  = "+result);
 		} else {
@@ -70,6 +78,7 @@ public class GcartController {
 	public String GbuyForm(Model model,String userid, HttpSession session, Gcart gcart ,int tot) {
 		//int totprice = Integer.parseInt(tot);
 		String id=(String) session.getAttribute("id");
+		System.out.println("gbuyForm userId="+userid);
 		List<Gcart> info = new ArrayList<Gcart>();
 		String[] ct_string = userid.split("-");
 		int [] ct_num = new int[ct_string.length];		
@@ -84,10 +93,27 @@ public class GcartController {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		Gcart member = gs.member(id);
+		//Gcart member = gs.member(id);
+		Gmember member = gms.select(id);
 		model.addAttribute("member",member);
 		model.addAttribute("tot",tot);
 		model.addAttribute("info",info);
 		return "Gbuy/GbuyForm";
 	}
+	
+	@RequestMapping("GbuyNowForm")
+	public String GbuyNowForm(Model model,HttpSession session, Gcart gcart ,int tot) {
+		//int totprice = Integer.parseInt(tot);
+		String id=(String) session.getAttribute("id");
+		
+		List<Gcart> info = new ArrayList<Gcart>();
+		
+		
+		Gmember member = gms.select(id);
+		model.addAttribute("member",member);
+		model.addAttribute("tot",tot);
+		model.addAttribute("info",info);
+		return "Gbuy/GbuyForm";
+	}
+	
 }

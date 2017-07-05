@@ -38,6 +38,7 @@
 	</delete>
 	<select id="info" parameterType="int" resultType="gcart">
 		select * from Gcart natural join Gproduct where ct_num=#{ct_num}
+<!-- select Gcart.*, pro_name, pro_sale, pro_price, pro_image from Gcart ,gproduct where Gproduct.pro_num=Gcart.pro_num and ct_num=#{ct_num}; -->
 	</select>
 	<select id="member" parameterType="String" resultType="gcart">
 		select * from Gcart natural join Gmember where id=#{id}
