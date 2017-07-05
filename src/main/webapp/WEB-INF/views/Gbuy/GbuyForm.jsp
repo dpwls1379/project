@@ -25,14 +25,14 @@
 		<input type="hidden" name="tot" value="${tot}">
 		<h2>주문자 정보</h2>
 		<table>
-			<tr><td>주문자 이름</td><td>${member.name}</td></tr>
-			<tr><td>주문자 전화</td><td>${member.tel}</td></tr>
-			<tr><td>주문자 메일</td><td>${member.email}</td></tr>
+			<tr><td>주문자 이름</td><td>&nbsp;&nbsp;&nbsp;&nbsp;${member.name}</td></tr>
+			<tr><td>주문자 전화</td><td>&nbsp;&nbsp;&nbsp;&nbsp;${member.tel}</td></tr>
+			<tr><td>주문자 메일</td><td>&nbsp;&nbsp;&nbsp;&nbsp;${member.email}</td></tr>
 		</table>
 		<h2>배송지 정보</h2>
 		<table>
-			<tr><td>받는분</td><td>${gmember.name}</td></tr>
-			<tr><td>휴대전화</td><td>${gmember.tel}</td></tr>
+			<tr><td>받는분</td><td>${member.name}</td></tr>
+			<tr><td>휴대전화</td><td>${member.tel}</td></tr>
 			<tr><td>주소</td><td><input type="text" name="buy_addr" value="${member.addr}"></td></tr>
 			<tr><td>배송시 요청사항</td></tr>
 			<tr><td><textarea></textarea></td></tr>
@@ -51,7 +51,7 @@
 				</tr>
 				<tr>
 					<td>가격</td>
-					<td>${info.pro_price*(100-info.sale)/100 }</td>
+					<td>${info.pro_price*(100-info.pro_sale)/100 }</td>
 				</tr>
 				<tr>
 					<td>수량</td>
@@ -59,7 +59,7 @@
 				</tr>
 				<tr>
 					<td>총 가격</td>
-					<td>${info.pro_price*(100-info.sale)/100*info.ct_count}</td>
+					<td>${info.pro_price*(100-info.pro_sale)/100*info.ct_count}</td>
 				</tr>
 			</c:forEach>
 		</table>
