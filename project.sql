@@ -92,8 +92,10 @@ create table Gbuy (
 	buy_memo varchar2(80) default 'nothing',
 	buy_date date not null,
 	buy_deli varchar2(30),
-	ct_num number,
+	ct_num number references Gcart(ct_num),
 	pro_num number references Gproduct(pro_num),
 	id varchar2(20)  references Gmember(id)
-);-- buy_price 지움
+);
+-- buy_price 지움
 alter table Gbuy drop column buy_price;
+-- 07/05 ct_num references연결(수정), buy_deli 컬럼추가
