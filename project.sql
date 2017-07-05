@@ -9,18 +9,6 @@ create table Gmember(
 	birthday 	varchar2(8) 			
 );
 
-alter table Gmember drop column birthday;
-alter table Gmember add birthday varchar2(8);
-
-drop table Gproduct;
-drop table Gboardx;
-drop table Gboardo;
-drop table Greplyo;
-drop table Greplyx;
-drop table Gbuy;
-drop table Gcart;
-select * from tab;
-
 create table Gproduct(
 	pro_num number primary key,
 	pro_cate varchar2(30) not null,
@@ -44,7 +32,7 @@ create table Gboardo(
 	bo_read number default 0,
 	bo_star number default 0,
 	bo_del char(1) default 'n',
-	id varchar2(20),
+	id varchar2(20) references Gmember(id),
 	pro_num number references Gproduct(pro_num)
 );
 -- 아직 아이디 연동은 안한 상태라 id컬럼 그냥 생성
@@ -57,7 +45,7 @@ create table Gboardx(
 	bx_date date not null,
 	bx_read number default 0,
 	bx_del char(1) default 'n',
-	id varchar2(20),
+	id varchar2(20) references Gmember(id),
 	bn_num number default 1,
 	bq_num number default 1,
 	bx_rep number default 0
@@ -66,6 +54,8 @@ create table Gboardx(
 
 create sequence bq_num nocache;
 create sequence bn_num nocache;
+drop sequence bq_num;
+drop sequence bn_num;
 -- 시퀀스로 번호 증가설정
 
 create table Greplyo (
@@ -74,7 +64,7 @@ create table Greplyo (
 	reo_date date not null,
 	reo_del char(1) default 'n',	
 	bo_num number references Gboardo(bo_num),
-	id varchar2(20)
+	id varchar2(20)  references Gmember(id)
 );
 -- 상품평가쪽 댓글 게시판(삭제예정)--
 
@@ -83,20 +73,19 @@ create table Greplyx (
 	rex_content varchar2(100) not null,
 	rex_date date not null,
 	rex_del char(1) default 'n',
-	id varchar2(20),
+	id varchar2(20)  references Gmember(id),
 	bx_num number references Gboardx(bx_num)
 );
 -- qna게시판쪽 댓글게시판
-select * from Gcart;
-drop table gcart;
+
 create table Gcart (
 	ct_num number primary key,
 	pro_num number references Gproduct(pro_num),
 	id varchar2(20) references Gmember(id),	
 	ct_count number
 );
--- 카트쪽 아이디는 연동안되서 임시로 생성
-drop table Gbuy;
+
+
 create table Gbuy (
 	buy_num number primary key,
 	buy_addr varchar2(50) not null,
@@ -104,6 +93,6 @@ create table Gbuy (
 	buy_date date not null,
 	ct_num number,
 	pro_num number references Gproduct(pro_num),
-	id varchar2(20)
+	id varchar2(20)  references Gmember(id)
 );-- buy_price 지움
 alter table Gbuy drop column buy_price;
