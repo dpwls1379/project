@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="geventns">
+	<!-- Use type aliases to avoid typing the full classname every time. -->
+	<resultMap id="geventResult" 		type="gevent">
+		<result property="ev_num" 		column="ev_num" />		
+		<result property="ev_subject" 	column="ev_subject" />
+		<result property="ev_content" 	column="ev_content" />	
+		<result property="ev_image" 	column="ev_image" />					
+		<result property="ev_date" 		column="ev_date" />
+		<result property="ev_read" 		column="ev_read" />	
+		<result property="ev_del" 		column="ev_del" />
+	</resultMap>
+	<insert id="insert" parameterType="gevent">
+		<selectKey keyProperty="ev_num" order="BEFORE" resultType="int">
+			select nvl(max(ev_num),0)+1 from Gevent
+		</selectKey>
+		<!-- ev_num이 null이면 0+1로 1을 주고 이후 1씩 증가 시킨다 -->
+		insert into Gevent values (#{ev_num},#{ev_subject},#{ev_content},#{ev_image},sysdate,0,'n')
+	</insert>
+	<select id="list" resultMap="geventResult">
+		select * from Gevent order by ev_num desc
+	</select>
+	<select id="evList" resultMap="geventResult">
+		select * from Gevent order by ev_num desc
+		<!-- <![CDATA[
+			select * from (select * from Gevent order by ev_num desc) where rowNum <= 6
+		]]> -->
+	</select>
+	<select id="content" parameterType="int" resultType="gevent">
+		select * from Gevent where ev_num=#{ev_num}
+	</select>
+	<update id="readcount" parameterType="int">
+		update Gevent set ev_read=ev_read+1 where ev_num=#{ev_num}
+	</update>
+	<update id="update" parameterType="gevent">
+		update Gevent set ev_subject=#{ev_subject}, ev_content=#{ev_content}, ev_image=#{ev_image} where ev_num=#{ev_num}
+	</update>
+	<update id="delete" parameterType="int">
+		update Gevent set ev_del='y' where ev_num=#{ev_num}
+	</update>
+	<select id="search" parameterType="string" resultMap="geventResult">
+		select * from Gevent where eve_subject like '%'||#{search}||'%'
+	</select>
+	<select id="getTotalEvent" resultType="int">
+		select count(*) from Gevent
+	</select>
+</mapper>

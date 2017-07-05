@@ -23,6 +23,9 @@
 				<button type="button" class="btn btn-default btn-lg">상품 관리</button>
 			</a>
 		<hr>
+			<a href="GeventList.do" target="e">
+				<button type="button" class="btn btn-default btn-lg">이벤트 관리</button>
+		</a>
 	</fieldset>
 	</div>
 </body>

@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../header.jsp" %>
-<%@ include file="../mainHeader.jsp"%>      
-<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -11,18 +10,13 @@
 <body>
 <c:if test="${result>0 }">
 	<script type="text/javascript">
-		alert("장바구니에 상품을 담았습니다");
-		var cf = confirm("장바구니를 확인하시겠습니까?");
-		if(cf==true) {
-			location.href="GcartList.do?pro_num=${gcart.pro_num}";
-		} else {
-			history.go(-1);
-		}
+		alert("게시글이 삭제되었습니다.");
+		location.href="GeventList.do";
 	</script>
 </c:if>
 <c:if test="${result<=0 }">
 	<script type="text/javascript">
-		alert("실패");
+		alert("삭제 실패");
 		history.go(-1);
 	</script>
 </c:if>

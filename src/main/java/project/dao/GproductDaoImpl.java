@@ -1,5 +1,6 @@
 package project.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -66,5 +67,10 @@ public class GproductDaoImpl implements GproductDao{
 	@Override
 	public int getTotalRecordProduct() {
 		return sst.selectOne("getTotalProduct");
+	}
+
+	@Override
+	public List<Gproduct> rlist(int pro_num) {
+		return sst.selectList("gproduct.rlist",pro_num);
 	}
 }

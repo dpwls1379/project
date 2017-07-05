@@ -8,6 +8,21 @@ create table Gmember(
 	gender 		char(1) 		not null,
 	birthday 	varchar2(8) 			
 );
+<<<<<<< HEAD
+select * from Gcart;
+alter table Gmember drop column birthday;
+alter table Gmember add birthday varchar2(8);
+
+drop table Gproduct;
+drop table Gboardx;
+drop table Gboardo;
+drop table Greplyo;
+drop table Greplyx;
+drop table Gbuy;
+drop table Gcart;
+select * from tab;
+=======
+>>>>>>> branch 'master' of https://github.com/dpwls1379/project.git
 
 create table Gproduct(
 	pro_num number primary key,
@@ -32,10 +47,11 @@ create table Gboardo(
 	bo_read number default 0,
 	bo_star number default 0,
 	bo_del char(1) default 'n',
-	id varchar2(20) references Gmember(id),
+	id varchar2(20), 
 	pro_num number references Gproduct(pro_num)
 );
 -- 아직 아이디 연동은 안한 상태라 id컬럼 그냥 생성
+alter table Gboardo add foreign key (id) references Gmember(id);
 
 create table Gboardx(
 	bx_num number primary key,
@@ -99,3 +115,17 @@ create table Gbuy (
 	id varchar2(20)  references Gmember(id)
 );-- buy_price 지움
 alter table Gbuy drop column buy_price;
+select * from Gcart natural join Gproduct where id='master';
+
+create table Gevent(
+	ev_num number default 1 primary key,
+	ev_subject varchar2(30) not null,	
+	ev_content varchar2(4000) not null,
+	ev_image varchar2(30) default 'default.jpg',
+	ev_date date not null,
+	ev_read number default 0,
+	ev_del char(1) default 'n'
+);
+select * from Gevent;
+alter table Gevent modify ev_subject varchar2(100);
+alter table Gevent modify ev_image varchar2(100);

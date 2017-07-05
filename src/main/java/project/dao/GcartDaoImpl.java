@@ -23,6 +23,8 @@ public class GcartDaoImpl implements GcartDao{
 
 	@Override
 	public String selectId(Gcart gcart) {
+		System.out.println("id :"+gcart.getId());
+		System.out.println("pro_num = "+gcart.getPro_num());
 		return sst.selectOne("gcart.selectId",gcart);
 	}
 

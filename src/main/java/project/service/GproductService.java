@@ -28,4 +28,6 @@ public interface GproductService {
 
 	int getTotalRecordProduct();
 
+	List<Gproduct> rlist(int pro_num);
+
 }

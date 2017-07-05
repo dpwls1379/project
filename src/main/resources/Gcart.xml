@@ -27,7 +27,7 @@
 	<select id="list" parameterType="String" resultMap="gcartResult">
 		select * from Gcart natural join Gproduct where id=#{id}
 	</select>
-	<select id="selectId" parameterType="gcart" resultType="String">
+	<select id="selectId" parameterType="gcart" resultType="string">
 		select id from Gcart where pro_num=#{pro_num} and id=#{id}
 	</select>
 	<update id="update" parameterType="gcart">
