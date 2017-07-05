@@ -45,4 +45,10 @@ public class GcartDaoImpl implements GcartDao{
 	public Gcart member(String id) {
 		return sst.selectOne("gcart.member",id);
 	}
+
+	@Override
+	public Gcart content(Gcart gcart) {
+		// TODO Auto-generated method stub
+		return sst.selectOne("gcart.content",gcart);
+	}
 }

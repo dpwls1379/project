@@ -34,6 +34,10 @@
 			<tr><th>받는분</th><td>${member.name}</td></tr>
 			<tr><th>휴대전화</th><td>${member.tel}</td></tr>
 			<tr><th>주소</th><td><input type="text" name="buy_addr" value="${member.addr}" class="form-control"></td></tr>
+			<tr>
+				<th>배송 일자/시간 선택</th>
+				<td></td>
+			</tr>
 			<tr><th>배송시 요청사항</th>
 			<td><textarea class="form-control"></textarea></td></tr>
 		</table><br>

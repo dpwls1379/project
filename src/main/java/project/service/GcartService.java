@@ -20,4 +20,6 @@ public interface GcartService {
 
 	Gcart member(String id);
 
+	Gcart content(Gcart gcart);
+
 }

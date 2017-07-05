@@ -10,6 +10,7 @@
 		<typeAlias alias="gproduct" type="project.model.Gproduct" />
 		<typeAlias alias="gmember" type="project.model.Gmember" />
 		<typeAlias alias="gcart" type="project.model.Gcart" />
+		<typeAlias alias="gbuy" type="project.model.Gbuy" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="Gboardx.xml" />

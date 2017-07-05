@@ -80,10 +80,12 @@ create table Greplyx (
 
 create table Gcart (
 	ct_num number primary key,
+	ct_del char(1) default 'n',
 	pro_num number references Gproduct(pro_num),
 	id varchar2(20) references Gmember(id),	
 	ct_count number
 );
+-- gcart에 구매 완료 표시를 위해 ct_del 컬럼 추가!
 
 
 create table Gbuy (

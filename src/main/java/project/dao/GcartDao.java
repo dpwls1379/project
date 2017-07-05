@@ -19,4 +19,6 @@ public interface GcartDao {
 	Gcart info(int ct_num);
 
 	Gcart member(String id);
+
+	Gcart content(Gcart gcart);
 }

@@ -4,7 +4,8 @@
 <mapper namespace="gcart">
 	<!-- Use type aliases to avoid typing the full classname every time. -->
 	<resultMap id="gcartResult" type="gcart">
-		<result property="ct_num" column="ct_num" />		
+		<result property="ct_num" column="ct_num" />
+		<result property="ct_del" column="ct_del" />			
 		<result property="pro_num" column="pro_num" />					
 		<result property="id" column="id" />
 		<result property="ct_count" column="ct_count" />
@@ -21,7 +22,7 @@
 		<selectKey keyProperty="ct_num" order="BEFORE" resultType="int">		
 			select nvl(max(ct_num),0)+1 from Gcart
 		</selectKey>
-		insert into Gcart values (#{ct_num},#{pro_num},#{id},#{ct_count})
+		insert into Gcart values (#{ct_num},'n',#{pro_num},#{id},#{ct_count})
 	</insert>
 	<select id="list" parameterType="String" resultMap="gcartResult">
 		select * from Gcart natural join Gproduct where id=#{id}
@@ -41,5 +42,8 @@
 	</select>
 	<select id="member" parameterType="String" resultType="gcart">
 		select * from Gcart natural join Gmember where id=#{id}
+	</select>
+	<select id="content" parameterType="gcart" resultType="gcart">
+		select * from gcart where id=#{id} and ct_num=(select max(ct_num) from gcart where id=#{id})
 	</select>
 </mapper>

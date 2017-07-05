@@ -8,11 +8,20 @@ public class Gbuy {
 	private String buy_memo;
 	private Date buy_date;
 	private int buy_price;
+	private String buy_deli;
 	private int ct_num;
 	private int pro_num;
 	private String id;
 	
 	
+
+	public String getBuy_deli() {
+		return buy_deli;
+	}
+
+	public void setBuy_deli(String buy_deli) {
+		this.buy_deli = buy_deli;
+	}
 
 	public int getBuy_price() {
 		return buy_price;

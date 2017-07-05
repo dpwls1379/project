@@ -47,5 +47,11 @@ public class GcartServiceImpl implements GcartService{
 		return gd.member(id);
 	}
 
+	@Override
+	public Gcart content(Gcart gcart) {
+		// TODO Auto-generated method stub
+		return gd.content(gcart);
+	}
+
 
 }
