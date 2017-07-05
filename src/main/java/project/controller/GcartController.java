@@ -97,14 +97,15 @@ public class GcartController {
 	public String GbuyNowForm(Model model,HttpSession session, Gcart gcart ,int tot) {
 		//int totprice = Integer.parseInt(tot);
 		String id=(String) session.getAttribute("id");
-		
-		List<Gcart> info = new ArrayList<Gcart>();
-		
+		gcart.setId(id);
+		int result=gs.insert(gcart);
+		if(result>0){
+			Gcart info=gs.info(gcart.getCt_num());
+		}
 		
 		Gmember member = gms.select(id);
 		model.addAttribute("member",member);
 		model.addAttribute("tot",tot);
-		model.addAttribute("info",info);
 		return "Gbuy/GbuyForm";
 	}
 	
