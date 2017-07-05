@@ -102,6 +102,7 @@ create table Gbuy (
 	buy_addr varchar2(50) not null,
 	buy_memo varchar2(80) default 'nothing',
 	buy_date date not null,
+	buy_deli varchar2(30),
 	ct_num number,
 	pro_num number references Gproduct(pro_num),
 	id varchar2(20)
