@@ -11,7 +11,7 @@
 <body>
 <div class="container">
 	<h2 class="text-primary">이벤트 입력</h2>
-		<form action="Gevent.do" method="post">
+		<form action="Gevent.do" method="post" enctype="multipart/form-data">
 			<table class="table table-hover">
 				<tr>
 					<th>제목</th>
@@ -26,7 +26,7 @@
 				
 				<tr>
 					<th>이미지</th>
-					<td><input type="file" name="ev_image" required="required"></td>
+					<td><input type="file" name="file1" required="required"></td>
 				</tr>		
 			</table>
 			<hr>

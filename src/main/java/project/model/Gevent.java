@@ -2,6 +2,8 @@ package project.model;
 
 import java.sql.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Gevent {
 	private int ev_num;
 	private String ev_subject;
@@ -14,6 +16,17 @@ public class Gevent {
 	private int startRow;
 	private int endRow;
 	
+	//이미지 업로드
+	private MultipartFile file1;
+	
+	
+	
+	public MultipartFile getFile1() {
+		return file1;
+	}
+	public void setFile1(MultipartFile file1) {
+		this.file1 = file1;
+	}
 	public int getStartRow() {
 		return startRow;
 	}

@@ -22,12 +22,12 @@ public class GeventController {
 		return "Gevent/GeventForm";
 	}
 	
-	@RequestMapping("Gevent")
+	/*@RequestMapping("Gevent")
 	public String Gevent (Model model, Gevent gevent) {
 		int result = ge.insert(gevent);
 		model.addAttribute("result", result);
 		return "Gevent/Gevent";
-	}
+	}*/
 	
 	/*@RequestMapping("GeventList")
 	public String GeventList(Model model) {
@@ -74,7 +74,7 @@ public class GeventController {
 		return "Gevent/GeventUpdateForm";
 	}
 	
-	@RequestMapping("GeventUpdate")
+	/*@RequestMapping("GeventUpdate")
 	public String GeventUpdate(Model model, Gevent gevent) {
 		if(gevent.getEv_image() == "") {
 			gevent.setEv_image("nothing.jpg");
@@ -83,7 +83,7 @@ public class GeventController {
 		model.addAttribute("result", result);
 		model.addAttribute("ev_num", gevent.getEv_num());
 		return "Gevent/GeventUpdate";
-	}
+	}*/
 	
 	@RequestMapping("GeventDelete")
 	public String GeventDelete(Model model, int ev_num) {
