@@ -21,10 +21,10 @@ $(function() {
 		<h3 class="text-primary">
 			<a href="index.jsp"><img alt="" src="images/gallerida3.JPG"></a>
 		</h3>
-	
+		
 		 <ul class="nav nav-pills nav-justified">
          <li><a href="GproductList.do?pageNum=1" class="text-danger">상품정보</a></li>
-         <li><a href="Gcenter.do" class="text-danger">고객센터</a></li>
+         <li><a href="Gcenter.do" class="text-danger" data-toggle="dropdown">고객센터</a></li>
          <c:if test="${empty id }">
          <li><a href="main.do" class="text-danger">로그인</a></li>
          </c:if>

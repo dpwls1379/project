@@ -20,6 +20,7 @@
 </head>
 <body>
 	<div class="container">
+		<h3 class="text-primary text-danger" align="center">상 품 목 록</h3>
 		<table class="table table-hover">
 			<tr>
 				<td>번호</td>
