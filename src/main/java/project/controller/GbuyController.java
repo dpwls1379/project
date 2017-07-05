@@ -18,7 +18,7 @@ public class GbuyController {
 	@Autowired
 	private GproductService gps;
 	
-	@RequestMapping("buyNow")
+/*	@RequestMapping("buyNow")
 	public String buyNow(int pro_num, int buy_count, Model model){
 		
 		Gproduct gpro=gps.pdContent(pro_num);
@@ -31,6 +31,12 @@ public class GbuyController {
 		model.addAttribute("buy_price",totalprice); //총 합계
 		
 		return "Gbuy/buyNowForm";
+	}*/
+	
+	@RequestMapping("Gbuy")
+	public String Gbuy(Model model) {
+		
+		return "Gbuy/Gbuy";
 	}
 	
 	
