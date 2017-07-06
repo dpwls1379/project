@@ -139,12 +139,10 @@
 <div class="container">
 <form action="GcartDelete.do" id="name" method="post">
 	<input type="hidden" id="userid" name="userid">
-<%-- 	<input type="hidden" name="id" value="${id}"> --%>
 </form>
 <form action="GbuyForm.do" method="post" id="frm">
 	<input type="hidden" id="userid" name="userid">
 	<input type="hidden" name="tot" id="tot">
-<%-- 	<input type="hidden" name="id" value="${id}"> --%>
 	<table class="table table-hover">
 		<tr>	
 			<td><input type="checkbox" id="chkboxAll"></td>

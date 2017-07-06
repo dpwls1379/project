@@ -84,8 +84,7 @@ create table Gcart (
 	ct_del char(1) default 'n',
 	pro_num number references Gproduct(pro_num),
 	id varchar2(20) references Gmember(id),
-	ct_count number,
-	ct_del varchar2(1) default 'n'
+	ct_count number
 );
 
 select * from Gcart;

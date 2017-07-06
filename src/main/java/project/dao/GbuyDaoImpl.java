@@ -23,6 +23,11 @@ public class GbuyDaoImpl implements GbuyDao {
 	public List<Gbuy> select(String id) {
 		return sst.selectList("gbuy.select", id);
 	}
+
+	@Override
+	public int delete(int buy_num) {
+		return sst.update("gbuy.delete",buy_num);
+	}
 	
 	
 }

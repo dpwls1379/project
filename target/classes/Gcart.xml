@@ -57,7 +57,7 @@
 		select pro_num from Gcart where ct_num=#{ct_num}
 	</select>
 	<select id="selectDel" parameterType="gcart" resultType="String">
-		select ct_del from Gcart where pro_num=#{pro_num} and id=#{id}
+		select ct_del from Gcart where pro_num=#{pro_num} and id=#{id} and ct_num=(select max(ct_num) from Gcart where pro_num=#{pro_num} and id=#{id})
 	</select>	
 	<select id="content" parameterType="gcart" resultType="gcart">
 		select * from gcart where id=#{id} and ct_num=(select max(ct_num) from gcart where id=#{id})

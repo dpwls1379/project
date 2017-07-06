@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
-<%@ include file="../mainHeader.jsp"%>          
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ include file="../mainHeader.jsp"%>     
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -11,14 +11,14 @@
 <body>
 <c:if test="${result>0 }">
 	<script type="text/javascript">
-		alert("결제가 완료되었습니다");
+		alert("상품이 처리되었습니다");
 		location.href="Gbuy.do?userid=${userid}";
 	</script>
 </c:if>
 <c:if test="${result<=0 }">
 	<script type="text/javascript">
-		alert("실패");
-		history.go(-1);
+		alert("처리 실패");
+		hisroty.go(-1);		
 	</script>
 </c:if>
 </body>

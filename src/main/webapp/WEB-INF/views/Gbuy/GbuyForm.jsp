@@ -23,7 +23,7 @@
 	<form action="GbuyChk.do" method="post" name="frm">
 <%-- 		<input type="hidden" name="id" value="${id }"> --%>
 		<input type="hidden" name="tot" value="${tot}">
-		<input type="hidden" name="userid" value="${userid }">
+ 		<input type="hidden" name="userid" value="${userid }">
 		<h2 class="text-primary text-danger" align="center">주문자 정보</h2>
 		<table class="table table-bordered">
 			<tr><th>주문자 이름</th><td>${member.name}</td></tr>
@@ -40,7 +40,7 @@
 				<td></td>
 			</tr>
 			<tr><th>배송시 요청사항</th>
-			<td><textarea class="form-control"></textarea></td></tr>
+			<td><textarea class="form-control" name="buy_memo"></textarea></td></tr>
 		</table><br>
 		<h2 class="text-primary text-danger" align="center">상품정보 정보</h2>
 		<table class="table table-bordered">
