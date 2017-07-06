@@ -8,7 +8,8 @@
 		<result property="buy_addr" column="buy_addr" />
 		<result property="buy_memo" column="buy_memo" />
 		<result property="buy_date" column="buy_date" />
-		<result property="buy_deli" column="buy_deli" />	
+		<result property="buy_deli" column="buy_deli" />
+		<result property="buy_delidate" column="buy_delidate" />	
 		<result property="ct_num" column="ct_num" />
 		<result property="pro_num" column="pro_num" />
 		<result property="id" column="id" />
@@ -22,7 +23,7 @@
 		<selectKey keyProperty="buy_num" order="BEFORE" resultType="int">
 			select nvl(max(buy_num),0)+1 from Gbuy
 		</selectKey> 
-		insert into Gbuy values (#{buy_num},#{buy_addr},#{buy_memo},sysdate,'배송준비중',#{ct_num},#{pro_num},#{id})
+		insert into Gbuy values (#{buy_num},#{buy_addr},#{buy_memo},sysdate,'배송준비중',#{ct_num},#{pro_num},#{id},#{buy_delidate})
 	</insert>
 	<select id="select" parameterType="String" resultMap="gbuyResult">
 		select * from Gbuy natural join (select * from Gproduct natural join Gcart) where id=#{id}

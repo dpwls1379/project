@@ -64,7 +64,7 @@
 	<update id="readcount" parameterType="int">
 		update Gproduct set pro_read = pro_read+1 where pro_num=#{pro_num}
 	</update>
-	<select id="search" parameterType="String" resultMap="gproductResult">
+	<select id="search" parameterType="string" resultMap="gproductResult">
 		select * from Gproduct where pro_name like '%'||#{search}||'%'
 	</select>
 	<select id="getTotalProduct" resultType="Integer">

@@ -23,8 +23,8 @@ public class GreplyxController {
 	}
 	@RequestMapping("Greplyx")
 	public String Greplyx(Model model, Greplyx greplyx,HttpSession session) {
-		
 		String id=(String)session.getAttribute("id");
+		greplyx.setId(id);
 		int result = gs.insert(greplyx);
 		model.addAttribute("result",result);
 		model.addAttribute("bx_num",greplyx.getBx_num());

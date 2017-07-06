@@ -121,6 +121,9 @@ public class GcartController {
 		List<Gcart> info=new ArrayList<>();
 		info.add(gc2);
 		Gmember member=gms.select(id);
+		String userid = gc2.getCt_num()+"-";
+		
+		model.addAttribute("userid",userid);
 		model.addAttribute("tot",tot);
 		model.addAttribute("member",member);
 		model.addAttribute("info",info);

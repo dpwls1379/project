@@ -17,11 +17,11 @@
 		아이디는 임시로 입력해서 사용
 	-->
 		<table class="table table-hover">
-			<tr>
+			<!-- <tr>
 				<td>
 					<input type="text" name="id" placeholder="아이디" required="required">
 				</td>
-			</tr>
+			</tr> -->
 			<tr>
 				<td>
 					<div>			

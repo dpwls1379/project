@@ -110,6 +110,8 @@ public class GboardxController {
 
 	@RequestMapping("GboardxUpdateForm")
 	public String GboardxUpdateForm(Model model, int bx_num, String id) {
+		Gboardx gbx = gs.content(bx_num);
+		model.addAttribute("gbx", gbx);
 		model.addAttribute("bx_num", bx_num);
 		model.addAttribute("id", id);
 		return "Gboardx/GboardxUpdateForm";

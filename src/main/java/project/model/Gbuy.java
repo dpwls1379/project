@@ -6,8 +6,9 @@ public class Gbuy {
 	private int buy_num;
 	private String buy_addr;
 	private String buy_memo;
-	private String buy_deli;
 	private Date buy_date;
+	private String buy_delidate;
+	private String buy_deli;
 	private int buy_price;
 	private int ct_num;
 	private int pro_num;
@@ -17,6 +18,20 @@ public class Gbuy {
 	private int pro_price;
 	private int ct_count;
 	private int pro_sale;	
+
+	
+	
+	public String getBuy_delidate() {
+		return buy_delidate;
+	}
+
+	public void setBuy_delidate(String buy_delidate) {
+		this.buy_delidate = buy_delidate;
+	}
+
+	public void setBuy_price(int buy_price) {
+		this.buy_price = buy_price;
+	}
 
 	public int getBuy_price() {
 		return buy_price;

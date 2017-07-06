@@ -13,13 +13,12 @@ public class Gevent {
 	private int ev_read;
 	private String ev_del;
 	
+//페이징 작업	
 	private int startRow;
 	private int endRow;
 	
-	//이미지 업로드
-	private MultipartFile file1;
-	
-	
+//이미지 업로드 작업
+	private MultipartFile file1;//이벤트 이미지 
 	
 	public MultipartFile getFile1() {
 		return file1;
@@ -27,6 +26,7 @@ public class Gevent {
 	public void setFile1(MultipartFile file1) {
 		this.file1 = file1;
 	}
+	
 	public int getStartRow() {
 		return startRow;
 	}

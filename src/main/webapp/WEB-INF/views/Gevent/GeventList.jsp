@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-	$function delchk() {
+	function delchk() {
 		var cf = confirm("삭제하시겠습니까?");
 		if (cf == true) {
 			return true;
@@ -31,6 +31,9 @@
 				<td></td>
 			</tr>
 			<c:forEach var="gevent" items="${list}">
+			<c:set value="${no }" var="no"></c:set> 
+				<tr>
+					<td>${no}</td>
 				<%-- <tr>
 					<td>${list.ev_num }</td>
 					<td><a href="GeventContent.do?ev_num=${list.ev_num }">${list.ev_subject }</a></td>
@@ -45,9 +48,9 @@
 										onclick="return delchk()">삭제</button></a></td>
 						</c:if>
 					</c:if>
-				</tr> --%>
+				</tr> 
 				<tr>
-					<td>${gevent.ev_num }</td>
+					<td>${gevent.ev_num }</td> --%>
 					<td><img src="images/${gevent.ev_image }" width="30" height="30"></td>
 					<td><a href="GeventContent.do?ev_num=${gevent.ev_num }">${gevent.ev_subject }</a></td>
 					<td>${gevent.ev_content }</td>
@@ -63,6 +66,7 @@
 						</c:if>
 					</c:if>
 				</tr>
+				<c:set value="${no -1 }" var="no"></c:set>
 			</c:forEach>
 		</table>
 <!-- 페이징 ~ -->

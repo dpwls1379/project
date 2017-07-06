@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="container">
-<form action="GeventUpdate.do" method="post" name="frm" enctype="multipart/from-data">
+<form action="GeventUpdate.do" method="post" name="frm" enctype="multipart/form-data">
 	<input type="hidden" name="ev_num" value="${ev_num }">
 	<table class="table table-hover">
 		

@@ -55,16 +55,6 @@ public class GeventServiceImpl implements GeventService {
 	}
 
 	@Override
-	public List<Gevent> evList2() {
-		return gd.evList2();
-	}
-
-	@Override
-	public List<Gevent> evList3() {
-		return gd.evList3();
-	}
-
-	@Override
 	public int getTotalEvent() {
 		return gd.getTotalEvent();
 	}
