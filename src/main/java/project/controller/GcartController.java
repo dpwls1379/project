@@ -30,9 +30,7 @@ public class GcartController {
 	
 	@RequestMapping("Gcart")
 	public String GproductCart(Model model, Gcart gcart, HttpSession session) {
-
 		int result = 0;
-
 		String id=(String) session.getAttribute("id");
 		//gcart.setId(id);
 		//System.out.println("pro_num = "+gcart.getPro_num());
@@ -40,11 +38,15 @@ public class GcartController {
 		//System.out.println("controller.name =" + gcart.getPro_name());
 		gcart.setId(id);
 		String chkId = gs.selectId(gcart);
+		// id, pro_num으로 검색시, id값이 있나 없나 체크 여러개 있어도 dinstinct 사용해서 하나만 받아도 된다
 		String ct_del = gs.selectDel(gcart);
+		// id, pro_num으로 검색시, ct_del값이 y인지 n인지 체크하는 메소드, 단 ct_del이 여러값일때가 문제
 		System.out.println(ct_del);
-		if(chkId==null || chkId.equals("") || ct_del=="y" ) {
+		if(chkId==null || chkId.equals("")) {
 			result = gs.insert(gcart);
 			//System.out.println("result   i  = "+result);
+		} else if(/*ct_del=="y"*/ct_del.equals("y")) {
+			result = gs.insert(gcart);
 		} else {
 			result = gs.update(gcart);
 			//System.out.println("result u = "+result);
