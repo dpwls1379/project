@@ -10,4 +10,6 @@ public interface GbuyDao {
 
 	List<Gbuy> select(String id);
 
+	int delete(int buy_num);
+
 }

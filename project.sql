@@ -83,8 +83,7 @@ create table Gcart (
 	ct_num number primary key,
 	pro_num number references Gproduct(pro_num),
 	id varchar2(20) references Gmember(id),
-	ct_count number,
-	ct_del varchar2(1) default 'n'
+	ct_count number
 );
 alter table Gcart add ct_del varchar2(1) default 'n';
 select * from Gcart;
@@ -104,7 +103,9 @@ create table Gbuy (
 );
 alter table Gbuy add buy_totamt number;
 select * from Gcart natural join Gproduct where id='master';
-
+alter table gbuy modify buy_date varchar2(30);
+alter table gbuy add (buy_delidate varchar2(30));
+select * from gbuy;
 
 create table Gevent(
 	ev_num number default 1 primary key,

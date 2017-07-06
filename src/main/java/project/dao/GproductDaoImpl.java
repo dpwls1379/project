@@ -80,4 +80,28 @@ public class GproductDaoImpl implements GproductDao{
 	public List<Gproduct> rlist(int pro_num) {
 		return sst.selectList("gproduct.rlist",pro_num);
 	}
+
+	@Override
+	public Object updateSell(int ct_count, int pro_num) {
+		HashMap<String, Integer> hm = new HashMap<>();
+		hm.put("ct_count",ct_count);
+		hm.put("pro_num",pro_num);
+		return sst.update("gproduct.updateSell",hm);
+	}
+
+	@Override
+	public Object updateCount2(int ct_count, int pro_num) {
+		HashMap<String, Integer> hm = new HashMap<>();
+		hm.put("ct_count",ct_count);
+		hm.put("pro_num",pro_num);
+		return sst.update("gproduct.updateCount2",hm);
+	}
+
+	@Override
+	public Object updateSell2(int ct_count, int pro_num) {
+		HashMap<String, Integer> hm = new HashMap<>();
+		hm.put("ct_count",ct_count);
+		hm.put("pro_num",pro_num);
+		return sst.update("gproduct.updateSell2",hm);
+	}
 }

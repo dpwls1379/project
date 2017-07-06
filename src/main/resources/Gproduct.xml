@@ -73,4 +73,13 @@
 	<update id="updateCount" parameterType="hashMap">
 		update Gproduct set pro_count = pro_count-#{ct_count} where pro_num=#{pro_num}
 	</update>
+	<update id="updateSell" parameterType="hashMap">
+		update Gproduct set pro_sell = pro_sell+#{ct_count} where pro_num=#{pro_num}
+	</update>
+		<update id="updateCount2" parameterType="hashMap">
+		update Gproduct set pro_count = pro_count+#{ct_count} where pro_num=#{pro_num}
+	</update>
+	<update id="updateSell2" parameterType="hashMap">
+		update Gproduct set pro_sell = pro_sell-#{ct_count} where pro_num=#{pro_num}
+	</update>
 </mapper>

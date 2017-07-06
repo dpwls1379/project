@@ -23,5 +23,10 @@ public class GbuyServiceImpl implements GbuyService {
 	public List<Gbuy> select(String id) {
 		return gd.select(id);
 	}
+
+	@Override
+	public int delete(int buy_num) {
+		return gd.delete(buy_num);
+	}
 	
 }
