@@ -88,9 +88,8 @@ create table Gcart (
 );
 alter table Gcart add ct_del varchar2(1) default 'n';
 select * from Gcart;
+
 -- gcart에 구매 완료 표시를 위해 ct_del 컬럼 추가!
-
-
 
 create table Gbuy (
 	buy_num number primary key,
@@ -103,8 +102,8 @@ create table Gbuy (
 	id varchar2(20)  references Gmember(id),
 	buy_delidate varchar2(30)			-- 원하는 배송날짜 추가
 );
+alter table Gbuy add buy_totamt number;
 select * from Gcart natural join Gproduct where id='master';
-alter table gbuy modify buy_date varchar2(30);
 
 
 create table Gevent(
@@ -120,3 +119,17 @@ select * from Gevent;
 alter table Gevent modify ev_subject varchar2(100);
 alter table Gevent modify ev_image varchar2(100);
 select count(*) from Gevent;
+
+create table GbuyList(
+	bl_num number default 1,
+	buy_num number not null,
+	pro_num number not null,
+	buy_qty number not null,
+	buy_date date not null,	
+	id varchar2(20) not null,
+	primary key (bl_num, buy_num),
+	foreign key (id) references Gmember(id),
+	foreign key (pro_num) references Gproduct(pro_num),
+	foreign key (buy_num) references Gbuy(buy_num)
+);
+	
