@@ -20,8 +20,6 @@
 </head>
 <body>
 <div class="container">
-<form action="GbuyRefund.do" name="frm" method="post">
-	<input type="hidden" name="userid" value="${userid}">	
 	<h2 class="text-primary">최근 주문 내역</h2>
 	<table class="table table-striped">
 		<tr>
@@ -31,6 +29,7 @@
 			<td>확인/신청</td>		
 		</tr>		
 		<c:forEach var="list" items="${gbuy }">
+		<form action="GbuyRefund.do" name="frm" method="post">	
 			<input type="hidden" name="buy_num" id="buy_num" value="${list.buy_num}">
 			<input type="hidden" name="ct_num" id="ct_num" value="${list.ct_num}">
 			<input type="hidden" name="pro_num" id="pro_num" value="${list.pro_num}">
@@ -56,9 +55,9 @@
 					</c:if>
 				</td>					
 			</tr>
+		</form>
 		</c:forEach>	
 	</table>
-</form>
 </div>
 </body>
 </html>

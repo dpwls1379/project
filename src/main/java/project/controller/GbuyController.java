@@ -77,7 +77,7 @@ public class GbuyController {
 	}
 	
 	@RequestMapping("GbuyRefund")
-	public String GbuyRefund(Model model, Gbuy gbuy, String userid) {
+	public String GbuyRefund(Model model, Gbuy gbuy) {
 		int ct_count = gbuy.getCt_count(); 
 		int pro_num = gbuy.getPro_num();
 		int buy_num = gbuy.getBuy_num();
@@ -88,7 +88,6 @@ public class GbuyController {
 		int result = gs.delete(buy_num);
 		// 선택한 buy_num에 deli값을 환불완료로 수정
 		model.addAttribute("result",result);
-		model.addAttribute("userid",userid);
 		return "Gbuy/GbuyRefund";
 	}
 }

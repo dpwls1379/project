@@ -12,7 +12,7 @@
 <c:if test="${result>0 }">
 	<script type="text/javascript">
 		alert("상품이 처리되었습니다");
-		location.href="Gbuy.do?userid=${userid}";
+		location.href="Gbuy.do";
 	</script>
 </c:if>
 <c:if test="${result<=0 }">
