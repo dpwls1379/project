@@ -20,6 +20,28 @@ $(function () {
 			return false;
 		}
 	});
+	
+	$('input[name=pay]').change(function() {
+		var radioval=$(this).val();
+		if(radioval=='card'){
+			$('#pay').empty().append('<select><option selected="selected">신한카드</option>'
+					+'<option>우리카드</option><option>국민카드</option>'
+					+'<option>농협카드</option><option>기업카드</option>'
+					+'<option>비씨카드</option><option>롯데카드</option>'
+					+'<option>삼성카드</option><option>신협카드</option></select> <br>'
+					+'<select><option selected="selected">일시불</option>'
+					+'<option>무이자할부 3개월</option><option>무이자할부 6개월</option>'
+					+'<option>무이자할부 9개월</option><option>무이자할부 12개월</option></select>');
+		}
+
+		if(radioval=='account'){
+			$('#pay').empty().append('<select>'
+					+'<option selected="selected">신한은행 : 123-456-786456</option>'
+					+'<option>우리은행 : 123-456-786456</option><option>국민은행 : 123-456-786456</option>'
+					+'</select>');
+		}
+	});
+	
 });
 </script>
 </head>
@@ -91,6 +113,15 @@ $(function () {
 		<h2 class="text-primary text-danger" align="center">최종결제 정보</h2>
 		<table class="table table-bordered">
 			<tr><th>상품가격</th><td>${tot }</td></tr>
+			<tr><th>결제 수단 선택</th>
+				<td>
+					<input type="radio" id="card" value="card" name="pay" >
+					<label for="card">카드</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="radio" id="account" value="account" name="pay">
+					<label for="account">계좌이체</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<div id="pay"></div>
+				</td>
+			</tr>
 		</table><br>
 		<button id="buy" class="btn btn-info">결제하기</button>
 	</form>
