@@ -8,21 +8,6 @@ create table Gmember(
 	gender 		char(1) 		not null,
 	birthday 	varchar2(8) 			
 );
-<<<<<<< HEAD
-select * from Gcart;
-alter table Gmember drop column birthday;
-alter table Gmember add birthday varchar2(8);
-
-drop table Gproduct;
-drop table Gboardx;
-drop table Gboardo;
-drop table Greplyo;
-drop table Greplyx;
-drop table Gbuy;
-drop table Gcart;
-select * from tab;
-=======
->>>>>>> branch 'master' of https://github.com/dpwls1379/project.git
 
 create table Gproduct(
 	pro_num number primary key,
@@ -97,23 +82,30 @@ create table Greplyx (
 create table Gcart (
 	ct_num number primary key,
 	pro_num number references Gproduct(pro_num),
-	id varchar2(20) references Gmember(id),	
-	ct_count number
+	id varchar2(20) references Gmember(id),
+	ct_count number,
+	ct_del varchar2(1) default 'n'
 );
+alter table Gcart add ct_del varchar2(1) default 'n';
+select * from Gcart;
+-- gcart에 구매 완료 표시를 위해 ct_del 컬럼 추가!
+
 
 
 create table Gbuy (
 	buy_num number primary key,
 	buy_addr varchar2(50) not null,
 	buy_memo varchar2(80) default 'nothing',
-	buy_date date not null,
+	buy_date date not null,				-- 구매날짜 
 	buy_deli varchar2(30),
-	ct_num number,
+	ct_num number references Gcart(ct_num),
 	pro_num number references Gproduct(pro_num),
-	id varchar2(20)  references Gmember(id)
-);-- buy_price 지움
-alter table Gbuy drop column buy_price;
+	id varchar2(20)  references Gmember(id),
+	buy_delidate varchar2(30)			-- 원하는 배송날짜 추가
+);
 select * from Gcart natural join Gproduct where id='master';
+alter table gbuy modify buy_date varchar2(30);
+
 
 create table Gevent(
 	ev_num number default 1 primary key,

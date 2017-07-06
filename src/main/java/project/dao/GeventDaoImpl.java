@@ -58,6 +58,4 @@ public class GeventDaoImpl implements GeventDao {
 		return sst.selectOne("geventns.getTotalEvent");
 	}
 
-
-
 }

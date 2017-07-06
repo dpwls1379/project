@@ -18,7 +18,12 @@
 </style>
 <script type="text/javascript">
 	function cart() {
-		frm.submit();
+		var id= '${id}';
+		if(id === ''){
+			alert('로그인 후 결제를 진행하여 주십시오');
+		}else{
+			frm.submit();
+		}
 	}
 	function comma(data_value) {
 		return Number(data_value).toLocaleString('en').split(".");

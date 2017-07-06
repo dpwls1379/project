@@ -70,4 +70,7 @@
 	<select id="getTotalProduct" resultType="Integer">
 		select count(*) from Gproduct
 	</select>
+	<update id="updateCount" parameterType="hashMap">
+		update Gproduct set pro_count = pro_count-#{ct_count} where pro_num=#{pro_num}
+	</update>
 </mapper>

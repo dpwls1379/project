@@ -26,9 +26,10 @@ public class GFileuploadController {
 	
 	@Autowired
 	private GboardoService gbs;
-
+	
 	@Autowired
 	private GeventService ges;
+
 	
 	@RequestMapping(value = "Gproduct", method = RequestMethod.POST)
 	public String GproductInsert(Gproduct gproduct, Model model, HttpServletRequest request, HttpSession session) throws Exception {
@@ -108,7 +109,7 @@ public class GFileuploadController {
 		return "Gboardo/Gboardo";
 	}
 
-	@RequestMapping(value="GboardoUpdate")
+	@RequestMapping(value="GboardoUpdate", method=RequestMethod.POST)
 	public String GboardoUpdate(Model model, Gboardo gbo, HttpServletRequest request){
 		
 		String real=request.getSession().getServletContext().getRealPath("/WEB-INF/images");
@@ -130,6 +131,7 @@ public class GFileuploadController {
 		return "Gboardo/GboardoUpdate";
 	}
 	
+
 	@RequestMapping(value = "Gevent", method = RequestMethod.POST)
 	public String Gevent (Model model, Gevent gevent, HttpServletRequest request, HttpSession session) throws Exception {
 		String id = (String) session.getAttribute("id");

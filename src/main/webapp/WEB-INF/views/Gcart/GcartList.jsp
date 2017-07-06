@@ -154,24 +154,26 @@
 			<td id="123">총 가격</td>
 		</tr>
 		<c:forEach var="cart" items="${gcart }">
-			<tr>				
-				<td id="chk">
-					<input type="checkbox" name="chkbox" id="chkbox" value="${cart.ct_num }">
-				</td>				
-				<td><img src="${path}/images/${cart.pro_image}" height="70" width="70"></td>
-				<td><a href="GproductInfo.do?pro_num=${cart.pro_num }">${cart.pro_name}</a></td>			
-				<td id="price" name="price">
-					<fmt:formatNumber value="${(100-cart.pro_sale)/100*cart.pro_price}" pattern="0"/>
-				</td>
-				<td>
-					<a class="btn btn-default btn-sm" id="minus" name="min">-</a>
-					<input type="number" name="ct_count" id="ct_count" value="${cart.ct_count}"> 
-					<a class="btn btn-default btn-sm" id="plus" name="pls">+</a>
-				</td>
-				<td id="totprice">				
-					<fmt:formatNumber value="${(100-cart.pro_sale)/100*cart.pro_price*cart.ct_count}" pattern="0"/>
-				</td>
-			</tr>
+			<c:if test="${cart.ct_del.equals('n') }">
+				<tr>				
+					<td id="chk">
+						<input type="checkbox" name="chkbox" id="chkbox" value="${cart.ct_num }">
+					</td>				
+					<td><img src="${path}/images/${cart.pro_image}" height="70" width="70"></td>
+					<td><a href="GproductInfo.do?pro_num=${cart.pro_num }">${cart.pro_name}</a></td>			
+					<td id="price" name="price">
+						<fmt:formatNumber value="${(100-cart.pro_sale)/100*cart.pro_price}" pattern="0"/>
+					</td>
+					<td>
+						<a class="btn btn-default btn-sm" id="minus" name="min">-</a>
+						<input type="number" name="ct_count" id="ct_count" value="${cart.ct_count}"> 
+						<a class="btn btn-default btn-sm" id="plus" name="pls">+</a>
+					</td>
+					<td id="totprice">				
+						<fmt:formatNumber value="${(100-cart.pro_sale)/100*cart.pro_price*cart.ct_count}" pattern="0"/>
+					</td>
+				</tr>
+			</c:if>
 		</c:forEach>
 		<tr>
 			<td colspan="5">결제 예정 금액</td>

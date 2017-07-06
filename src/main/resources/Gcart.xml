@@ -4,7 +4,8 @@
 <mapper namespace="gcart">
 	<!-- Use type aliases to avoid typing the full classname every time. -->
 	<resultMap id="gcartResult" type="gcart">
-		<result property="ct_num" column="ct_num" />		
+		<result property="ct_num" column="ct_num" />
+		<result property="ct_del" column="ct_del" />			
 		<result property="pro_num" column="pro_num" />					
 		<result property="id" column="id" />
 		<result property="ct_count" column="ct_count" />
@@ -16,19 +17,19 @@
 		<result property="addr" column="addr" />
 		<result property="tel" column="tel" />
 		<result property="email" column="email" />
+		<result property="ct_del" column="ct_del" />
 	</resultMap>
 	<insert id="insert" parameterType="gcart">
 		<selectKey keyProperty="ct_num" order="BEFORE" resultType="int">		
 			select nvl(max(ct_num),0)+1 from Gcart
 		</selectKey>
-		insert into Gcart (ct_num,pro_num,id,ct_count) 
-		  values (#{ct_num},#{pro_num},#{id},#{ct_count})
+		insert into Gcart values (#{ct_num},#{pro_num},#{id},#{ct_count},'n')
 	</insert>
 	<select id="list" parameterType="String" resultMap="gcartResult">
 		select * from Gcart natural join Gproduct where id=#{id}
 	</select>
-	<select id="selectId" parameterType="gcart" resultType="string">
-		select id from Gcart where pro_num=#{pro_num} and id=#{id}
+	<select id="selectId" parameterType="gcart" resultType="String">
+		select distinct id from Gcart where pro_num=#{pro_num} and id=#{id}
 	</select>
 	<update id="update" parameterType="gcart">
 		update Gcart set ct_count = ct_count + #{ct_count} where pro_num=#{pro_num}
@@ -42,5 +43,23 @@
 	</select>
 	<select id="member" parameterType="String" resultType="gcart">
 		select * from Gcart natural join Gmember where id=#{id}
+	</select>
+	<select id="pronum" parameterType="int" resultType="int">
+		select pro_num from Gcart where ct_num=#{ct_num}
+	</select>
+	<update id="updateCart" parameterType="int" >
+		update Gcart set ct_del='y' where ct_num=#{ct_num}
+	</update>
+	<select id="ct_count" parameterType="int" resultType="int">
+		select ct_count from Gcart where ct_num=#{ct_num}
+	</select>
+	<select id="pro_num" parameterType="int" resultType="int">
+		select pro_num from Gcart where ct_num=#{ct_num}
+	</select>
+	<select id="selectDel" parameterType="gcart" resultType="String">
+		select ct_del from Gcart where pro_num=#{pro_num} and id=#{id}
+	</select>	
+	<select id="content" parameterType="gcart" resultType="gcart">
+		select * from gcart where id=#{id} and ct_num=(select max(ct_num) from gcart where id=#{id})
 	</select>
 </mapper>

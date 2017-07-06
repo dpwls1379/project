@@ -14,7 +14,8 @@ $(function() {
 		if(id === ''){
 			alert('로그인 후 결제를 진행하여 주십시오');
 		}else{
-			alert('결제를 진행하는 중!!');
+			location.href="GbuyNowForm.do?pro_num=${gproduct.pro_num}&ct_count=${buy_count}&tot=${buy_price}";
+
 		}
 	});
 });

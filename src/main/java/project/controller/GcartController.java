@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import project.model.Gcart;
 import project.model.Gmember;
+import project.model.Gproduct;
 import project.service.GcartService;
 import project.service.GmemberService;
+import project.service.GproductService;
 
 @Controller
 public class GcartController {
@@ -22,6 +24,9 @@ public class GcartController {
 	
 	@Autowired
 	private GmemberService gms;
+	
+	@Autowired
+	private GproductService gps;
 	
 	@RequestMapping("Gcart")
 	public String GproductCart(Model model, Gcart gcart, HttpSession session) {
@@ -35,8 +40,9 @@ public class GcartController {
 		//System.out.println("controller.name =" + gcart.getPro_name());
 		gcart.setId(id);
 		String chkId = gs.selectId(gcart);
-
-		if(chkId==null || chkId.equals("")) {
+		String ct_del = gs.selectDel(gcart);
+		System.out.println(ct_del);
+		if(chkId==null || chkId.equals("") || ct_del=="y" ) {
 			result = gs.insert(gcart);
 			//System.out.println("result   i  = "+result);
 		} else {
@@ -95,6 +101,7 @@ public class GcartController {
 		}
 		//Gcart member = gs.member(id);
 		Gmember member = gms.select(id);
+		model.addAttribute("userid",userid);
 		model.addAttribute("member",member);
 		model.addAttribute("tot",tot);
 		model.addAttribute("info",info);
@@ -102,18 +109,40 @@ public class GcartController {
 	}
 	
 	@RequestMapping("GbuyNowForm")
-	public String GbuyNowForm(Model model,HttpSession session, Gcart gcart ,int tot) {
-		//int totprice = Integer.parseInt(tot);
-		String id=(String) session.getAttribute("id");
+	public String GbuyNowForm(Model model ,Gcart gcart, HttpSession session, int tot){		
+		String id=(String)session.getAttribute("id");
+		gcart.setId(id);		
+		int result=gs.insert(gcart);
+		System.out.println("gcart 등록 성공 했냐 안했냐"+result);
+		Gcart gc=gs.content(gcart);
+		Gcart gc2=gs.info(gc.getCt_num());		
+		List<Gcart> info=new ArrayList<>();
+		info.add(gc2);
+		Gmember member=gms.select(id);
+		String userid = gc2.getCt_num()+"-";
 		
-		List<Gcart> info = new ArrayList<Gcart>();
-		
-		
-		Gmember member = gms.select(id);
-		model.addAttribute("member",member);
+		model.addAttribute("userid",userid);
 		model.addAttribute("tot",tot);
+		model.addAttribute("member",member);
 		model.addAttribute("info",info);
 		return "Gbuy/GbuyForm";
 	}
+	
+	@RequestMapping("buyNow")
+	public String buyNow(int pro_num, int buy_count, Model model){
+		
+		Gproduct gpro=gps.pdContent(pro_num);
+		int totalprice = (1 - gpro.getPro_sale()/100) * gpro.getPro_price() * buy_count;
+		int totalsale = gpro.getPro_price() - totalprice ;
+		
+		model.addAttribute("buy_count",buy_count); // 상품 구매 수량
+		model.addAttribute("gproduct",gpro); //상품정보
+		model.addAttribute("totalsale",totalsale);//총 할인값
+		model.addAttribute("buy_price",totalprice); //총 합계
+		
+		return "Gbuy/buyNowForm";
+	}
+	
+	
 	
 }
