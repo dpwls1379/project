@@ -26,6 +26,10 @@
 			<a href="GeventList.do" target="e">
 				<button type="button" class="btn btn-default btn-lg">이벤트 관리</button>
 		</a>
+		<hr>
+			<a href="GdeliList.do" target="a">
+				<button type="button" class="btn btn-default btn-lg">주문 관리</button>
+		</a>
 	</fieldset>
 	</div>
 </body>

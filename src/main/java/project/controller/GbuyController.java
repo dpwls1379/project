@@ -1,4 +1,5 @@
 package project.controller;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -90,4 +91,17 @@ public class GbuyController {
 		model.addAttribute("result",result);
 		return "Gbuy/GbuyRefund";
 	}
+	
+	@RequestMapping("GdeliList")
+	public String GdeliList(Model model){
+		
+		List<Gbuy> gbuylist= new ArrayList<>();
+		gbuylist= gs.gbuylist();
+		
+		model.addAttribute("gbuylist",gbuylist);
+		
+		return "Gadmin/GdeliList";
+	}
+	
+	
 }

@@ -12,4 +12,6 @@ public interface GbuyService {
 
 	int delete(int buy_num);
 
+	List<Gbuy> gbuylist();
+
 }

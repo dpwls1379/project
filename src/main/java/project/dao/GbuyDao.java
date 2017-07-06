@@ -12,4 +12,6 @@ public interface GbuyDao {
 
 	int delete(int buy_num);
 
+	List<Gbuy> gbuylist();
+
 }

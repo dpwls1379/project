@@ -28,5 +28,11 @@ public class GbuyServiceImpl implements GbuyService {
 	public int delete(int buy_num) {
 		return gd.delete(buy_num);
 	}
+
+	@Override
+	public List<Gbuy> gbuylist() {
+		// TODO Auto-generated method stub
+		return gd.gbuylist();
+	}
 	
 }
