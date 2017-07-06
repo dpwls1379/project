@@ -72,6 +72,8 @@ public class GcartServiceImpl implements GcartService{
 		return gd.selectDel(gcart);
 	}
 
-
-
+	public Gcart content(Gcart gcart) {
+		// TODO Auto-generated method stub
+		return gd.content(gcart);
+	}
 }

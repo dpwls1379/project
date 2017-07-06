@@ -14,7 +14,7 @@
 		alert("장바구니에 상품을 담았습니다");
 		var cf = confirm("장바구니를 확인하시겠습니까?");
 		if(cf==true) {
-			location.href="GcartList.do";
+			location.href="GcartList.do?pro_num=${gcart.pro_num}";
 		} else {
 			history.go(-1);
 		}

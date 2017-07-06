@@ -27,12 +27,27 @@
 	<table class="table table-hover">
 		<tr>
 			<td>카테고리</td>
-			<td>	
-				<select name="pro_cate">
-					<option value="appliance" selected="selected">가전제품</option>
-					<option value="food">식료품</option>
+			<td>		
+				<select name="pro_cate" required="required">
+					<option value="agricultural" selected="selected">농수산물</option>
+					<option value="food">가공식품</option>
+					<option value="frozen">냉동식품</option>
+					<option value="beverage">음료</option>
+					<option value="bath">욕실용품</option>
+					<option value="sanitation">위생용품</option>
+					<option value="kitchen">주방용품</option>
+					<option value="interior">홈인테리어</option>
+					<option value="fashion">패션/잡화</option>
+					<option value="cosmetics">화장품</option>
+					<option value="sports">스포츠</option>
+					<option value="appliance">가전</option>
+					<option value="etc">기타</option>
 				</select>
 			</td>
+				<!-- <select name="pro_cate">
+					<option value="appliance" selected="selected">가전제품</option>
+					<option value="food">식료품</option>
+				</select> -->
 		</tr>
 		<tr>
 			<td>이름</td>

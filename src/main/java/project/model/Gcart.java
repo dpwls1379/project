@@ -3,10 +3,10 @@ package project.model;
 public class Gcart {
 	//실제 DB
 	private int ct_num;
+	private String ct_del; //ct_del 추가
 	private int pro_num;
 	private String id;
 	private int ct_count;
-	private String ct_del;
 	
 	
 	private String pro_name;
@@ -17,7 +17,6 @@ public class Gcart {
 	private String addr;
 	private int tel;
 	private String email;	
-	
 	
 	public String getCt_del() {
 		return ct_del;

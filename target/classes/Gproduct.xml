@@ -21,10 +21,15 @@
 		</selectKey>
 		insert into Gproduct values (#{pro_num},#{pro_cate},#{pro_name},#{pro_price},#{pro_sale},#{pro_info},#{pro_image},sysdate,#{pro_count},0,0)
 	</insert>
-	<select id="list" resultMap="gproductResult" parameterType="gproduct">
-		<!-- select * from Gproduct order by pro_num -->
+	<!-- <select id="list" resultMap="gproductResult" parameterType="gproduct">
+		select * from Gproduct order by pro_num
 		select * from (select a.*,rowNum rn from (select * from Gproduct) a ) 
 			where rn between #{startRow} and #{endRow}
+	</select> -->
+	<select id="list" parameterType="hashMap" resultMap="gproductResult">
+		select * from (select a.*,rowNum rn from (select * from Gproduct 
+		<if test='pro_cate != null'> where pro_cate=#{pro_cate} </if> 
+		) a ) where rn between #{startRow} and #{endRow}
 	</select>
 	<select id="pdList" resultMap="gproductResult">
 		<![CDATA[
@@ -39,6 +44,12 @@
 	<select id="pdList3" resultMap="gproductResult">
 		<![CDATA[
 			select * from (select * from (select pro_num, avg(bo_star) avg from Gboardo group by pro_num) natural join gproduct order by avg desc) where rowNum <=5
+		]]>
+	</select>
+	<select id="rlist" resultMap="gproductResult">
+		<![CDATA[
+			select * from Gproduct where pro_cate = 
+			(select pro_cate from Gproduct where pro_num=#{pro_num}) and rowNum <= 3
 		]]>
 	</select>
 	<select id="pdContent" parameterType="int" resultType="gproduct">

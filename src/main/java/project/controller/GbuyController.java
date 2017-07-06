@@ -31,21 +31,6 @@ public class GbuyController {
 	@Autowired
 	private GcartService gsv;
 	
-/*	@RequestMapping("buyNow")
-	public String buyNow(int pro_num, int buy_count, Model model){
-		
-		Gproduct gpro=gps.pdContent(pro_num);
-		int totalprice = (1 - gpro.getPro_sale()/100) * gpro.getPro_price() * buy_count;
-		int totalsale = gpro.getPro_price() - totalprice ;
-		
-		model.addAttribute("buy_count",buy_count); // 상품 구매 수량
-		model.addAttribute("gproduct",gpro); //상품정보
-		model.addAttribute("totalsale",totalsale);//총 할인값
-		model.addAttribute("buy_price",totalprice); //총 합계
-		
-		return "Gbuy/buyNowForm";
-	}*/
-	
 	@RequestMapping("GbuyChk")
 	public String GbuyChk(Model model, HttpSession session, Gbuy gbuy, int tot, String userid) {
 		int result = 0;
@@ -68,7 +53,7 @@ public class GbuyController {
 		model.addAttribute("tot",tot);
 		return "Gbuy/GbuyChk";
 	}
-	
+
 	@RequestMapping("Gbuy")
 	public String Gbuy(Model model, HttpSession session, int tot, String userid) {		
 		String id=(String) session.getAttribute("id");		

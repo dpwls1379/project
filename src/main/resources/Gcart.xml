@@ -4,7 +4,8 @@
 <mapper namespace="gcart">
 	<!-- Use type aliases to avoid typing the full classname every time. -->
 	<resultMap id="gcartResult" type="gcart">
-		<result property="ct_num" column="ct_num" />		
+		<result property="ct_num" column="ct_num" />
+		<result property="ct_del" column="ct_del" />			
 		<result property="pro_num" column="pro_num" />					
 		<result property="id" column="id" />
 		<result property="ct_count" column="ct_count" />
@@ -57,5 +58,8 @@
 	</select>
 	<select id="selectDel" parameterType="gcart" resultType="String">
 		select ct_del from Gcart where pro_num=#{pro_num} and id=#{id}
+	</select>	
+	<select id="content" parameterType="gcart" resultType="gcart">
+		select * from gcart where id=#{id} and ct_num=(select max(ct_num) from gcart where id=#{id})
 	</select>
 </mapper>

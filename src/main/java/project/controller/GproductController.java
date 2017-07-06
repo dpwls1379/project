@@ -38,6 +38,10 @@ public class GproductController {
 	}
 
 	@RequestMapping("GproductForm")
+	public String GproductForm() {
+		return "Gproduct/GproductForm";
+	} 
+	/*@RequestMapping("GproductForm")
 	public String GproductForm(Model model) {
 
 		List<String> category = new ArrayList<String>();
@@ -55,19 +59,20 @@ public class GproductController {
 		model.addAttribute("cate", category);
 
 		return "Gproduct/GproductForm";
-	}
+	}*/
+	
+//	@RequestMapping("GproductList")
+//	public String GproductList(Model model, Gproduct gp) {
+//		List<Gproduct> list = gps.list(gp);
+//		model.addAttribute("list",list);
+//		return "Gproduct/GproductList";
+//	}
 
 	// @RequestMapping("Gproduct")
 	// public String Gproduct(Model model, Gproduct gproduct) {
 	// int result = gps.insert(gproduct);
 	// model.addAttribute("result",result);
 	// return "Gproduct/Gproduct";
-	// }
-	// @RequestMapping("GproductList")
-	// public String GproductList(Model model, Gproduct gp) {
-	// List<Gproduct> list = gps.list(gp);
-	// model.addAttribute("list",list);
-	// return "Gproduct/GproductList";
 	// }
 	@RequestMapping("GproductDelete")
 	public String GproductDelete(Model model, int pro_num) {
@@ -103,12 +108,24 @@ public class GproductController {
 		model.addAttribute("list3", list3);
 		return "Gproduct/GproductMain";
 	}
-
-	@RequestMapping("GproductInfo")
+	
+	/*@RequestMapping("GproductInfo")
 	public String productList(Model model, int pro_num) {
 		gps.readcount(pro_num);
 		Gproduct gproduct = gps.pdContent(pro_num);
 		model.addAttribute("list", gproduct);
+		return "Gproduct/GproductInfo";
+	}*/
+	@RequestMapping("GproductInfo")
+	public String productList(Model model, int pro_num, String pro_cate) {
+		gps.readcount(pro_num);
+		Gproduct gproduct = gps.pdContent(pro_num);
+		List<Gproduct> rlist = gps.rlist(pro_num);
+		model.addAttribute("gproduct",gproduct);
+		//System.out.println("pro_num = "+pro_num);
+		//System.out.println("name = "+gproduct.getPro_name());
+		model.addAttribute("rlist",rlist);
+		model.addAttribute("pro_cate", pro_cate);
 		return "Gproduct/GproductInfo";
 	}
 

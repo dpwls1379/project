@@ -30,4 +30,6 @@ public interface GproductService {
 
 	Object updateCount(int ct_count, int pro_num);
 
+	List<Gproduct> rlist(int pro_num);
+
 }

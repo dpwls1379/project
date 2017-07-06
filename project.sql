@@ -32,10 +32,11 @@ create table Gboardo(
 	bo_read number default 0,
 	bo_star number default 0,
 	bo_del char(1) default 'n',
-	id varchar2(20) references Gmember(id),
+	id varchar2(20), 
 	pro_num number references Gproduct(pro_num)
 );
 -- 아직 아이디 연동은 안한 상태라 id컬럼 그냥 생성
+alter table Gboardo add foreign key (id) references Gmember(id);
 
 create table Gboardx(
 	bx_num number primary key,
@@ -80,13 +81,16 @@ create table Greplyx (
 
 create table Gcart (
 	ct_num number primary key,
+	ct_del char(1) default 'n',
 	pro_num number references Gproduct(pro_num),
 	id varchar2(20) references Gmember(id),
 	ct_count number,
 	ct_del varchar2(1) default 'n'
 );
--- 07/05 장바구니 보여주기 여부 ct_del varchar2(1)추가
+
 select * from Gcart;
+-- gcart에 구매 완료 표시를 위해 ct_del 컬럼 추가!
+
 
 
 create table Gbuy (
@@ -100,6 +104,19 @@ create table Gbuy (
 	id varchar2(20)  references Gmember(id)
 );
 -- buy_price 지움
-alter table Gbuy drop column buy_price;
 -- 07/05 ct_num references연결(수정), buy_deli 컬럼추가
-select * from Gbuy;
+
+select * from Gcart natural join Gproduct where id='master';
+
+create table Gevent(
+	ev_num number default 1 primary key,
+	ev_subject varchar2(30) not null,	
+	ev_content varchar2(4000) not null,
+	ev_image varchar2(30) default 'default.jpg',
+	ev_date date not null,
+	ev_read number default 0,
+	ev_del char(1) default 'n'
+);
+select * from Gevent;
+alter table Gevent modify ev_subject varchar2(100);
+alter table Gevent modify ev_image varchar2(100);

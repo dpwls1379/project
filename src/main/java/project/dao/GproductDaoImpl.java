@@ -76,4 +76,8 @@ public class GproductDaoImpl implements GproductDao{
 		hm.put("pro_num",pro_num);
 		return sst.update("gproduct.updateCount",hm);
 	}
+
+	public List<Gproduct> rlist(int pro_num) {
+		return sst.selectList("gproduct.rlist",pro_num);
+	}
 }
