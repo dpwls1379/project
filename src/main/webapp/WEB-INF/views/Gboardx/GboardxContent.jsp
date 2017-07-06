@@ -17,10 +17,10 @@
 		}
 	}	
 	$(function() {
-		$('#list').load('GboardxList.do');
+		$('#list').load('GboardxList.do table');
 	});
 	$(function() {
-		$('#list2').load('GboardxList2.do');
+		$('#list2').load('GboardxList2.do table');
 	});
 	$(function() {
 		$('#repList').load('GreplyxList.do?bx_num=${content.bx_num }');

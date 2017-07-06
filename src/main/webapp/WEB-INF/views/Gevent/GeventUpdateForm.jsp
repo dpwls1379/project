@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="container">
-<form action="GeventUpdate.do" method="post" name="frm">
+<form action="GeventUpdate.do" method="post" name="frm" enctype="multipart/form-data">
 	<input type="hidden" name="ev_num" value="${ev_num }">
 	<table class="table table-hover">
 		
@@ -25,7 +25,7 @@
 		</tr>
 		<tr>
 			<td>이미지</td>
-			<td><input type="file" name="ev_image" required="required" value="${list.ev_image }"></td>
+			<td><input type="file" name="file1" required="required" value="${list.ev_image }"></td>
 		</tr>
 		<tr>
 			<td><input type="submit" value="수정" class="btn btn-success btn-sm">

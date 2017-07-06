@@ -15,23 +15,23 @@ import project.service.PagingPgm;
 @Controller
 public class GeventController {
 	@Autowired
-	private GeventService ge;
+	private GeventService ges;
 	
 	@RequestMapping("GeventForm")
 	public String GeventForm() {
 		return "Gevent/GeventForm";
 	}
 	
-	@RequestMapping("Gevent")
+	/*@RequestMapping("Gevent")
 	public String Gevent (Model model, Gevent gevent) {
-		int result = ge.insert(gevent);
+		int result = ges.insert(gevent);
 		model.addAttribute("result", result);
 		return "Gevent/Gevent";
-	}
+	}*/
 	
 	/*@RequestMapping("GeventList")
 	public String GeventList(Model model) {
-		List<Gevent> list = ge.list();
+		List<Gevent> list = ges.list();
 		model.addAttribute("list", list);
 		return "Gevent/GeventList";
 	}*/
@@ -43,14 +43,14 @@ public class GeventController {
 			pageNum = "1";
 		}
 		int currentPage = Integer.parseInt(pageNum);
-		int total = ge.getTotalEvent(); // 검색
+		int total = ges.getTotalEvent(); // 검색
 		int startRow = (currentPage - 1) * rowPerPage + 1;
 		int endRow = startRow + rowPerPage - 1;
 		PagingPgm pp = new PagingPgm(total, rowPerPage, currentPage);
 		gevent.setStartRow(startRow);
 		gevent.setEndRow(endRow);
 		int no = total - startRow + 1;
-		List<Gevent> list = ge.list(gevent);
+		List<Gevent> list = ges.list(gevent);
 		model.addAttribute("list", list);
 		model.addAttribute("no", no);
 		model.addAttribute("pp", pp);
@@ -59,8 +59,8 @@ public class GeventController {
 	
 	@RequestMapping("GeventContent")
 	public String GeventContent(Model model, int ev_num) {
-		ge.readcount(ev_num);
-		Gevent gevent = ge.content(ev_num);
+		ges.readcount(ev_num);
+		Gevent gevent = ges.content(ev_num);
 		model.addAttribute("content", gevent);
 		model.addAttribute("ev_num", ev_num);
 		return "Gevent/GeventContent";
@@ -68,35 +68,35 @@ public class GeventController {
 	
 	@RequestMapping("GeventUpdateForm")
 	public String GeventUpdateForm(Model model, int ev_num) {
-		Gevent gevent = ge.content(ev_num);
+		Gevent gevent = ges.content(ev_num);
 		model.addAttribute("list", gevent);
 		model.addAttribute("ev_num", ev_num);
 		return "Gevent/GeventUpdateForm";
 	}
 	
-	@RequestMapping("GeventUpdate")
+	/*@RequestMapping("GeventUpdate")
 	public String GeventUpdate(Model model, Gevent gevent) {
 		if(gevent.getEv_image() == "") {
 			gevent.setEv_image("nothing.jpg");
 		}
-		int result = ge.update(gevent);
+		int result = ges.update(gevent);
 		model.addAttribute("result", result);
 		model.addAttribute("ev_num", gevent.getEv_num());
 		return "Gevent/GeventUpdate";
-	}
+	}*/
 	
 	@RequestMapping("GeventDelete")
 	public String GeventDelete(Model model, int ev_num) {
-		int result = ge.delete(ev_num);
+		int result = ges.delete(ev_num);
 		model.addAttribute("result", result);
 		return "Gevent/GeventDelete";
 	}
 	
 	@RequestMapping("GeventSearch")
 	public String GeventSearch(Model model, String search) {
-		List<Gevent> list = ge.search(search);
+		List<Gevent> list = ges.search(search);
 		model.addAttribute("list",list);
-		return "Gevent/GeventSearch";
+		return "Gevent/GeventSearch"; 
 	}
 	
 	@RequestMapping("GeventImage")
@@ -107,7 +107,7 @@ public class GeventController {
 	
 	@RequestMapping("GeventMain")
 	public String GeventMain(Model model) {
-		List<Gevent> list = ge.evList();
+		List<Gevent> list = ges.evList();
 		//ArrayList<Integer> list = new ArrayList<Integer>(); 
 			/*for(int i=0; i<10; i++) { 
 				list.add(i); 

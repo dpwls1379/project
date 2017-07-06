@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.sun.javafx.sg.prism.NGShape.Mode;
 
 import project.model.Gboardo;
+import project.model.Gevent;
 import project.model.Gproduct;
 import project.service.GboardoService;
+import project.service.GeventService;
 import project.service.GproductService;
 
 @Controller
@@ -25,6 +27,9 @@ public class GFileuploadController {
 	@Autowired
 	private GboardoService gbs;
 
+	@Autowired
+	private GeventService ges;
+	
 	@RequestMapping(value = "Gproduct", method = RequestMethod.POST)
 	public String GproductInsert(Gproduct gproduct, Model model, HttpServletRequest request, HttpSession session) throws Exception {
 
@@ -125,6 +130,40 @@ public class GFileuploadController {
 		return "Gboardo/GboardoUpdate";
 	}
 	
-	
+	@RequestMapping(value = "Gevent", method = RequestMethod.POST)
+	public String Gevent (Model model, Gevent gevent, HttpServletRequest request, HttpSession session) throws Exception {
+		String id = (String) session.getAttribute("id");
+		String real = request.getSession().getServletContext().getRealPath("/WEB-INF/images");
 
+		if(!gevent.getFile1().isEmpty()) {
+			String ev_image = gevent.getFile1().getOriginalFilename();
+			gevent.setEv_image(ev_image);
+			Filewriter filewriter = new Filewriter();
+			filewriter.writeFile(gevent.getFile1(), real, ev_image);
+		}
+		
+		int result = ges.insert(gevent);
+		model.addAttribute("result", result);
+		return "Gevent/Gevent";
+	}
+
+	@RequestMapping(value = "GeventUpdate", method = RequestMethod.POST)
+	public String GeventUpdate(Model model, Gevent gevent, HttpServletRequest request) {
+		String real = request.getSession().getServletContext().getRealPath("/WEB-INF/images");
+
+		if(!gevent.getFile1().isEmpty()) {
+			String ev_image = gevent.getFile1().getOriginalFilename();
+			gevent.setEv_image(ev_image);
+			Filewriter filewriter = new Filewriter();
+			filewriter.writeFile(gevent.getFile1(), real, ev_image);
+		}
+		else {
+			gevent.setEv_image("nothing.jpg");
+		}
+			
+		int result = ges.update(gevent);
+		model.addAttribute("result", result);
+		model.addAttribute("ev_num", gevent.getEv_num());
+		return "Gevent/GeventUpdate";
+	}
 }

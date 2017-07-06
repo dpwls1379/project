@@ -22,10 +22,6 @@ public interface GeventDao {
 
 	List<Gevent> evList();
 
-	List<Gevent> evList2();
-	
-	List<Gevent> evList3();
-
 	int getTotalEvent();
 
 

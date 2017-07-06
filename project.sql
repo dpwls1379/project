@@ -127,3 +127,4 @@ create table Gevent(
 select * from Gevent;
 alter table Gevent modify ev_subject varchar2(100);
 alter table Gevent modify ev_image varchar2(100);
+select count(*) from Gevent;

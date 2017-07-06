@@ -40,7 +40,7 @@ public class GeventDaoImpl implements GeventDao {
 
 	@Override
 	public int delete(int ev_num) {
-		return sst.update("geventns.delete",ev_num);
+		return sst.delete("geventns.delete",ev_num);
 	}
 
 	@Override
@@ -51,16 +51,6 @@ public class GeventDaoImpl implements GeventDao {
 	@Override
 	public List<Gevent> evList() {
 		return sst.selectList("geventns.evList");
-	}
-
-	@Override
-	public List<Gevent> evList2() {
-		return sst.selectList("geventns.evList2");
-	}
-
-	@Override
-	public List<Gevent> evList3() {
-		return sst.selectList("geventns.evList3");
 	}
 
 	@Override

@@ -19,8 +19,12 @@
 		<!-- ev_num이 null이면 0+1로 1을 주고 이후 1씩 증가 시킨다 -->
 		insert into Gevent values (#{ev_num},#{ev_subject},#{ev_content},#{ev_image},sysdate,0,'n')
 	</insert>
-	<select id="list" resultMap="geventResult">
+	<!-- <select id="list" resultMap="geventResult">
 		select * from Gevent order by ev_num desc
+	</select> -->
+	<select id="list" parameterType="hashMap" resultMap="geventResult">
+		select * from (select a.*,rowNum rn from (select * from Gevent) a ) 
+			where rn between #{startRow} and #{endRow}
 	</select>
 	<select id="evList" resultMap="geventResult">
 		select * from Gevent order by ev_num desc
@@ -38,12 +42,12 @@
 		update Gevent set ev_subject=#{ev_subject}, ev_content=#{ev_content}, ev_image=#{ev_image} where ev_num=#{ev_num}
 	</update>
 	<update id="delete" parameterType="int">
-		update Gevent set ev_del='y' where ev_num=#{ev_num}
+		delete from Gevent where ev_num=#{ev_num}
 	</update>
 	<select id="search" parameterType="string" resultMap="geventResult">
-		select * from Gevent where eve_subject like '%'||#{search}||'%'
+		select * from Gevent where ev_subject like '%'||#{search}||'%'
 	</select>
-	<select id="getTotalEvent" resultType="int">
+	<select id="getTotalEvent" resultType="Integer">
 		select count(*) from Gevent
 	</select>
 </mapper>
