@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	function refund() {
-		var cf = confirm("정말로 환불하시겠습니까?");
+		var cf = confirm("정말로 주문을 취소하시겠습니까?");
 		if(cf) {
 			frm.submit();
 		} else {

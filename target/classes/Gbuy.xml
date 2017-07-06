@@ -29,6 +29,6 @@
 		select * from Gbuy natural join (select * from Gproduct natural join Gcart) where id=#{id}
 	</select>
 	<update id="delete" parameterType="int">
-		update Gbuy set buy_deli='환불완료' where buy_num=#{buy_num}
+		update Gbuy set buy_deli='주문취소완료' where buy_num=#{buy_num}
 	</update>
 </mapper>

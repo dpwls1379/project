@@ -11,7 +11,7 @@
 <body>
 <c:if test="${result>0 }">
 	<script type="text/javascript">
-		alert("상품이 처리되었습니다");
+		alert("주문 취소 완료되었습니다");
 		location.href="Gbuy.do";
 	</script>
 </c:if>
