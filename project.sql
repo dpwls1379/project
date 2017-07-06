@@ -81,9 +81,12 @@ create table Greplyx (
 create table Gcart (
 	ct_num number primary key,
 	pro_num number references Gproduct(pro_num),
-	id varchar2(20) references Gmember(id),	
-	ct_count number
+	id varchar2(20) references Gmember(id),
+	ct_count number,
+	ct_del varchar2(1) default 'n'
 );
+-- 07/05 장바구니 보여주기 여부 ct_del varchar2(1)추가
+select * from Gcart;
 
 
 create table Gbuy (
@@ -99,3 +102,4 @@ create table Gbuy (
 -- buy_price 지움
 alter table Gbuy drop column buy_price;
 -- 07/05 ct_num references연결(수정), buy_deli 컬럼추가
+select * from Gbuy;

@@ -19,4 +19,14 @@ public interface GcartDao {
 	Gcart info(int ct_num);
 
 	Gcart member(String id);
+
+	int pronum(int ct_num);
+
+	Object updateCart(int ct_num);
+
+	int ct_count(int ct_num);
+
+	int pro_num(int ct_num);
+
+	String selectDel(Gcart gcart);
 }

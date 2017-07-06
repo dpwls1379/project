@@ -1,5 +1,6 @@
 package project.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -66,5 +67,13 @@ public class GproductDaoImpl implements GproductDao{
 	@Override
 	public int getTotalRecordProduct() {
 		return sst.selectOne("getTotalProduct");
+	}
+
+	@Override
+	public Object updateCount(int ct_count, int pro_num) {
+		HashMap<String, Integer> hm = new HashMap<>();
+		hm.put("ct_count",ct_count);
+		hm.put("pro_num",pro_num);
+		return sst.update("gproduct.updateCount",hm);
 	}
 }

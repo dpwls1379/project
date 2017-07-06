@@ -28,4 +28,6 @@ public interface GproductDao {
 
 	int getTotalRecordProduct();
 
+	Object updateCount(int ct_count, int pro_num);
+
 }

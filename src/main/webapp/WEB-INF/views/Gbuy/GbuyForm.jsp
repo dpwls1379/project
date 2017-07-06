@@ -20,9 +20,10 @@
 </head>
 <body>
 <div class="container">
-	<form action="Gbuy.do" method="post" name="frm">
+	<form action="GbuyChk.do" method="post" name="frm">
 <%-- 		<input type="hidden" name="id" value="${id }"> --%>
 		<input type="hidden" name="tot" value="${tot}">
+		<input type="hidden" name="userid" value="${userid }">
 		<h2>주문자 정보</h2>
 		<table>
 			<tr><td>주문자 이름</td><td>&nbsp;&nbsp;&nbsp;&nbsp;${member.name}</td></tr>
@@ -35,12 +36,11 @@
 			<tr><td>휴대전화</td><td>${member.tel}</td></tr>
 			<tr><td>주소</td><td><input type="text" name="buy_addr" value="${member.addr}"></td></tr>
 			<tr><td>배송시 요청사항</td></tr>
-			<tr><td><textarea></textarea></td></tr>
+			<tr><td><textarea name="buy_memo"></textarea></td></tr>
 		</table>
 		<h2>상품정보 정보</h2>
 		<table>
 			<c:forEach var="info" items="${info }">
-				<input type="hidden" name="ct_num" value="${info.ct_num }">
 				<tr>
 					<td>이미지</td>
 					<td>${info.pro_image }</td>

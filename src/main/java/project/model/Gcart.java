@@ -6,6 +6,7 @@ public class Gcart {
 	private int pro_num;
 	private String id;
 	private int ct_count;
+	private String ct_del;
 	
 	
 	private String pro_name;
@@ -17,6 +18,13 @@ public class Gcart {
 	private int tel;
 	private String email;	
 	
+	
+	public String getCt_del() {
+		return ct_del;
+	}
+	public void setCt_del(String ct_del) {
+		this.ct_del = ct_del;
+	}
 	public String getName() {
 		return name;
 	}

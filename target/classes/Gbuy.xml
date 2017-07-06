@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gbuy">
+	<!-- Use type aliases to avoid typing the full classname every time. -->
+	<resultMap id="gbuyResult" type="gbuy">
+		<result property="buy_num" column="buy_num" />		
+		<result property="buy_addr" column="buy_addr" />
+		<result property="buy_memo" column="buy_memo" />
+		<result property="buy_date" column="buy_date" />
+		<result property="buy_deli" column="buy_deli" />	
+		<result property="ct_num" column="ct_num" />
+		<result property="pro_num" column="pro_num" />
+		<result property="id" column="id" />
+		<result property="pro_name" column="pro_name" />
+		<result property="pro_image" column="pro_image" />
+		<result property="pro_price" column="pro_price" />
+		<result property="ct_count" column="ct_count" />
+		<result property="pro_sale" column="pro_sale" />
+	</resultMap>
+	<insert id="insert" parameterType="gbuy">
+		<selectKey keyProperty="buy_num" order="BEFORE" resultType="int">
+			select nvl(max(buy_num),0)+1 from Gbuy
+		</selectKey> 
+		insert into Gbuy values (#{buy_num},#{buy_addr},#{buy_memo},sysdate,'배송준비중',#{ct_num},#{pro_num},#{id})
+	</insert>
+	<select id="select" parameterType="String" resultMap="gbuyResult">
+		select * from Gbuy natural join (select * from Gproduct natural join Gcart) where id=#{id}
+	</select>
+</mapper>

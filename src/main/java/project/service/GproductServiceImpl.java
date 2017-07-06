@@ -67,4 +67,9 @@ public class GproductServiceImpl implements GproductService{
 	public int getTotalRecordProduct() {
 		return gpd.getTotalRecordProduct();
 	}
+
+	@Override
+	public Object updateCount(int ct_count, int pro_num) {
+		return gpd.updateCount(ct_count,pro_num);
+	}
 }

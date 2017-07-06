@@ -43,12 +43,13 @@ $(function() {
 				class="btn btn-sm" value="검색" >
 		</form>
 	</div>
-	<!-- 	</div> -->
-	<div class="fix">
+	 	</div>
+ 	<div class="fix">
 		<a onclick="history.back()"><button type="button"
 				class="btn btn-default btn-sm" id="center">뒤로가기</button></a>
 		<p>
 			<a class="btn btn-default btn-sm tp">위로가기</a>
+	</div>
 	</div>
 </body>
 </html>

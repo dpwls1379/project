@@ -30,7 +30,9 @@ public class GcartController {
 		gcart.setId(id);
 		//System.out.println(gcart.getPro_num());
 		String chkId = gs.selectId(gcart);
-		if(chkId==null || chkId.equals("")) {
+		String ct_del = gs.selectDel(gcart);
+		System.out.println(ct_del);
+		if(chkId==null || chkId.equals("") || ct_del=="y" ) {
 			result = gs.insert(gcart);
 		} else {
 			result = gs.update(gcart);
@@ -87,6 +89,7 @@ public class GcartController {
 		}
 		//Gcart member = gs.member(id);
 		Gmember member = gms.select(id);
+		model.addAttribute("userid",userid);
 		model.addAttribute("member",member);
 		model.addAttribute("tot",tot);
 		model.addAttribute("info",info);
@@ -96,11 +99,8 @@ public class GcartController {
 	@RequestMapping("GbuyNowForm")
 	public String GbuyNowForm(Model model,HttpSession session, Gcart gcart ,int tot) {
 		//int totprice = Integer.parseInt(tot);
-		String id=(String) session.getAttribute("id");
-		
-		List<Gcart> info = new ArrayList<Gcart>();
-		
-		
+		String id=(String) session.getAttribute("id");		
+		List<Gcart> info = new ArrayList<Gcart>();		
 		Gmember member = gms.select(id);
 		model.addAttribute("member",member);
 		model.addAttribute("tot",tot);
