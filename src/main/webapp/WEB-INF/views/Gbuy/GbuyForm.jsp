@@ -13,7 +13,7 @@ $(function () {
 		var cf = confirm("상품을 결제하시겠습니까?");
 		if(cf){
 			var date= $('#date').val() +" and "+ $("input[name=date]").attr("value");
-			$('#buy_date').val(date);
+			$('#buy_delidate').val(date);
 			alert(date);
 			frm.submit();
 		}else{
@@ -25,9 +25,11 @@ $(function () {
 </head>
 <body>
 <div class="container" align="center">
-	<form action="Gbuy.do" method="post" name="frm">
+	<form action="GbuyChk.do" method="post" name="frm">
+<%-- 		<input type="hidden" name="id" value="${id }"> --%>
 		<input type="hidden" name="tot" value="${tot}">
-		<input type="hidden" name="buy_date" id="buydate" value="">
+		<input type="hidden" name="buy_delidate" id="buydate" value="">
+		<input type="hidden" name="userid" value="${userid }">
 		<h2 class="text-primary text-danger" align="center">주문자 정보</h2>
 		<table class="table table-bordered">
 			<tr><th>주문자 이름</th><td>${member.name}</td></tr>
@@ -64,7 +66,6 @@ $(function () {
 		<h2 class="text-primary text-danger" align="center">주문 상품 정보</h2>
 		<table class="table table-bordered">
 			<c:forEach var="info" items="${info }">
-				<input type="hidden" name="ct_num" value="${info.ct_num }">
 				<tr>
 					<th>이미지</th>
 					<td>${info.pro_image }</td>

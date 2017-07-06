@@ -69,6 +69,10 @@ public class GproductServiceImpl implements GproductService{
 	}
 
 	@Override
+	public Object updateCount(int ct_count, int pro_num) {
+		return gpd.updateCount(ct_count,pro_num);
+	}
+
 	public List<Gproduct> rlist(int pro_num) {
 		return gpd.rlist(pro_num);
 	}

@@ -18,9 +18,6 @@ public class Gcart {
 	private int tel;
 	private String email;	
 	
-	
-	
-	
 	public String getCt_del() {
 		return ct_del;
 	}

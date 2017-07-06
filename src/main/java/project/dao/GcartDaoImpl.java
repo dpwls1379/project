@@ -29,6 +29,11 @@ public class GcartDaoImpl implements GcartDao{
 	}
 
 	@Override
+	public String selectDel(Gcart gcart) {
+		return sst.selectOne("gcart.selectDel",gcart);
+	}
+
+	@Override
 	public int update(Gcart gcart) {
 		return sst.update("gcart.update",gcart);
 	}
@@ -49,6 +54,25 @@ public class GcartDaoImpl implements GcartDao{
 	}
 
 	@Override
+	public int pronum(int ct_num) {
+		return sst.selectOne("gcart.pronum",ct_num);
+	}
+
+	@Override
+	public Object updateCart(int ct_num) {
+		return sst.update("gcart.updateCart",ct_num);
+	}
+
+	@Override
+	public int ct_count(int ct_num) {
+		return sst.selectOne("gcart.ct_count",ct_num);
+	}
+
+	@Override
+	public int pro_num(int ct_num) {
+		return sst.selectOne("gcart.pro_num",ct_num);
+	}
+
 	public Gcart content(Gcart gcart) {
 		// TODO Auto-generated method stub
 		return sst.selectOne("gcart.content",gcart);

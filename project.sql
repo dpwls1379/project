@@ -82,11 +82,14 @@ create table Greplyx (
 create table Gcart (
 	ct_num number primary key,
 	pro_num number references Gproduct(pro_num),
-	id varchar2(20) references Gmember(id),	
+	id varchar2(20) references Gmember(id),
 	ct_count number,
-	ct_del char(1) default 'n'
+	ct_del varchar2(1) default 'n'
 );
+
+select * from Gcart;
 -- gcart에 구매 완료 표시를 위해 ct_del 컬럼 추가!
+
 
 
 create table Gbuy (
@@ -95,11 +98,13 @@ create table Gbuy (
 	buy_memo varchar2(80) default 'nothing',
 	buy_date date not null,
 	buy_deli varchar2(30),
-	ct_num number,
+	ct_num number references Gcart(ct_num),
 	pro_num number references Gproduct(pro_num),
 	id varchar2(20)  references Gmember(id)
-);-- buy_price 지움
-alter table Gbuy drop column buy_price;
+);
+-- buy_price 지움
+-- 07/05 ct_num references연결(수정), buy_deli 컬럼추가
+alter table gbuy add column buy_delidate varchar2(30); -- 원하는 배송날짜 추가
 select * from Gcart natural join Gproduct where id='master';
 alter table gbuy modify buy_date varchar2(30);
 

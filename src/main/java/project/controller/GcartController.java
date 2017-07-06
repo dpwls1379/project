@@ -40,8 +40,9 @@ public class GcartController {
 		//System.out.println("controller.name =" + gcart.getPro_name());
 		gcart.setId(id);
 		String chkId = gs.selectId(gcart);
-
-		if(chkId==null || chkId.equals("")) {
+		String ct_del = gs.selectDel(gcart);
+		System.out.println(ct_del);
+		if(chkId==null || chkId.equals("") || ct_del=="y" ) {
 			result = gs.insert(gcart);
 			//System.out.println("result   i  = "+result);
 		} else {
@@ -100,6 +101,7 @@ public class GcartController {
 		}
 		//Gcart member = gs.member(id);
 		Gmember member = gms.select(id);
+		model.addAttribute("userid",userid);
 		model.addAttribute("member",member);
 		model.addAttribute("tot",tot);
 		model.addAttribute("info",info);
@@ -107,20 +109,19 @@ public class GcartController {
 	}
 	
 	@RequestMapping("GbuyNowForm")
-	public String GbuyNowForm(Model model ,Gcart gcart, HttpSession session, int tot){
-		
+	public String GbuyNowForm(Model model ,Gcart gcart, HttpSession session, int tot){		
 		String id=(String)session.getAttribute("id");
-		gcart.setId(id);
-		
+		gcart.setId(id);		
 		int result=gs.insert(gcart);
 		System.out.println("gcart 등록 성공 했냐 안했냐"+result);
 		Gcart gc=gs.content(gcart);
-		Gcart gc2=gs.info(gc.getCt_num());
-		
+		Gcart gc2=gs.info(gc.getCt_num());		
 		List<Gcart> info=new ArrayList<>();
 		info.add(gc2);
 		Gmember member=gms.select(id);
+		String userid = gc2.getCt_num()+"-";
 		
+		model.addAttribute("userid",userid);
 		model.addAttribute("tot",tot);
 		model.addAttribute("member",member);
 		model.addAttribute("info",info);

@@ -5,13 +5,75 @@ public class Gbuy {
 	private String buy_addr;
 	private String buy_memo;
 	private String buy_date;
-	private int buy_price;
+	private String buy_delidate;
 	private String buy_deli;
+	private int buy_price;
 	private int ct_num;
 	private int pro_num;
 	private String id;
+	private String pro_name;
+	private String pro_image;
+	private int pro_price;
+	private int ct_count;
+	private int pro_sale;	
+
 	
 	
+	public String getBuy_delidate() {
+		return buy_delidate;
+	}
+
+	public void setBuy_delidate(String buy_delidate) {
+		this.buy_delidate = buy_delidate;
+	}
+
+	public void setBuy_price(int buy_price) {
+		this.buy_price = buy_price;
+	}
+
+	public int getBuy_price() {
+		return buy_price;
+	}
+
+	public int getPro_sale() {
+		return pro_sale;
+	}
+	
+	public void setPro_sale(int pro_sale) {
+		this.pro_sale = pro_sale;
+	}
+
+	public String getPro_name() {
+		return pro_name;
+	}
+
+	public void setPro_name(String pro_name) {
+		this.pro_name = pro_name;
+	}
+
+	public String getPro_image() {
+		return pro_image;
+	}
+
+	public void setPro_image(String pro_image) {
+		this.pro_image = pro_image;
+	}
+
+	public int getPro_price() {
+		return pro_price;
+	}
+
+	public void setPro_price(int pro_price) {
+		this.pro_price = pro_price;
+	}
+
+	public int getCt_count() {
+		return ct_count;
+	}
+
+	public void setCt_count(int ct_count) {
+		this.ct_count = ct_count;
+	}
 
 	public String getBuy_deli() {
 		return buy_deli;
@@ -19,14 +81,6 @@ public class Gbuy {
 
 	public void setBuy_deli(String buy_deli) {
 		this.buy_deli = buy_deli;
-	}
-
-	public int getBuy_price() {
-		return buy_price;
-	}
-
-	public void setBuy_price(int buy_price) {
-		this.buy_price = buy_price;
 	}
 
 	public int getBuy_num() {

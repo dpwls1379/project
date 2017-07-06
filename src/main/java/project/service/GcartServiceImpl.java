@@ -48,10 +48,32 @@ public class GcartServiceImpl implements GcartService{
 	}
 
 	@Override
+	public int pronum(int ct_num) {
+		return gd.pronum(ct_num);
+	}
+
+	@Override
+	public Object updateCart(int ct_num) {
+		return gd.updateCart(ct_num);
+	}
+
+	@Override
+	public int ct_count(int ct_num) {
+		return gd.ct_count(ct_num);
+	}
+
+	@Override
+	public int pro_num(int ct_num) {
+		return gd.pro_num(ct_num);
+	}
+
+	@Override
+	public String selectDel(Gcart gcart) {
+		return gd.selectDel(gcart);
+	}
+
 	public Gcart content(Gcart gcart) {
 		// TODO Auto-generated method stub
 		return gd.content(gcart);
 	}
-
-
 }

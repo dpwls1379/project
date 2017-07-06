@@ -21,6 +21,7 @@
 		<mapper resource="Gproduct.xml" />
 		<mapper resource="Gmember.xml" />
 		<mapper resource="Gcart.xml" />
+		<mapper resource="Gbuy.xml" />
 		<mapper resource="Gevent.xml" />
 	</mappers>
 </configuration>

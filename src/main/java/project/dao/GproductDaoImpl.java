@@ -70,6 +70,13 @@ public class GproductDaoImpl implements GproductDao{
 	}
 
 	@Override
+	public Object updateCount(int ct_count, int pro_num) {
+		HashMap<String, Integer> hm = new HashMap<>();
+		hm.put("ct_count",ct_count);
+		hm.put("pro_num",pro_num);
+		return sst.update("gproduct.updateCount",hm);
+	}
+
 	public List<Gproduct> rlist(int pro_num) {
 		return sst.selectList("gproduct.rlist",pro_num);
 	}
