@@ -20,7 +20,7 @@
 	function cart() {
 		var id= '${id}';
 		if(id === ''){
-			alert('로그인 후 결제를 진행하여 주십시오');
+			alert('로그인 후 장바구니에 담아주십시오');
 		}else{
 			frm.submit();
 		}
