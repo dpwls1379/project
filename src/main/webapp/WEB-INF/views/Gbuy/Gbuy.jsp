@@ -51,7 +51,7 @@
 					</c:if>
 					<c:if test="${list.buy_deli=='배송완료' }">
 						<button class="btn btn-default" id="back">반품하기</button>
-						<button class="btn btn-default" id="write">상품평 작성</button>
+						<a class="btn btn-default" href="GbuyReview.do?buy_num=${list.buy_num }">상품평 작성</a>
 					</c:if>
 					<c:if test="${list.buy_deli=='반품완료' }">
 						<span class="err">접수완료!</span>
