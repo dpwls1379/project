@@ -31,7 +31,7 @@ $(function() {
 </tr>
 
 <c:forEach var="blist" items="${gbuylist }">
-	<c:if test="${blist.buy_deli=='배송준비중' }">
+	<c:if test="${blist.buy_deli=='상품준비중' }">
 	<tr><td colspan="9"> ▶ 배송지주소 & 배송시간 : ${blist.buy_addr } (${blist.buy_delidate })</td></tr>
 	<tr>	
 		<td>${blist.id }</td>
