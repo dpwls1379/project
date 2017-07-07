@@ -29,9 +29,15 @@
 		select * from Gbuy natural join (select * from Gproduct natural join Gcart) where id=#{id}
 	</select>
 	<select id="list" resultMap="gbuyResult">
-		select * from gbuy;
+		select * from Gbuy natural join (select * from Gproduct natural join Gcart)
 	</select>
 	<update id="delete" parameterType="int">
 		update Gbuy set buy_deli='주문취소완료' where buy_num=#{buy_num}
+	</update>
+	<update id="deliupdate" parameterType="int">
+		update Gbuy set buy_deli='배송완료' where buy_num=#{buy_num}
+	</update>
+	<update id="deliIng" parameterType="int">
+		update Gbuy set buy_deli='배송중' where buy_num=#{buy_num}
 	</update>
 </mapper>

@@ -38,9 +38,9 @@
 				<td>${list.buy_date }</td>
 				<td> <img alt="" src="images/${list.pro_image }" class="img-sm"></td>
 				<td>${list.pro_name }</td>
-				<td>${list.pro_price }원</td>
+				<td>${list.pro_price }/<span class="err">${list.pro_sale }%</span></td>
 				<td>${list.ct_count }개</td>
-				<td>${list.pro_price/100*(100-list.pro_sale)}원</td>				
+				<td> <fmt:formatNumber value="${list.ct_count * (1 - list.pro_sale/100) * list.pro_price }" pattern="#,###.##"/>원</td>				
 				<td>${list.buy_deli }</td>
 				<td>
 					<c:if test="${list.buy_deli=='배송준비중' }">

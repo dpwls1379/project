@@ -34,6 +34,18 @@ public class GbuyDaoImpl implements GbuyDao {
 		// TODO Auto-generated method stub
 		return sst.selectList("gbuy.list");
 	}
+
+	@Override
+	public int delicomplete(int buy_num) {
+		// TODO Auto-generated method stub
+		return sst.update("gbuy.deliupdate",buy_num);
+	}
+
+	@Override
+	public int deliIng(int buy_num) {
+		// TODO Auto-generated method stub
+		return sst.update("gbuy.deliIng",buy_num);
+	}
 	
 	
 }

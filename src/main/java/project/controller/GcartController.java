@@ -11,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.sun.javafx.sg.prism.NGShape.Mode;
+
 import project.model.Gbuy;
 import project.model.Gcart;
 import project.model.Gmember;
@@ -111,6 +113,7 @@ public class GcartController {
 		model.addAttribute("info",info);
 		return "Gbuy/GbuyForm";
 	}
+
 	
 	@RequestMapping("GbuyNowForm")
 	public String GbuyNowForm(Model model ,Gcart gcart, HttpSession session, int tot){		

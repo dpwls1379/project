@@ -14,4 +14,8 @@ public interface GbuyService {
 
 	List<Gbuy> gbuylist();
 
+	int delicomplete(int buy_num);
+
+	int deliIng(int buy_num);
+
 }

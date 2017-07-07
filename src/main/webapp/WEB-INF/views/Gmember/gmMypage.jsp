@@ -10,6 +10,7 @@
 </head>
 <body>
 <div class="container" align="center">
+<a href="Gbuy.do" class="btn btn-default btn-sm">구매목록</a>
 <h1 class="text-primary text-danger" align="center">회 원 정 보</h1>
 <table class="table table-bordered">
 	<tr><th>아이디</th><td>
