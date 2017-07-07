@@ -65,4 +65,7 @@
 	<select id="getTotalBoardx" resultType="Integer">
 		select count(*) from Gboardx
 	</select>
+	<select id="mylist" resultMap="gboardxResult">
+		select * from Gboardx where bx_categ='qna' and id=#{id} order by bx_date desc
+	</select>
 </mapper>

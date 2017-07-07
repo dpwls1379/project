@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="container" align="center">
-<a href="#" class="btn btn-default btn-sm">나의 문의내역</a>
+<a href="GboardxMyList.do" class="btn btn-default btn-sm">나의 문의내역</a>
 <a href="GbuyReturn.do" class="btn btn-default btn-sm">취소/반품목록</a>
 <a href="Gbuy.do" class="btn btn-default btn-sm">주문/배송목록</a>
 <a href="GbuyCompList.do" class="btn btn-default btn-sm">상품평쓰러가기</a>

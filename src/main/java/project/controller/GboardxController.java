@@ -159,4 +159,29 @@ public class GboardxController {
 		model.addAttribute("listq", listq);
 		return "Gboardx/Gcenter";
 	}
+	
+	@RequestMapping("GboardxMyList")
+	public String GboardxMyList(String pageNum, Gboardx gbx, Model model,HttpSession session){
+		
+		String id=(String) session.getAttribute("id");
+		final int rowPerPage = 10;
+		if (pageNum == null || pageNum.equals("")) {
+			pageNum = "1";
+		}
+		int currentPage = Integer.parseInt(pageNum);
+		int total = gs.getTotalRecordBoardx(); // 검색
+		int startRow = (currentPage - 1) * rowPerPage + 1;
+		int endRow = startRow + rowPerPage - 1;
+		PagingPgm pp = new PagingPgm(total, rowPerPage, currentPage);
+		gbx.setStartRow(startRow);
+		gbx.setEndRow(endRow);
+		int no = total - startRow + 1;
+		gbx.setId(id);
+		List<Gboardx> list = gs.mylist(gbx);
+		model.addAttribute("list", list);
+		model.addAttribute("no", no);
+		model.addAttribute("pp", pp);
+
+		return "Gboardx/GboardxMyList";
+	}
 }

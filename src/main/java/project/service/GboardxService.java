@@ -32,6 +32,8 @@ public interface GboardxService {
 
 	int getTotalRecordBoardx();
 
+	List<Gboardx> mylist(Gboardx gbx);
+
 
 	
 	

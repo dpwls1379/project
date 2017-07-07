@@ -68,20 +68,20 @@
 		});
 		var pls = document.getElementsByName('pls');
 		$.each(pls,function(index) {			
-			$(this).click(function() {	
+			$(this).click(function() {
 				var c = $(this).siblings('#ct_count').val(); // c는 구매수량
-				var cnt = $(this).siblings('#pro_count').val(); //cnt는재고량				
-				if(cnt>c) {
+				var cnt = parseInt($(this).siblings('#pro_count').val()); //cnt는재고량 */
+ 				if(c<cnt) {
 					var count = c++ +1;
 					$(this).siblings('#ct_count').val(count);
 					price = $(this).parent().prev().text();
 					$(this).parent().next().empty().append(count*price);
-						if($(this).parent().siblings('#chk').children('#chkbox').prop('checked')) {
-							price = $(this).parent().prev('#price').text();
-							price = parseInt(price);
-							fullPrice = fullPrice + price;
-							$('#totbuy').empty().append(fullPrice);
-						}
+					if($(this).parent().siblings('#chk').children('#chkbox').prop('checked')) {
+						price = $(this).parent().prev('#price').text();
+						price = parseInt(price);
+						fullPrice = fullPrice + price;
+						$('#totbuy').empty().append(fullPrice);
+					}
 				} else {
 					alert("구매 가능 수량을 초과하였습니다");
 				}

@@ -34,6 +34,8 @@ public interface GboardxDao {
 
 	int getTotalRecordBoardx();
 
+	List<Gboardx> mylist(Gboardx gbx);
+
 
 
 
