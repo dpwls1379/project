@@ -76,4 +76,10 @@ public class GcartServiceImpl implements GcartService{
 		// TODO Auto-generated method stub
 		return gd.content(gcart);
 	}
+
+	@Override
+	public int updateCnt(int ct_count, int ct_num) {
+		// TODO Auto-generated method stub
+		return gd.updateCnt(ct_count,ct_num);
+	}
 }

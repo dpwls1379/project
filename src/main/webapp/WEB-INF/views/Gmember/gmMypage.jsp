@@ -10,6 +10,10 @@
 </head>
 <body>
 <div class="container" align="center">
+<a href="#" class="btn btn-default btn-sm">나의 문의내역</a>
+<a href="GbuyReturn.do" class="btn btn-default btn-sm">취소/반품목록</a>
+<a href="Gbuy.do" class="btn btn-default btn-sm">주문/배송목록</a>
+<a href="GbuyCompList.do" class="btn btn-default btn-sm">상품평쓰러가기</a>
 <h1 class="text-primary text-danger" align="center">회 원 정 보</h1>
 <table class="table table-bordered">
 	<tr><th>아이디</th><td>

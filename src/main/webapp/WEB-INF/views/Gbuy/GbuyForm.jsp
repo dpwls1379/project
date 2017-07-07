@@ -87,7 +87,7 @@ $(function () {
 					<td>${info.pro_name }</td>
 					<td>${info.pro_price*(100-info.pro_sale)/100 }</td>
 					<td>${info.ct_count }</td>
-					<td class="err" >${info.pro_price*(100-info.pro_sale)/100*info.ct_count}</td>
+					<td class="err" >${info.pro_price*((100-info.pro_sale)/100)*info.ct_count}</td>
 				</tr>
 			</c:forEach>
 		</table><hr>

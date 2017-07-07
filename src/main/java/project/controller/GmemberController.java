@@ -126,6 +126,8 @@ public class GmemberController {
 	public String gmMypage(HttpSession session, Model model) {
 		String id = (String) session.getAttribute("id");
 		if (id.equals("master")) {
+			Gmember gm = gs.mypage(id);
+			model.addAttribute("gm", gm);
 			return "Gadmin/adminList";
 		}
 		Gmember gm = gs.mypage(id);

@@ -40,4 +40,7 @@
 	<select id="getTotalBoardo" resultType="Integer">
 		select count(*) from Gboardo
 	</select>
+	<select id="myList" parameterType="string" resultMap="gboardoResult">
+		select * from gboardo where id=#{id}
+	</select>
 </mapper>

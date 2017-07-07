@@ -9,22 +9,41 @@
 </head>
 <body>
 <div class="container" align="center">
+<a href="Gbuy.do" class="btn btn-default btn-sm">구매목록</a>
+<h1 class="text-primary text-danger" align="center">관리자 페이지</h1>
+<%-- <table class="table table-bordered">
+	<tr><th>아이디</th><td>
+		${gm.id }</td></tr>
+	<tr><th>이름</th><td>
+		${gm.name }</td></tr>
+	<tr><th>주소</th><td>
+		${gm.addr }</td></tr>
+	<tr><th>전화번호</th><td>
+		${gm.tel }</td></tr>
+	<tr><th>이메일</th><td>
+		${gm.email }</td></tr>
+	<tr><th>생년월일</th><td>
+		${gm.birthday }</td></tr>
+	<tr><td colspan="2">
+	<input type="button" value="수정하기" onclick="location.href='updateFormGmem.do?id=${gm.id}'" class="btn btn-sm">
+	</td></tr>
+</table> --%>
 	<fieldset>
-	<legend class="text-primary text-danger">관리자 페이지</legend>
+	<legend class="text-primary text-danger">관리</legend>
 		<a href="memberAdmin.do" target="m">
-			<button type="button" class="btn btn-default btn-lg">회원관리</button>
+			<button type="button" class="btn btn-default btn-sm">회원관리</button>
 		</a>
-	<!-- 	<hr>
-			<a href="boardAdmin.do" target="m">
-				<button type="button" class="btn btn-default btn-lg">게시판 관리</button>
-			</a> -->
 		<hr>
 			<a href="GproductList.do" target="p">
-				<button type="button" class="btn btn-default btn-lg">상품 관리</button>
+				<button type="button" class="btn btn-default btn-sm">상품 관리</button>
 			</a>
 		<hr>
 			<a href="GeventList.do" target="e">
-				<button type="button" class="btn btn-default btn-lg">이벤트 관리</button>
+				<button type="button" class="btn btn-default btn-sm">이벤트 관리</button>
+		</a>
+		<hr>
+			<a href="GdeliList.do">
+				<button type="button" class="btn btn-default btn-sm">주문 관리</button>
 		</a>
 	</fieldset>
 	</div>

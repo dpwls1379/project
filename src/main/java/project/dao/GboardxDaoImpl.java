@@ -86,7 +86,7 @@ public class GboardxDaoImpl implements GboardxDao{
 
 	@Override
 	public int getTotalRecordBoardx() {
-		return sst.selectOne("getTotalBoardx");
+		return sst.selectOne("gboardxns.getTotalBoardx");
 	}
 
 

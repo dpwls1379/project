@@ -12,4 +12,12 @@ public interface GbuyDao {
 
 	int delete(int buy_num);
 
+	List<Gbuy> gbuylist();
+
+	int delicomplete(int buy_num);
+
+	int deliIng(int buy_num);
+
+	Gbuy contents(int buy_num);
+
 }

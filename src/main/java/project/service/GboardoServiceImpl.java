@@ -47,4 +47,10 @@ public class GboardoServiceImpl implements GboardoService{
 		return gbd.getTotalRecordBoardo();
 	}
 
+	@Override
+	public List<Gboardo> myList(String id) {
+		// TODO Auto-generated method stub
+		return gbd.myList(id);
+	}
+
 }

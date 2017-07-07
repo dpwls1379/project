@@ -8,8 +8,12 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.sun.javafx.sg.prism.NGShape.Mode;
+
+import project.model.Gbuy;
 import project.model.Gcart;
 import project.model.Gmember;
 import project.model.Gproduct;
@@ -82,7 +86,7 @@ public class GcartController {
 	    //model.addAttribute("id",id);
 	    return "Gcart/GcartDelete";
 	}
-	@RequestMapping("GbuyForm")
+	/*@RequestMapping("GbuyForm")
 	public String GbuyForm(Model model,String userid, HttpSession session, Gcart gcart ,int tot) {
 		//int totprice = Integer.parseInt(tot);
 		String id=(String) session.getAttribute("id");
@@ -108,7 +112,41 @@ public class GcartController {
 		model.addAttribute("tot",tot);
 		model.addAttribute("info",info);
 		return "Gbuy/GbuyForm";
+	}*/
+	@RequestMapping("GbuyForm")
+	public String GbuyForm(Model model, String userid, HttpSession session, String cnt, int tot) {
+		int result=0;
+		String id=(String) session.getAttribute("id");		
+		List<Gcart> info = new ArrayList<Gcart>();
+		String[] ct_string = userid.split("-");
+		int [] ct_num = new int[ct_string.length];		
+		for(int i=0; i<ct_string.length; i++) {
+		    ct_num[i] = Integer.parseInt(ct_string[i]);
+		}
+		String[] ct_cnt = cnt.split("-");
+		int [] ct_count = new int[ct_cnt.length];		
+		for(int i=0; i<ct_cnt.length; i++) {
+			ct_count[i] = Integer.parseInt(ct_cnt[i]);
+		}
+		try {
+			for(int i=0; i<ct_count.length; i++) {
+				result = gs.updateCnt(ct_count[i],ct_num[i]);
+			}
+		    for(int j=0; j<ct_num.length; j++) {		    	
+		    	info.add(gs.info(ct_num[j]));
+		    }
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		Gmember member = gms.select(id);
+		model.addAttribute("userid",userid);
+		model.addAttribute("member",member);
+		model.addAttribute("tot",tot);
+		model.addAttribute("info",info);
+		model.addAttribute("result",result);
+		return "Gbuy/GbuyForm";
 	}
+
 	
 	@RequestMapping("GbuyNowForm")
 	public String GbuyNowForm(Model model ,Gcart gcart, HttpSession session, int tot){		
@@ -134,8 +172,10 @@ public class GcartController {
 	public String buyNow(int pro_num, int buy_count, Model model){
 		
 		Gproduct gpro=gps.pdContent(pro_num);
-		int totalprice = (1 - gpro.getPro_sale()/100) * gpro.getPro_price() * buy_count;
-		int totalsale = gpro.getPro_price() - totalprice ;
+		int totalprice = (100 - gpro.getPro_sale()) * gpro.getPro_price() * buy_count /100;
+		System.out.println(totalprice);
+		System.out.println(gpro.getPro_sale());
+		int totalsale = gpro.getPro_price() - (int)totalprice ;
 		
 		model.addAttribute("buy_count",buy_count); // 상품 구매 수량
 		model.addAttribute("gproduct",gpro); //상품정보

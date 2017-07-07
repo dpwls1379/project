@@ -38,12 +38,12 @@
 				<td>${list.buy_date }</td>
 				<td> <img alt="" src="images/${list.pro_image }" class="img-sm"></td>
 				<td>${list.pro_name }</td>
-				<td>${list.pro_price }원</td>
+				<td>${list.pro_price }/<span class="err">${list.pro_sale }%</span></td>
 				<td>${list.ct_count }개</td>
-				<td>${list.pro_price/100*(100-list.pro_sale)}원</td>				
+				<td> <fmt:formatNumber value="${list.ct_count * (1 - list.pro_sale/100) * list.pro_price }" pattern="#,###.##"/>원</td>				
 				<td>${list.buy_deli }</td>
 				<td>
-					<c:if test="${list.buy_deli=='배송준비중' }">
+					<c:if test="${list.buy_deli=='상품준비중' }">
 						<button class="btn btn-default" onclick="return refund()">주문취소</button>
 					</c:if>
 					<c:if test="${list.buy_deli=='배송중' }">
@@ -52,6 +52,9 @@
 					<c:if test="${list.buy_deli=='배송완료' }">
 						<button class="btn btn-default" id="back">반품하기</button>
 						<button class="btn btn-default" id="write">상품평 작성</button>
+					</c:if>
+					<c:if test="${list.buy_deli=='반품완료' }">
+						<span class="err">접수완료!</span>
 					</c:if>
 				</td>					
 			</tr>

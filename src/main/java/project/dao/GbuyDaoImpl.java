@@ -28,6 +28,30 @@ public class GbuyDaoImpl implements GbuyDao {
 	public int delete(int buy_num) {
 		return sst.update("gbuy.delete",buy_num);
 	}
+
+	@Override
+	public List<Gbuy> gbuylist() {
+		// TODO Auto-generated method stub
+		return sst.selectList("gbuy.list");
+	}
+
+	@Override
+	public int delicomplete(int buy_num) {
+		// TODO Auto-generated method stub
+		return sst.update("gbuy.deliupdate",buy_num);
+	}
+
+	@Override
+	public int deliIng(int buy_num) {
+		// TODO Auto-generated method stub
+		return sst.update("gbuy.deliIng",buy_num);
+	}
+
+	@Override
+	public Gbuy contents(int buy_num) {
+		// TODO Auto-generated method stub
+		return sst.selectOne("gbuy.contents",buy_num);
+	}
 	
 	
 }

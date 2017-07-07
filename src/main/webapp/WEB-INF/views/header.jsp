@@ -41,7 +41,12 @@
 	width: 120px;
 	height: 120px;
 }
-
+#div { 
+	margin-bottom: 10px; font-size: 18px; border: 1px; border-style: solid;
+}
+#div2 { 
+	height: 60px;
+}
 </style>
 <script type="text/javascript">
 	$(function() {

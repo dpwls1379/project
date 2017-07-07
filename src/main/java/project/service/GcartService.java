@@ -32,4 +32,6 @@ public interface GcartService {
 
 	Gcart content(Gcart gcart);
 
+	int updateCnt(int ct_count, int ct_num);
+
 }

@@ -13,10 +13,12 @@ public class Gcart {
 	private int pro_sale;
 	private int pro_price;
 	private String pro_image;
+	private int pro_count;
 	private String name;
 	private String addr;
 	private int tel;
 	private String email;	
+	
 	
 	public String getCt_del() {
 		return ct_del;
@@ -96,4 +98,12 @@ public class Gcart {
 	public void setId(String id) {
 		this.id = id;
 	}
+	public int getPro_count() {
+		return pro_count;
+	}
+	public void setPro_count(int pro_count) {
+		this.pro_count = pro_count;
+	}
+	
+	
 }

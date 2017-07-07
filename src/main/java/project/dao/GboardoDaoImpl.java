@@ -44,7 +44,13 @@ public class GboardoDaoImpl implements GboardoDao {
 
 	@Override
 	public int getTotalRecordBoardo() {
-		return sst.selectOne("getTotalBoardo");
+		return sst.selectOne("gboardo.getTotalBoardo");
+	}
+
+	@Override
+	public List<Gboardo> myList(String id) {
+		// TODO Auto-generated method stub
+		return sst.selectList("gboardo.myList",id);
 	}
 
 }
