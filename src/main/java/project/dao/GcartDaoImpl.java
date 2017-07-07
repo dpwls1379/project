@@ -1,5 +1,6 @@
 package project.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,5 +77,14 @@ public class GcartDaoImpl implements GcartDao{
 	public Gcart content(Gcart gcart) {
 		// TODO Auto-generated method stub
 		return sst.selectOne("gcart.content",gcart);
+	}
+
+	@Override
+	public int updateCnt(int ct_count, int ct_num) {
+		// TODO Auto-generated method stub
+		HashMap<String, Integer> hm = new HashMap<>();
+		hm.put("ct_count", ct_count);
+		hm.put("ct_num", ct_num);
+		return sst.update("gcart.updateCnt", hm);
 	}
 }

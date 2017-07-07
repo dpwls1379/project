@@ -169,5 +169,19 @@ public class GbuyController {
 		return "Gproduct/GproductInfo";
 	}
 	
+	@RequestMapping("GbuyReturn")
+	public String GbuyReturn(Model model, HttpSession session){
+		
+		String id=(String) session.getAttribute("id");
+		List<Gbuy> gbuylist= new ArrayList<>();
+		gbuylist= gs.gbuylist();
+		List<Gboardo> gboardoMy = gbs.myList(id);
+		
+		model.addAttribute("gboardoMy",gboardoMy);
+		model.addAttribute("gbuylist",gbuylist);
+		
+		return "Gmember/GbuyReturnList";
+	}
+	
 	
 }

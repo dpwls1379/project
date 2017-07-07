@@ -10,6 +10,7 @@
 		<result property="id" column="id" />
 		<result property="ct_count" column="ct_count" />
 		<result property="pro_name" column="pro_name" />
+		<result property="pro_count" column="pro_count" />
 		<result property="pro_sale" column="pro_sale" />
 		<result property="pro_price" column="pro_price" />
 		<result property="pro_image" column="pro_image" />
@@ -62,4 +63,7 @@
 	<select id="content" parameterType="gcart" resultType="gcart">
 		select * from gcart where id=#{id} and ct_num=(select max(ct_num) from gcart where id=#{id})
 	</select>
+	<update id="updateCnt" parameterType="hashMap">
+		update gcart set ct_count=#{ct_count} where ct_num=#{ct_num}
+	</update>
 </mapper>

@@ -69,21 +69,16 @@
 		var pls = document.getElementsByName('pls');
 		$.each(pls,function(index) {			
 			$(this).click(function() {	
-				var c = $(this).siblings('#ct_count').val(); // c는 구매수량
-				var cnt = $(this).siblings('#pro_count').val(); //cnt는재고량				
-				if(cnt>c) {
-					var count = c++ +1;
-					$(this).siblings('#ct_count').val(count);
-					price = $(this).parent().prev().text();
-					$(this).parent().next().empty().append(count*price);
-						if($(this).parent().siblings('#chk').children('#chkbox').prop('checked')) {
-							price = $(this).parent().prev('#price').text();
-							price = parseInt(price);
-							fullPrice = fullPrice + price;
-							$('#totbuy').empty().append(fullPrice);
-						}
-				} else {
-					alert("구매 가능 수량을 초과하였습니다");
+				var c = $(this).prev('#ct_count').val();
+				var count = c++ +1;
+				$(this).prev('#ct_count').val(count);
+				price = $(this).parent().prev().text();
+				$(this).parent().next().empty().append(count*price);
+					if($(this).parent().siblings('#chk').children('#chkbox').prop('checked')) {
+						price = $(this).parent().prev('#price').text();
+						price = parseInt(price);
+						fullPrice = fullPrice + price;
+						$('#totbuy').empty().append(fullPrice);
 				}
 			});
 		});		
@@ -91,6 +86,7 @@
 	function delchk() {
 		var userid = "";
 		var chkbox = document.getElementsByName("chkbox");
+		var chked = false;
 		var indexid = false;
 		for(i=0; i<chkbox.length; i++) {
 			if(chkbox[i].checked) {
@@ -114,17 +110,14 @@
 	function buy() {
 		var userid = "";
 		var chkbox = document.getElementsByName("chkbox");
- 		var cnt = "";
-		var ct_count = document.getElementsByName("ct_count");
+		var chked = false;
 		var indexid = false;
 		for(i=0; i<chkbox.length; i++) {
 			if(chkbox[i].checked) {
 				if(indexid) {
 					userid = userid + '-';
-					cnt = cnt + '-';
 				}
 				userid = userid + chkbox[i].value;
-				cnt = cnt + ct_count[i].value;
 				indexid = true;
 			}
 		}
@@ -133,16 +126,12 @@
 			return;
 		}
 		var cf = confirm("상품을 주문하시겠습니까?");
-		if(cf) {			
+		if(cf) {
 			$('#frm #userid').val(userid);
-			$('#frm #cnt').val(cnt);
 			alert(userid);
-			alert(cnt);
-			alert($('#frm #userid').val());
-			alert($('#frm #cnt').val());
 			var totprice = $('#totbuy').text();
 			$('#tot').val(totprice);
-			$('#frm').submit();			
+			$('#frm').submit();
 		} 
 	}
 </script>
@@ -153,7 +142,6 @@
 </form>
 <form action="GbuyForm.do" method="post" id="frm">
 	<input type="hidden" id="userid" name="userid">
-	<input type="hidden" id="cnt" name="cnt">
 	<input type="hidden" name="tot" id="tot">
 	<table class="table table-hover">
 		<tr>	
@@ -167,12 +155,7 @@
 			<c:if test="${cart.ct_del.equals('n') }">
 				<tr>				
 					<td id="chk">
-						<c:if test="${cart.pro_count==0 }">
-							<input type="checkbox" name="chkbox" id="chkbox" value="${cart.ct_num }">
-						</c:if>
-						<c:if test="${cart.pro_count!=0 }">
-							<input type="checkbox" name="chkbox" id="chkbox" value="${cart.ct_num }">
-						</c:if>
+						<input type="checkbox" name="chkbox" id="chkbox" value="${cart.ct_num }">
 					</td>				
 					<td><img src="${path}/images/${cart.pro_image}" height="70" width="70"></td>
 					<td><a href="GproductInfo.do?pro_num=${cart.pro_num }">${cart.pro_name}</a></td>			
@@ -180,16 +163,9 @@
 						<fmt:formatNumber value="${(100-cart.pro_sale)/100*cart.pro_price}" pattern="0"/>
 					</td>
 					<td>
-						<c:if test="${cart.pro_count==0 }">
-							임시 품절된 상품입니다
-							<input type="hidden" name="ct_count" id="ct_count" value="null">
-						</c:if>
-						<c:if test="${cart.pro_count!=0 }">
-							<a class="btn btn-default btn-sm" id="minus" name="min">-</a>
-							<input type="number" name="ct_count" id="ct_count" value="${cart.ct_count}">
-							<input type="hidden" name="pro_count" id="pro_count" value="${cart.pro_count }">
-							<a class="btn btn-default btn-sm" id="plus" name="pls">+</a>
-						</c:if>
+						<a class="btn btn-default btn-sm" id="minus" name="min">-</a>
+						<input type="number" name="ct_count" id="ct_count" value="${cart.ct_count}"> 
+						<a class="btn btn-default btn-sm" id="plus" name="pls">+</a>
 					</td>
 					<td id="totprice">				
 						<fmt:formatNumber value="${(100-cart.pro_sale)/100*cart.pro_price*cart.ct_count}" pattern="0"/>

@@ -7,20 +7,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript">
-	function refund() {
-		var cf = confirm("정말로 주문을 취소하시겠습니까?");
-		if (cf) {
-			frm.submit();
-		} else {
-			return false;
-		}
-	}
-</script>
 </head>
 <body>
 	<div class="container">
-		<h2 class="text-primary">최근 주문 내역</h2>
+		<h2 class="text-primary">주문/배송목록</h2>
 		<table class="table table-striped">
 			<tr>
 				<td>날짜</td>

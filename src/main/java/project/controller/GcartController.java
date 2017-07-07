@@ -86,7 +86,7 @@ public class GcartController {
 	    //model.addAttribute("id",id);
 	    return "Gcart/GcartDelete";
 	}
-	@RequestMapping("GbuyForm")
+	/*@RequestMapping("GbuyForm")
 	public String GbuyForm(Model model,String userid, HttpSession session, Gcart gcart ,int tot) {
 		//int totprice = Integer.parseInt(tot);
 		String id=(String) session.getAttribute("id");
@@ -111,6 +111,39 @@ public class GcartController {
 		model.addAttribute("member",member);
 		model.addAttribute("tot",tot);
 		model.addAttribute("info",info);
+		return "Gbuy/GbuyForm";
+	}*/
+	@RequestMapping("GbuyForm")
+	public String GbuyForm(Model model, String userid, HttpSession session, String cnt, int tot) {
+		int result=0;
+		String id=(String) session.getAttribute("id");		
+		List<Gcart> info = new ArrayList<Gcart>();
+		String[] ct_string = userid.split("-");
+		int [] ct_num = new int[ct_string.length];		
+		for(int i=0; i<ct_string.length; i++) {
+		    ct_num[i] = Integer.parseInt(ct_string[i]);
+		}
+		String[] ct_cnt = cnt.split("-");
+		int [] ct_count = new int[ct_cnt.length];		
+		for(int i=0; i<ct_cnt.length; i++) {
+			ct_count[i] = Integer.parseInt(ct_cnt[i]);
+		}
+		try {
+			for(int i=0; i<ct_count.length; i++) {
+				result = gs.updateCnt(ct_count[i],ct_num[i]);
+			}
+		    for(int j=0; j<ct_num.length; j++) {		    	
+		    	info.add(gs.info(ct_num[j]));
+		    }
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		Gmember member = gms.select(id);
+		model.addAttribute("userid",userid);
+		model.addAttribute("member",member);
+		model.addAttribute("tot",tot);
+		model.addAttribute("info",info);
+		model.addAttribute("result",result);
 		return "Gbuy/GbuyForm";
 	}
 
