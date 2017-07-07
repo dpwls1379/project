@@ -8,7 +8,7 @@ create table Gmember(
 	gender 		char(1) 		not null,
 	birthday 	varchar2(8) 			
 );
-
+select * from Gbuy;
 create table Gproduct(
 	pro_num number primary key,
 	pro_cate varchar2(30) not null,

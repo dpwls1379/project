@@ -17,24 +17,27 @@ $(function() {
 <div class="container">
 <h2 class="text-primary">회원 주문관리</h2>
 <table class="table table-hover">
+
 <tr>
 	<th>고객 아이디</th>
-	<th>배송지 주소</th>
+	<!--  -->
 	<th>구매 날짜</th>
-	<th>원하는 배송날짜</th>
+	<!--  -->
 	<th colspan="3">상품 정보</th>
 	<th>상품 수량</th>
 	<th>총 결제 가격</th>
 	<th>배송 상태</th>
 	<th></th>
 </tr>
+
 <c:forEach var="blist" items="${gbuylist }">
 	<c:if test="${blist.buy_deli=='배송준비중' }">
-	<tr>
+	<tr><td colspan="9"> ▶ 배송지주소 & 배송시간 : ${blist.buy_addr } (${blist.buy_delidate })</td></tr>
+	<tr>	
 		<td>${blist.id }</td>
-		<td>${blist.buy_addr }</td>
+		<%-- <td>${blist.buy_addr }</td> --%>
 		<td>${blist.buy_date }</td>
-		<td>${blist.buy_delidate }</td>
+		<%-- <td>${blist.buy_delidate }</td> --%>
 		<td><a href="GproductInfo.do?pro_num=${blist.pro_num }">
 				<img alt="상품상세보기" src="images/${blist.pro_image }" class="img-sm"></a></td>
 		<td>${blist.pro_name }</td>
@@ -49,11 +52,12 @@ $(function() {
 	</tr>
 	</c:if>
 	<c:if test="${blist.buy_deli=='배송중' }">
+	<tr><td colspan="9"> ▶ 배송지주소 & 배송시간 : ${blist.buy_addr } (${blist.buy_delidate })</td></tr>
 	<tr>
 		<td>${blist.id }</td>
-		<td>${blist.buy_addr }</td>
+		<%-- <td>${blist.buy_addr }</td> --%>
 		<td>${blist.buy_date }</td>
-		<td>${blist.buy_delidate }</td>
+		<%-- <td>${blist.buy_delidate }</td> --%>
 		<td><a href="GproductInfo.do?pro_num=${blist.pro_num }">
 				<img alt="상품상세보기" src="images/${blist.pro_image }" class="img-sm"></a></td>
 		<td>${blist.pro_name }</td>
