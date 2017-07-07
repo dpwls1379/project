@@ -23,7 +23,7 @@
 		<selectKey keyProperty="buy_num" order="BEFORE" resultType="int">
 			select nvl(max(buy_num),0)+1 from Gbuy
 		</selectKey> 
-		insert into Gbuy values (#{buy_num},#{buy_addr},#{buy_memo},sysdate,'배송준비중',#{ct_num},#{pro_num},#{id},#{buy_delidate})
+		insert into Gbuy values (#{buy_num},#{buy_addr},#{buy_memo},sysdate,'상품준비중',#{ct_num},#{pro_num},#{id},#{buy_delidate})
 	</insert>
 	<select id="select" parameterType="String" resultMap="gbuyResult">
 		select * from Gbuy natural join (select * from Gproduct natural join Gcart) where id=#{id}
