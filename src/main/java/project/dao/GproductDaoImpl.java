@@ -104,4 +104,9 @@ public class GproductDaoImpl implements GproductDao{
 		hm.put("pro_num",pro_num);
 		return sst.update("gproduct.updateSell2",hm);
 	}
+
+	@Override
+	public List<Gproduct> pdList4() {
+		return sst.selectList("gproduct.pdList4");
+	}
 }

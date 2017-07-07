@@ -41,6 +41,7 @@
 	width: 120px;
 	height: 120px;
 }
+
 </style>
 <script type="text/javascript">
 	$(function() {

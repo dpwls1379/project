@@ -7,12 +7,60 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+#detail {
+	font: 250;
+	font-size: 23px;
+	border: 3px;
+	border-bottom-style: solid;
+	padding-bottom: 15px;
+	padding-top: 15
+}
+</style>
+<!-- <script type="text/javascript">
+	$(function() {
+		$('#event').load('GeventProduct.do table');
+	});
+</script> -->
 </head>
 <body>
-	<div class="container">
+	<div class="container" align="center">
 		<table class="table table-hover">
 			<tr>
-				<td>많이 팔린 상품 5</td>
+				<td colspan="7" align="center"><img src="images/170706_bn_s.jpg"></td>
+			</tr>
+			<tr>
+				<td colspan="7" align="center"><img src="images/보양정석.jpg">
+					<!-- <div id="event"></div> --></td></tr>
+			<tr>
+				<!-- <td></td> -->
+				<td colspan="7" align="center">
+				<div id="detail">한정수량 파격가</div></td></tr>
+			<tr>	
+				<td><img src="images/한정수량.png" width="200" height="300"></td>
+				<c:forEach var="list4" items="${list4 }">
+					<td colspan="2">
+						<div align="center">
+							<a href="GproductInfo.do?pro_num=${list4.pro_num }">
+							<img class="mouseImg" src="images/${list4.pro_image }" width="200" height="200">
+							</a>
+						</div>
+						<div class="caption" align="center">
+							<p>상품명 : ${list4.pro_name }</p>
+							<p>가격 : ${list4.pro_price }원</p>
+							<p>할인율 : ${list4.pro_sale }%</p>
+							<%-- <p>
+								<a href="GproductInfo.do?pro_num=${list4.pro_num }">상품 자세히 보기</a>
+							</p> --%>
+						</div>
+					</td>
+				</c:forEach>
+			</tr>
+			<tr>		
+				<!-- <td>많이 팔린 상품 5</td> -->
+				<td colspan="7" align="center">
+				<div id="detail">많이 팔린 상품</div></td></tr>
+			<tr>	
 				<c:forEach var="list" items="${list }">
 					<td>
 						<div align="center">
@@ -31,7 +79,10 @@
 				</c:forEach>
 			</tr>
 			<tr>
-				<td>많이 살펴본 상품 5</td>
+				<!-- <td>많이 살펴본 상품 5</td> -->
+				<td colspan="7" align="center">
+				<div id="detail">많이 본 상품</div></td></tr>
+			<tr>	
 				<c:forEach var="list2" items="${list2 }">
 					<td>
 						<div align="center">
@@ -44,13 +95,16 @@
 						<p>가격 : ${list2.pro_price }원</p>
 						<p>
 							<a href="GproductInfo.do?pro_num=${list2.pro_num }">상품 자세히 보기</a>
-						</p>
+						</p> 
 						</div>
 					</td>
 				</c:forEach>
-			</tr>
+			</tr> 
 			<tr>
-				<td>좋은 평가를 받은 상품 5</td>
+				<!-- <td>좋은 평가를 받은 상품 5</td> -->
+				<td colspan="7" align="center">
+				<div id="detail">상품평 우수상품</div></td></tr>
+			<tr>	
 				<c:forEach var="list3" items="${list3 }">
 					<td>
 						<div align="center">

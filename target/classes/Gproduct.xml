@@ -29,21 +29,26 @@
 	<select id="list" parameterType="hashMap" resultMap="gproductResult">
 		select * from (select a.*,rowNum rn from (select * from Gproduct 
 		<if test='pro_cate != null'> where pro_cate=#{pro_cate} </if> 
-		) a ) where rn between #{startRow} and #{endRow}
+		order by pro_date desc) a ) where rn between #{startRow} and #{endRow}
 	</select>
 	<select id="pdList" resultMap="gproductResult">
 		<![CDATA[
-			select * from (select * from Gproduct order by pro_sell desc) where rowNum <= 5
+			select * from (select * from Gproduct order by pro_sell desc) where rowNum <= 7
 		]]>
 	</select>
 	<select id="pdList2" resultMap="gproductResult">
 		<![CDATA[
-			select * from (select * from Gproduct order by pro_read desc) where rowNum <= 5
+			select * from (select * from Gproduct order by pro_read desc) where rowNum <= 7
 		]]>
 	</select>
 	<select id="pdList3" resultMap="gproductResult">
 		<![CDATA[
-			select * from (select * from (select pro_num, avg(bo_star) avg from Gboardo group by pro_num) natural join gproduct order by avg desc) where rowNum <=5
+			select * from (select * from (select pro_num, avg(bo_star) avg from Gboardo group by pro_num) natural join gproduct order by avg desc) where rowNum <=7
+		]]>
+	</select>
+	<select id="pdList4" resultMap="gproductResult">
+		<![CDATA[
+			select * from (select * from Gproduct order by pro_sale desc) where rowNum <= 3
 		]]>
 	</select>
 	<select id="rlist" resultMap="gproductResult">

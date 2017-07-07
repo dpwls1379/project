@@ -38,4 +38,6 @@ public interface GproductService {
 
 	Object updateSell2(int ct_count, int pro_num);
 
+	List<Gproduct> pdList4();
+
 }

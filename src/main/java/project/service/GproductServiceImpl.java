@@ -91,4 +91,9 @@ public class GproductServiceImpl implements GproductService{
 	public Object updateSell2(int ct_count, int pro_num) {
 		return gpd.updateSell2(ct_count,pro_num);
 	}
+
+	@Override
+	public List<Gproduct> pdList4() {
+		return gpd.pdList4();
+	}
 }

@@ -13,9 +13,17 @@
 	<c:set var="i" value="0" /> <c:set var="j" value="3" /> 
 		<table class="table table-hover">
 			<tr>
-				<td><h2 class="text-primary">금주 이벤트</h2></td></tr>
-			
-				<c:forEach var="list" items="${list }">
+				<td></td></tr>
+		<!-- 1S -->
+			<tr>
+			<c:forEach var="list" items="${list }">
+				<td colspan="2"><img src="${path }/images/${list.ev_image  }" width="350" height="200"></td> 
+			</c:forEach>	
+			</tr>
+		<!-- 1E -->
+		<!-- 2S -->
+		<%-- 
+			<c:forEach var="list" items="${list }">
 				<c:if test="${i%j == 0 }"> 
 			<tr></c:if>
 					<td>
@@ -33,9 +41,11 @@
 						</div>
 					</td>
 				<c:if test="${i%j == j-1 }"> 
-				</tr></c:if>
+			</tr></c:if>
 				<c:set var="i" value="${i+1 }" /> 
-				</c:forEach>
+				</c:forEach> 
+		--%>
+		<!-- 2E -->
 		</table>
 	</div>
 </body>

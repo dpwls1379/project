@@ -103,9 +103,11 @@ public class GproductController {
 		List<Gproduct> list = gps.pdList();
 		List<Gproduct> list2 = gps.pdList2();
 		List<Gproduct> list3 = gps.pdList3();
+		List<Gproduct> list4 = gps.pdList4();
 		model.addAttribute("list", list);
 		model.addAttribute("list2", list2);
 		model.addAttribute("list3", list3);
+		model.addAttribute("list4", list4);
 		return "Gproduct/GproductMain";
 	}
 	

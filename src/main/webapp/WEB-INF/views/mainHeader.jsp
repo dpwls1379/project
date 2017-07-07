@@ -7,6 +7,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<!-- <style type="text/css">
+#g ul li{
+	background: #F9DBDD ;
+}
+</style> -->
 <script type="text/javascript">
 $(function() {
 	$('#chattingDo').click(function() {
@@ -17,7 +22,7 @@ $(function() {
 </head>
 <body>
 	<!-- <div class="navbar-header-fixed-top" align="center"> -->
-	<div align="center" class="title">
+	<div align="center" class="title" id="g">
 		<h3 class="text-primary">
 			<a href="index.jsp"><img alt="" src="images/gallerida3.JPG"></a>
 		</h3>

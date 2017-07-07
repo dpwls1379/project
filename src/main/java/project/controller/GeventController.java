@@ -115,4 +115,5 @@ public class GeventController {
 		model.addAttribute("list",list);
 		return "Gevent/GeventMain";
 	}
+	
 }

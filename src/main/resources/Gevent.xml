@@ -23,14 +23,14 @@
 		select * from Gevent order by ev_num desc
 	</select> -->
 	<select id="list" parameterType="hashMap" resultMap="geventResult">
-		select * from (select a.*,rowNum rn from (select * from Gevent) a ) 
+		select * from (select a.*,rowNum rn from (select * from Gevent order by ev_date desc) a ) 
 			where rn between #{startRow} and #{endRow}
 	</select>
 	<select id="evList" resultMap="geventResult">
-		select * from Gevent order by ev_num desc
-		<!-- <![CDATA[
-			select * from (select * from Gevent order by ev_num desc) where rowNum <= 6
-		]]> -->
+		<!-- select * from Gevent order by ev_num desc -->
+		<![CDATA[
+			select * from (select * from Gevent order by ev_num desc) where rowNum <= 3
+		]]>
 	</select>
 	<select id="content" parameterType="int" resultType="gevent">
 		select * from Gevent where ev_num=#{ev_num}

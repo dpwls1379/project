@@ -39,4 +39,6 @@ public interface GproductDao {
 
 	Object updateSell2(int ct_count, int pro_num);
 
+	List<Gproduct> pdList4();
+
 }
