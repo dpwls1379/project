@@ -139,8 +139,10 @@ public class GcartController {
 	public String buyNow(int pro_num, int buy_count, Model model){
 		
 		Gproduct gpro=gps.pdContent(pro_num);
-		int totalprice = (1 - gpro.getPro_sale()/100) * gpro.getPro_price() * buy_count;
-		int totalsale = gpro.getPro_price() - totalprice ;
+		int totalprice = (100 - gpro.getPro_sale()) * gpro.getPro_price() * buy_count /100;
+		System.out.println(totalprice);
+		System.out.println(gpro.getPro_sale());
+		int totalsale = gpro.getPro_price() - (int)totalprice ;
 		
 		model.addAttribute("buy_count",buy_count); // 상품 구매 수량
 		model.addAttribute("gproduct",gpro); //상품정보
