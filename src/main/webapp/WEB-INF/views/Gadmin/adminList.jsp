@@ -11,7 +11,7 @@
 <div class="container" align="center">
 <a href="Gbuy.do" class="btn btn-default btn-sm">구매목록</a>
 <h1 class="text-primary text-danger" align="center">관리자 페이지</h1>
-<table class="table table-bordered">
+<%-- <table class="table table-bordered">
 	<tr><th>아이디</th><td>
 		${gm.id }</td></tr>
 	<tr><th>이름</th><td>
@@ -27,7 +27,7 @@
 	<tr><td colspan="2">
 	<input type="button" value="수정하기" onclick="location.href='updateFormGmem.do?id=${gm.id}'" class="btn btn-sm">
 	</td></tr>
-</table>
+</table> --%>
 	<fieldset>
 	<legend class="text-primary text-danger">관리</legend>
 		<a href="memberAdmin.do" target="m">
