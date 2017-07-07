@@ -101,7 +101,6 @@ create table Gbuy (
 	id varchar2(20)  references Gmember(id),
 	buy_delidate varchar2(30)			-- 원하는 배송날짜 추가
 );
-alter table Gbuy add buy_totamt number;
 select * from Gcart natural join Gproduct where id='master';
 alter table gbuy modify buy_date varchar2(30);
 alter table gbuy add (buy_delidate varchar2(30));
@@ -133,4 +132,5 @@ create table GbuyList(
 	foreign key (pro_num) references Gproduct(pro_num),
 	foreign key (buy_num) references Gbuy(buy_num)
 );
-	
+select * from GbuyList;
+drop table GbuyList;
