@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../header.jsp"%>
-<%@ include file="../mainHeader.jsp"%>
+	<%@ include file="../mainHeader.jsp" %>
+	<%@ include file="../header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +33,7 @@
 						<option value="1">★☆☆☆☆</option>			
 					</select></td></tr>
 			<tr><th>내용</th><td colspan="2">
-				<textarea name="bo_content" class="bo_content" required="required" maxlength="255" placeholder="상품의 평가를 해주세요(255자)"></textarea></td></tr>
+				<textarea name="bo_content" class="form-control" rows="3" required="required" maxlength="255" placeholder="상품의 평가를 해주세요(255자)"></textarea></td></tr>
 			<tr><th>파일첨부</th><td><input type="file" name="file1"></td></tr>
 			<tr><td colspan="2">
 				<input type="submit" value="작성" class="btn btn-default">

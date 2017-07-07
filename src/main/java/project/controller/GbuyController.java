@@ -9,9 +9,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import project.model.Gproduct;
+import project.service.GboardoService;
 import project.service.GbuyService;
 import project.service.GcartService;
 import project.service.GproductService;
+import project.model.Gboardo;
 import project.model.Gbuy;
 
 @Controller
@@ -25,6 +27,9 @@ public class GbuyController {
 	
 	@Autowired
 	private GcartService gsv;
+	
+	@Autowired
+	private GboardoService gbs;
 	
 	@RequestMapping("GbuyChk")
 	public String GbuyChk(Model model, HttpSession session, Gbuy gbuy, int tot, String userid) {
@@ -132,6 +137,36 @@ public class GbuyController {
 		model.addAttribute("msg",msg);
 		model.addAttribute("result",result);
 		return "Gadmin/Gbuycomplete";
+	}
+	
+	@RequestMapping("GbuyCompList")
+	public String GbuyCompList(Model model, HttpSession session){
+		
+		String id=(String) session.getAttribute("id");
+		List<Gbuy> gbuylist= new ArrayList<>();
+		gbuylist= gs.gbuylist();
+		List<Gboardo> gboardoMy = gbs.myList(id);
+		
+		model.addAttribute("gboardoMy",gboardoMy);
+		model.addAttribute("gbuylist",gbuylist);
+		
+		return "Gmember/GbuyCompList";
+	}
+	
+	@RequestMapping("GbuyReview")
+	public String GbuyReview(Model model, int buy_num){
+		
+		Gbuy gbuy=gs.contents(buy_num);
+		Gproduct gproduct=gps.pdContent(gbuy.getPro_num());
+		String pro_cate=gproduct.getPro_cate();
+		
+		List<Gproduct> rlist=gps.rlist(gbuy.getPro_num());
+		
+		model.addAttribute("gproduct",gproduct);
+		model.addAttribute("rlist",rlist);
+		model.addAttribute("pro_cate", pro_cate);	
+		
+		return "Gproduct/GproductInfo";
 	}
 	
 	

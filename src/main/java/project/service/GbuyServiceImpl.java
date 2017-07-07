@@ -46,5 +46,11 @@ public class GbuyServiceImpl implements GbuyService {
 		// TODO Auto-generated method stub
 		return gd.deliIng(buy_num);
 	}
+
+	@Override
+	public Gbuy contents(int buy_num) {
+		// TODO Auto-generated method stub
+		return gd.contents(buy_num);
+	}
 	
 }

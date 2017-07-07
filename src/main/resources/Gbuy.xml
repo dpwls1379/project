@@ -40,4 +40,7 @@
 	<update id="deliIng" parameterType="int">
 		update Gbuy set buy_deli='배송중' where buy_num=#{buy_num}
 	</update>
+	<select id="contents" parameterType="int" resultType="gbuy">
+		select * from Gbuy natural join (select * from Gproduct natural join Gcart) where buy_num=#{buy_num} 
+	</select>
 </mapper>

@@ -18,4 +18,6 @@ public interface GbuyDao {
 
 	int deliIng(int buy_num);
 
+	Gbuy contents(int buy_num);
+
 }

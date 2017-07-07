@@ -10,6 +10,13 @@
 	#div { margin-bottom: 10px; font-size: 18px; border: 1px; border-style: solid;}
 	#div2 { height: 60px;}
 </style>
+<script type="text/javascript">
+$(function() {
+	$('#reviewwrite').click(function() {
+		location.href='GboardoForm.do?pro_num=${pro_num}';
+	});
+});
+</script>
 </head>
 <body>
 <div class="container" align="center" >
@@ -84,11 +91,8 @@
 </ul>
 </div>
 <!-- ~ 페이징 -->
-
 	<div align="right" class="col-md-12">
-		<a href="GboardoForm.do?pro_num=${pro_num}">
-			<button type="button" class="btn btn-default">상품평쓰기</button>
-		</a>
+			<button type="button" class="btn btn-default" id="reviewwrite">상품평쓰기</button>
 	</div>
 </div>
 </body>

@@ -20,5 +20,7 @@ public interface GboardoService {
 
 	public int getTotalRecordBoardo();
 
+	public List<Gboardo> myList(String id);
+
 
 }

@@ -20,4 +20,6 @@ public interface GboardoDao {
 
 	public int getTotalRecordBoardo();
 
+	public List<Gboardo> myList(String id);
+
 }
