@@ -89,6 +89,12 @@ public class GboardxDaoImpl implements GboardxDao{
 		return sst.selectOne("gboardxns.getTotalBoardx");
 	}
 
+	@Override
+	public List<Gboardx> mylist(Gboardx gbx) {
+		// TODO Auto-generated method stub
+		return sst.selectList("gboardxns.mylist",gbx);
+	}
+
 
 
 }

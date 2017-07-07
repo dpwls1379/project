@@ -156,16 +156,10 @@ public class GbuyController {
 	public String GbuyReview(Model model, int buy_num){
 		
 		Gbuy gbuy=gs.contents(buy_num);
-		Gproduct gproduct=gps.pdContent(gbuy.getPro_num());
-		String pro_cate=gproduct.getPro_cate();
 		
-		List<Gproduct> rlist=gps.rlist(gbuy.getPro_num());
+		model.addAttribute("pro_num", gbuy.getPro_num());	
 		
-		model.addAttribute("gproduct",gproduct);
-		model.addAttribute("rlist",rlist);
-		model.addAttribute("pro_cate", pro_cate);	
-		
-		return "Gproduct/GproductInfo";
+		return "Gboardo/GboardoForm";
 	}
 	
 	@RequestMapping("GbuyReturn")

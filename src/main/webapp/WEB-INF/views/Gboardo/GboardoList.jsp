@@ -91,9 +91,9 @@ $(function() {
 </ul>
 </div>
 <!-- ~ 페이징 -->
-	<div align="right" class="col-md-12">
+	<!-- <div align="right" class="col-md-12">
 			<button type="button" class="btn btn-default" id="reviewwrite">상품평쓰기</button>
-	</div>
+	</div> -->
 </div>
 </body>
 </html>

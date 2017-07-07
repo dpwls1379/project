@@ -78,5 +78,11 @@ public class GboardxServiceImpl implements GboardxService{
 		return gd.getTotalRecordBoardx();
 	}
 
+	@Override
+	public List<Gboardx> mylist(Gboardx gbx) {
+		// TODO Auto-generated method stub
+		return gd.mylist(gbx);
+	}
+
 
 }
